@@ -1,0 +1,78 @@
+.comp_recipe-crud-modal {
+    .modal-body {
+        padding-bottom: 0 !important;
+        
+        .title-image-tech-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            box-sizing: border-box;
+            margin-bottom: 30px;
+            
+            .title-tech-wrapper {
+                box-sizing: border-box;
+                width: 60%;
+                padding-right: 1%;
+                
+                .comp_fe_text-field {
+                    padding-right: 10px;
+                    box-sizing: border-box;
+                }
+
+            }
+
+            .tech {
+                margin: 0;
+            }
+        }
+
+        .comp_fe_image-field {
+            box-sizing: border-box;
+            width: 40%;
+            margin: 0;
+        }
+        
+        .textareas-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            box-sizing: border-box;
+
+            .comp_fe_textarea-field {
+                box-sizing: border-box;
+                width: 50%;
+                padding-right: 10px;
+            }
+
+            .comp_fe_markdown-field {
+                box-sizing: border-box;
+                width: 50%;
+            }
+        }
+    }
+
+    .modal-footer {
+        width: 100%;
+
+        .footer-buttons {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 0 55px;
+
+            span {
+                display: flex;
+                align-items: center;
+                padding: 10px 0;
+                
+                svg {
+                    width: 24px;
+                    height: 24px;
+                    margin: 0 5px;
+                    
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+}

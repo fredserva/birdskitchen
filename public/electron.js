@@ -1,0 +1,77 @@
+const { app, BrowserWindow, globalShortcut, ipcMain } = require( 'electron' );
+const path = require( 'path' );
+const isDev = require( 'electron-is-dev' );
+const { menu } = require( './menu' );
+const Store = require( './store.js' );
+
+let mainWindow;
+const isWindows = 'win32' === process.platform;
+
+const store = new Store( {
+	configName: 'window-preferences',
+	defaults: {
+		windowBounds: {
+			width: 1600,
+			height: 900
+		}
+	}
+} );
+
+app.on( 'ready', async () => {
+	let { width, height } = store.get( 'windowBounds' );
+
+	mainWindow = new BrowserWindow( {
+		width: width,
+		height: height,
+		center: true,
+		minWidth: 1600 * .75,
+		minHeight: 900 * .75,
+		icon: `${ __dirname }/images/logo/birds-kitchen.png`,
+		titleBarStyle: 'hidden',
+		autoHideMenuBar: true,
+		frame: ! isWindows,
+		webPreferences: {
+			nodeIntegration: true,
+			enableRemoteModule: true,
+			worldSafeExecuteJavaScript: true
+		}
+	} );
+
+	mainWindow.loadURL(
+		isDev ? 'http://localhost:3000' : `file://${ path.join( __dirname, '../build/index.html' ) }` ).then( r => r );
+
+	mainWindow.on( 'resize', () => {
+		let { width, height } = mainWindow.getBounds();
+		store.set( 'windowBounds', { width, height } );
+	} );
+
+	const prefs = globalShortcut.register( 'CommandOrControl+,', () => {
+		if ( mainWindow === BrowserWindow.getFocusedWindow() ) {
+			mainWindow.webContents.send( 'appMenu', { type: 'preferences', tab: 'storage' } );
+		}
+	} );
+
+	if ( ! prefs ) {
+		console.log( 'globalShortcut registration failed' );
+	}
+
+	mainWindow.on( 'closed', () => mainWindow = null );
+} );
+
+app.disableHardwareAcceleration();
+
+app.on( 'will-quit', () => {
+	globalShortcut.unregisterAll();
+} );
+
+app.on( 'window-all-closed', () => {
+	if ( 'darwin' !== process.platform ) {
+		app.quit();
+	}
+} );
+
+ipcMain.handle( `display-app-menu`, ( e, args ) => {
+	if ( isWindows && mainWindow )  {
+		menu.popup( { window: mainWindow, x: args.x, y: args.y } );
+	}
+} );

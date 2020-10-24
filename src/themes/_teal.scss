@@ -1,0 +1,1076 @@
+$base-color: #30404d;
+$side-color: #293742;
+$text-color: #fffafa;
+$accent-color: #008080;
+$tags-bg: #91c499;
+$linear-gradient-start: #394b59;
+$linear-gradient-end: #30404d;
+
+:root {
+    background-color: $base-color;
+}
+
+body {
+    &.teal-theme {
+        * {
+            &::-webkit-scrollbar {
+                width: 10px;
+            }
+            &::-webkit-scrollbar-track {
+                background: $side-color;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background: rgba(255, 255, 255, 0.25);
+                border-radius   : 20px;
+                border          : 3px solid $side-color;
+            }
+
+            &::-webkit-scrollbar-thumb:hover {
+                background: rgba(255, 255, 255, 0.4);
+            }
+        }
+
+        .comp_topmenu {
+            // background:$base-color;
+            border-bottom: 1px solid $side-color;
+            background: linear-gradient(180deg,$linear-gradient-start 0,$linear-gradient-end);
+            box-shadow: 0 1px 0 rgba(0,0,0,.2), inset 0 1px 0 #182026;
+
+            .btn-menubar {
+                &.menu {
+                    span {
+                        background: $text-color;
+                    }
+
+                    &:hover {
+                        background: rgba(255, 255, 255, 0.1);
+                    }
+                }
+            }
+
+            .content-header-divider {
+                border-left: 1px solid rgba(16,22,26,.15);
+                border-left-color: hsla(0,0%,100%,.15);
+            }
+
+            .left-side {
+                color: $text-color;
+
+                .sidebar {
+
+                    &:hover {
+                        background: rgba(255, 255, 255, 0.1);
+                    }
+                    
+                    svg {
+                        stroke: #bbb;
+                        width: 18px;
+                        height: 18px;
+                    }
+                }
+
+                .applogo {
+                    color: #bbb;
+                    fill: #bbb;
+
+                    &:hover {
+                        cursor: default;
+                    }
+                }
+
+                .appname {
+                    color: #bbb;
+                    
+                    &:hover {
+                        cursor: default;
+                    }
+                }
+            }
+
+            .right-side {
+                button {
+                    color: rgba(255, 255, 255, 0.75);
+
+                    svg {
+                        fill: #bbb;
+                    }
+
+                    &:hover {
+                        background: rgba(255, 255, 255, 0.1);
+                    }
+                }
+
+                .recipe-buttons {
+                    .btn-menubar {
+                        &.maximize,
+                        &.minimize {
+                            svg {
+                                stroke: $text-color;
+                            }
+
+                            &:hover {
+                                background: rgba(255, 255, 255, 0.1);
+                            }
+                        }
+
+                        &.close {
+                            svg {
+                                stroke: $text-color;
+                            }
+
+                            &:hover {
+                                background: #e4142c !important;
+
+                                svg {
+                                    stroke: #ffffff;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .content-main-container {
+            .content-container {
+                background: $base-color;
+            }
+        }
+
+        .comp_fe_search-field {
+            .search-container {
+                .search-icon-container {
+                    svg {
+                        fill: rgba(255, 255, 255, 0.42);
+                    }
+                }
+
+                .clear-icon-container {
+                    svg {
+                        fill: rgba(255, 255, 255, 0.42);
+                    }
+                }
+
+                .form-control {
+                    border: none;
+                    color: $text-color;
+                    background: $base-color;
+                    box-shadow: 0 0 0 0 rgba(19,124,189,0), 0 0 0 0 rgba(19,124,189,0), 0 0 0 0 rgba(19,124,189,0), inset 0 0 0 1px rgba(16,22,26,.3), inset 0 1px 1px rgba(16,22,26,.4);
+
+                    &::placeholder {
+                        font-size: .275rem;
+                        position: relative;
+                        top: -.05rem;
+                        color: #aaa;
+                    }
+                }
+            }
+        }
+
+        .comp_sidebar {
+            background: $side-color;
+            border-right: 1px solid $side-color;
+
+            .no-item-text {
+                color: #eeeeee;
+            }
+
+            .header {
+                .sidebar-title {
+                    color: #eeeeee;
+                }
+
+                .new-recipe-container {
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
+                    &:hover {
+                        background: rgba(0, 0, 0, 0.1);
+                    }
+
+                    .text {
+                        color: #eeeeee;
+                    }
+
+                    .plus {
+                        background: lighten($side-color, 7);
+                        color: #888888;
+                    }
+                }
+
+                .main-menu-container {
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+                }
+
+                .search-result-container {
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+                }
+            }
+
+            .menu-list {
+                .menu-list-item {
+                    .text-container {
+                        color: #eeeeee;
+                    }
+
+                    &.active {
+                        background: $accent-color;
+
+                        .text-container {
+                            color: #ffffff;
+                        }
+
+                    }
+
+                    &:not(.active) {
+                        &:hover {
+                            background: rgba(0, 0, 0, 0.1);
+                        }
+                    }
+
+                    .icon-container {
+                        svg {
+                            fill: $text-color;
+                            color: $text-color;
+                        }
+                    }
+                }
+            }
+            .main-menu-container .menu-list-item:last-of-type {
+                .icon-container {
+                    svg {
+                        fill: none;
+                        color: $text-color;
+                    }
+                }
+            }
+        }
+
+        .comp_recipe-area {
+            .comp_content-header {
+                border-bottom: 1px solid rgba(255, 255, 255, 0.20);
+                background: $base-color;
+
+                .left-side {
+                    .title-header {
+                        svg {
+                            fill: $text-color;
+                            color: $text-color;
+                            padding-right: 10px;
+                        }
+                        svg.trash {
+                            fill: none;
+                        }
+
+                        .title {
+                            color: $text-color;
+                        }
+                    }
+
+                    .sub-text {
+                        color: #bbbabb;
+                    }
+                }
+
+                .right-side {
+                    .icons-header {
+                        .icon-wrapper {
+                            background: rgba(255, 255, 255, 0.2);
+
+                            &:hover {
+                                cursor: pointer;
+                                background: rgba(255, 255, 255, 0.5);
+                                
+                                svg {
+                                    color: $text-color;
+                                }
+                            }
+
+                            svg {
+                                color: #bbbbbb;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .comp_recipe-list-item {
+            .sub-container {
+                border-bottom: 1px solid rgba(255, 255, 255, 0.20);
+                background: $base-color;
+
+                &:hover {
+                    background: lighten($side-color, 9);
+                }
+
+                .right-side {
+                    svg {
+                        fill: #fabe77;
+                        color: #fabe77;
+                    }
+                }
+
+                .code {
+                    color: #dddddd;
+
+                    span {
+                        color: #da4453;
+                    }
+                }
+
+                .title {
+                    color: $text-color;
+                }
+
+                .directions {
+                    color: $text-color;
+                }
+
+                .tags-list {
+                    li {
+                        background: $tags-bg;
+                        color: $base-color;
+                    }
+
+                    li:before {
+                        border-color: transparent $tags-bg transparent transparent;
+                    }
+
+                    li:after {
+                        background: $base-color;
+                        -moz-box-shadow: -1px -1px 2px $tags-bg;
+                        -webkit-box-shadow: -1px -1px 2px $tags-bg;
+                        box-shadow: -1px -1px 2px $tags-bg;
+                    }
+                }
+            }
+
+            .recipe-list-menu {
+                li {
+                    &.restore {
+                        svg {
+                            fill: $text-color;
+                        }
+                    }
+                    svg {
+                        // fill: $text-color;
+                        color: $text-color;
+                    }
+
+                    &.favorite-true {
+                        svg {
+                            path {
+                                fill: #fabe77;
+                            }
+                        }
+                    }
+
+                    &.favorite-false {
+                        svg {
+                            stroke: #a0a0a0;
+                        }
+                    }
+                }
+            }
+        }
+
+        .comp_confirm-dialog {
+            background: rgba(0, 0, 0, 0.5);
+
+            .confirm-dialog-content {
+                background: $base-color;
+
+                .confirm-dialog-header {
+                    border-bottom: 1px solid $text-color;
+
+                    .title {
+                        color: $text-color;
+                    }
+                }
+
+                .confirm-dialog-body {
+                    .text {
+                        color: $text-color;
+                    }
+                }
+
+                .confirm-dialog-footer {
+                    border-top: 1px solid $text-color;
+                }
+            }
+        }
+
+        .comp_modal {
+            &.visible {
+                background: $base-color;
+
+                .modal-overlay {
+                    background: rgba(0, 0, 0, 0.5);
+                }
+            }
+
+            .modal-header {
+                background: $base-color;
+
+                svg {
+                    fill: lighten($base-color, 50%);
+                    
+                    &:hover {
+                        fill: $text-color;
+                    }
+                }
+
+                .title {
+                    color: $text-color;
+                    border-bottom: 1px dashed $text-color;
+                }
+            }
+
+            .modal-content {
+                background: $base-color;
+
+                .modal-footer {
+                    border-top: 1px solid rgba(255, 255, 255, 0.15);
+                    background: darken($base-color, 7%);
+
+                    svg {
+                        fill: lighten($base-color, 50%);
+
+                        &:hover {
+                            fill: $text-color;
+                            cursor: pointer;
+                        }
+                    }
+
+                }
+            }
+        }
+
+        .comp_settings-modal {
+            .modal-content {
+                .modal-body {
+                    background-color: $base-color;
+                }
+            }
+            .tabs-header-container {
+                border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+
+                ul {
+                    li {
+                        color: #ffffff;
+
+                        &.active {
+                            background: $accent-color;
+                            color: #ffffff;
+                        }
+                    }
+                }
+            }
+
+            .tabs-content-container {
+                .content {
+                    .sub-title {
+                        color: #dddddd;
+                    }
+
+                    .form-control {
+                        &:read-only {
+                            background: darken($base-color, 5%);
+                        }
+                    }
+
+                    .info {
+                        color: #999;
+                    }
+                    
+                    .storage-restore-container {
+                        ul {
+                            border: none;
+                            color: $text-color;
+                            background: rgba(16,22,26,.3);
+                            box-shadow: 0 0 0 0 rgba(19,124,189,0), 0 0 0 0 rgba(19,124,189,0), 0 0 0 0 rgba(19,124,189,0), inset 0 0 0 1px rgba(16,22,26,.3), inset 0 1px 1px rgba(16,22,26,.4);
+                            padding: 10px 0;
+
+                            li {
+                                .name,
+                                span {
+                                    color: $text-color;
+
+                                    &:hover {
+                                        color: lighten($text-color, 100%);
+                                    }
+                                }
+
+                                &:hover {
+                                    background: $accent-color;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .theme-section {
+                    ul {
+                        li {
+                            &.active {
+                                .image-container {
+                                    border: 3px solid $accent-color;
+                                }
+                            }
+
+                            .text-container {
+                                color: #dddddd;
+                            }
+                        }
+                    }
+                }
+
+                .language-section {
+                    ul {
+                        li {
+                            &.active {
+                                .text-container {
+                                    color: rgba(221, 221, 221, 1);
+                                }
+                            }
+
+                            .text-container {
+                                color: rgba(221, 221, 221, 0.5);
+                            }
+                        }
+                    }
+                }
+
+                .about-section {
+                    * {
+                        color: #dddddd;
+                    }
+
+                    .product-name {
+                        small {
+                            color: #999999;
+                        }
+                    }
+
+                    .about-details {
+                        .author {
+                            color: $accent-color;
+                        }
+                    }
+
+                    .description {
+                        color: #999999;
+                    }
+
+                    .link-list {
+                        .link {
+                            color: $accent-color;
+                        }
+                    }
+                }
+
+                .update-section {
+                    .info {
+                        color: #ddd !important;
+                    }
+                }
+            }
+        }
+
+        .form-group {
+            &.has-error {
+                .form-label {
+                    color: #F44336;
+                }
+
+                .recipe-container,
+                .form-control {
+                    border-color: #F44336 !important;
+
+                    .header {
+                        border-bottom-color: #F44336 !important;
+                        background: #F44336;
+
+                        i {
+                            color: #ffffff !important;
+                        }
+                    }
+                }
+            }
+        }
+
+        .comp_fe_text-field {
+            .form-group {
+                label {
+                    &.error-label {
+                        color: #F44336;
+                    }
+                }
+
+                .form-control {
+                    border: none;
+                    color: $text-color;
+                    background: $base-color;
+                    box-shadow: 0 0 0 0 rgba(19,124,189,0), 0 0 0 0 rgba(19,124,189,0), 0 0 0 0 rgba(19,124,189,0), inset 0 0 0 1px rgba(16,22,26,.3), inset 0 1px 1px rgba(16,22,26,.4);
+                }
+            }
+        }
+
+        .comp_fe_textarea-field {
+            .form-group {
+                label {
+                    &.error-label {
+                        color: #F44336;
+                    }
+                }
+
+                .form-control {
+                    border: none;
+                    color: $text-color;
+                    background: lighten($base-color, 5%);
+                }
+            }
+        }
+
+        .comp_fe_image-field {
+            .image-preview + div {
+
+                label {
+                    color: $text-color !important;
+
+                    & + div {
+                        background-color: $base-color;
+                        
+                        & img {
+                            background-color: $base-color;
+                        }
+                    }
+                }
+
+                span {
+                    color: $text-color;
+
+                    svg {
+                        background-color: rgba(255, 255, 255, 0.1);
+                        stroke: $text-color;
+
+                        &:hover {
+                            background-color: rgba(255, 255, 255, 0.2);
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+        }
+
+        .comp_fe_number-field {
+            .form-group {
+                label {
+                    &.error-label {
+                        color: #F44336;
+                    }
+                }
+
+                .form-control {
+                    border: none;
+                    color: $text-color;
+                    background: $base-color;
+                    box-shadow: 0 0 0 0 rgba(19,124,189,0), 0 0 0 0 rgba(19,124,189,0), 0 0 0 0 rgba(19,124,189,0), inset 0 0 0 1px rgba(16,22,26,.3), inset 0 1px 1px rgba(16,22,26,.4);
+                }
+            }
+        }
+
+        .comp_fe_choice-field {
+            .form-group {
+                label {
+                    &.error-label {
+                        color: #F44336;
+                    }
+                }
+
+                .form-control {
+                    border: none;
+                    color: $text-color;
+                    background: $base-color;
+                    box-shadow: 0 0 0 0 rgba(19,124,189,0), 0 0 0 0 rgba(19,124,189,0), 0 0 0 0 rgba(19,124,189,0), inset 0 0 0 1px rgba(16,22,26,.3), inset 0 1px 1px rgba(16,22,26,.4);
+
+                    option {
+                        background: $base-color;
+                        color: #eeeeee;
+                    }
+                }
+            }
+        }
+
+        .comp_fe_markdown-field {
+            .rc-md-editor {
+                border: 1px solid rgba(255, 255, 255, 0.35);
+                background-color: $base-color;
+
+                .rmel-iconfont {
+                    font-size: 0.55rem;
+                    color: $text-color;
+
+                    &:hover {
+                        color: lighten($accent-color, 60%);
+                    }
+                }
+
+                textarea {
+                    background-color: $base-color !important;
+                    color: #eeeeee !important;
+                }
+
+                .custom-html-style {
+                    color: #dddddd;
+                }
+
+                .rc-md-navigation {
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+                    background-color: $base-color;
+                }
+            }
+
+            .form-group {
+                .title-area {
+                    .md-link-text {
+                        color: lighten($accent-color, 60%);
+                        padding-bottom: 2px;
+                        border-bottom: 1px dotted lighten($accent-color, 60%);
+                    }
+                }
+
+                label {
+                    &.error-label {
+                        color: #F44336;
+                    }
+                }
+
+                .form-control {
+                    border: none;
+                    color: $text-color;
+                    background: $base-color;
+                    box-shadow: 0 0 0 0 rgba(19,124,189,0), 0 0 0 0 rgba(19,124,189,0), 0 0 0 0 rgba(19,124,189,0), inset 0 0 0 1px rgba(16,22,26,.3), inset 0 1px 1px rgba(16,22,26,.4);
+                }
+            }
+        }
+
+        .comp_fe_tags-field {
+            .form-group {
+                label {
+                    &.info-text {
+                        color: #777777;
+                    }
+
+                    &.error-label {
+                        color: #F44336;
+                    }
+                }
+
+                .form-control {
+                    border: none;
+                    color: $text-color;
+                    background: $base-color;
+                    box-shadow: 0 0 0 0 rgba(19,124,189,0), 0 0 0 0 rgba(19,124,189,0), 0 0 0 0 rgba(19,124,189,0), inset 0 0 0 1px rgba(16,22,26,.3), inset 0 1px 1px rgba(16,22,26,.4);
+                }
+            }
+
+            .tags-input-main-container {
+                color: #495057;
+                background-color: transparent;
+                border: 1px solid rgba(255, 255, 255, 0.35);
+
+                .tag-wrapper {
+                    border: 1px solid rgba(255, 255, 255, 0.32);
+                    background: lighten($base-color, 10%);
+                    color: $text-color;
+
+                    .close-link {
+                        background: lighten($base-color, 10%);
+                        
+                        span {
+                            color: $text-color;
+
+                            &:hover {
+                                color: lighten($base-color, 60%);
+                            }
+                        }
+                    }
+                }
+
+                .input-container {
+                    .form-element {
+                        background: transparent;
+                        color: #ddd;
+
+                        &::placeholder {
+                            color: #bbbbbb;
+                        }
+                    }
+
+                    .auto-suggestion-container {
+                        border: 1px solid rgba(255, 255, 255, 0.35);
+                        box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+
+                        ul {
+                            background: $base-color;
+
+                            li {
+                                border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+                                color: #aaaaaa;
+
+                                &:last-child {
+                                    border: none;
+                                }
+
+                                b {
+                                    color: #eeeeee;
+                                }
+
+                                &:hover {
+                                    background: lighten(#21252B, 7);
+                                }
+
+                                &.active {
+                                    background: $accent-color;
+                                    color: #ffffff;
+
+                                    b {
+                                        color: #ffffff;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .comp_fe_recipe-field {
+            .form-group {
+                label {
+                    &.error-label {
+                        color: #F44336;
+                    }
+                }
+
+                .form-control {
+                    border: none;
+                    color: $text-color;
+                    background: $base-color;
+                    box-shadow: 0 0 0 0 rgba(19,124,189,0), 0 0 0 0 rgba(19,124,189,0), 0 0 0 0 rgba(19,124,189,0), inset 0 0 0 1px rgba(16,22,26,.3), inset 0 1px 1px rgba(16,22,26,.4);
+                }
+            }
+
+            .recipe-container {
+                border: 1px solid rgba(255, 255, 255, 0.35);
+
+                .header {
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+                    background-color: $base-color;
+
+                    .button {
+                        &:hover {
+                            svg {
+                                fill: lighten($accent-color, 60%);
+                            }
+                        }
+
+                        svg {
+                            fill: $text-color;
+                        }
+
+                        &:hover {
+                            i {
+                                color: lighten($accent-color, 60%);
+                            }
+                        }
+
+                        i {
+                            color: $text-color;
+                        }
+                    }
+                }
+
+                .body {
+                    textarea {
+                        background: $base-color;
+                        color: #eeeeee;
+                    }
+                }
+            }
+        }
+
+        .btn {
+            &.btn-success {
+                border: 1px solid $accent-color;
+                background: $accent-color;
+                color: #ffffff;
+
+                &:hover {
+                    background: darken($accent-color, 4);
+                }
+            }
+
+            &.btn-default {
+                border: 1px solid rgba(255, 255, 255, 0.3);
+                background: $base-color;
+                color: #dddddd;
+                border-radius: 10px;
+
+                &:hover {
+                    background: darken($base-color, 3);
+                }
+            }
+
+            &.btn-danger {
+                border: 1px solid #da4453;
+                background: #da4453;
+                color: #ffffff;
+
+                &:hover {
+                    background: darken(#da4453, 8);
+                }
+            }
+        }
+
+        .comp_recipe-generator-modal {
+            .modal-body {
+                background-color: $base-color;
+
+                .image-tech-wrapper {
+                    .tech {
+                        color: $text-color;
+
+                        .cook,
+                        .difficulty,
+                        .prep,
+                        .servings {
+                            label {
+                                font-weight: 700;
+                            }
+                        }
+                    }
+                }
+
+                .ingredients-wrapper {
+                    color: $text-color;
+
+                    label {
+                        font-weight: 700;
+                        border-bottom: 1px solid lighten($text-color, 30%);
+                    }
+                }
+
+                .directions-wrapper {
+                    color: $text-color;
+
+                    label {
+                        font-weight: 700;
+                        border-bottom: 1px solid lighten($text-color, 30%);
+                    }
+                }
+            }
+        }
+
+        .comp_recipe-crud-modal {
+            .modal-body {
+                background-color: $base-color;
+
+                .form-label {
+                    color: #dddddd;
+                }
+
+                .info-text {
+                    color: lighten($accent-color, 60%) !important;
+                }
+            }
+        }
+
+        .comp_confirm-dialog {
+            .confirm-dialog-content {
+                .confirm-dialog-header {
+                    background: $base-color;
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+
+                    .title {
+                        color: $text-color;
+                    }
+                }
+
+                .confirm-dialog-body {
+                    background: $base-color;
+
+                    .text {
+                        color: $text-color;
+                    }
+                }
+
+                .confirm-dialog-footer {
+                    background: $base-color;
+                    border-top: 1px solid rgba(255, 255, 255, 0.15);
+                }
+            }
+        }
+
+        .noty_theme__sunset {
+            &.noty_type__success {
+                background-color: #007A5A;
+                color: #fff;
+            }
+
+            &.noty_type__info {
+                background-color: $accent-color;
+                color: #ffffff;
+            }
+
+            &.noty_type__error {
+                background-color: #da4453;
+                color: #ffffff;
+            }
+        }
+    }
+    &.teal-theme.grid-display {
+        .comp_recipe-list {
+            .comp_recipe-list-item {
+                .sub-container {
+                    border: none;
+                    background-color: lighten($base-color, 10%);
+                }
+            }
+        }
+    }
+    &.teal-theme.simplelist-display {
+        .body-container {
+            .list-header {
+                background-color: darken($base-color, 10%);
+                color: $text-color;
+                padding: 5px;
+                border-bottom: 1px solid $text-color;
+            }
+
+            .cook,
+            .difficulty,
+            .prep,
+            .servings {
+                color: $text-color;
+            }
+        }
+
+        .sub-container {
+            padding: 0;
+        }
+
+        .title {
+            color: $text-color;
+        }
+
+        .servings,
+        .difficulty,
+        .prep,
+        .cook {
+            color: $text-color;
+        }
+    }
+}

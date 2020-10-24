@@ -1,0 +1,549 @@
+.content-header-divider {
+    height: 20px;
+    margin: 0 10px;
+}
+
+.grid-display .body-container {
+    .list-header {
+        display: none;
+    }
+}
+.grid-display .comp_recipe-list-item {
+    position: relative;
+
+    &:hover {
+        .recipe-list-menu {
+            display: flex;
+        }
+    }
+
+    .sub-container {
+        height: 200px;
+        padding: 12px 15px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: row;
+        cursor: pointer;
+
+        .left-side {
+            margin-right: auto;
+
+            .servings,
+            .difficulty,
+            .prep,
+            .cook {
+                display: none;
+            }
+
+            .image-preview {
+                width: 100%;
+                height: 100px;
+                margin-bottom: 10px;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+
+            .title {
+                font-size: 0.35rem;
+                line-height: 1;
+                font-weight: 700;
+                max-width: 80%;
+                text-overflow: ellipsis;
+            }
+
+        }
+
+        .right-side {
+            svg {
+                position: absolute;
+                top: 11px;
+                right: 14px;
+                width: 22px;
+                height: 22px;
+            }
+        }
+
+        * {
+            user-select: none;
+        }
+
+        .title {
+            font-size: 0.275rem;
+            margin-bottom: 5px;
+        }
+
+        .code {
+            font-weight: bold;
+            font-size: 0.275rem;
+        }
+
+        .tags-list {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            list-style: none;
+            height: 30px;
+
+            li {
+                height: 16px;
+                line-height: 16px;
+                position: relative;
+                font-size: 10px;
+                font-weight: 700;
+                margin: 10px 2px 10px 10px;
+                padding: 0 10px;
+                text-decoration: none;
+                -moz-border-radius-bottomright: 4px;
+                -webkit-border-bottom-right-radius: 4px;
+                border-bottom-right-radius: 4px;
+                -moz-border-radius-topright: 4px;
+                -webkit-border-top-right-radius: 4px;
+                border-top-right-radius: 4px;
+            }
+
+            li:before {
+                content: "";
+                float: left;
+                position: absolute;
+                top: 0;
+                left: -8px;
+                width: 0;
+                height: 0;
+                border-color: transparent #0089e0 transparent transparent;
+                border-style: solid;
+                border-width: 8px 8px 8px 0;
+            }
+
+            li:after {
+                content: "";
+                position: absolute;
+                top: 6px;
+                left: 0;
+                float: left;
+                width: 4px;
+                height: 4px;
+                -moz-border-radius: 2px;
+                -webkit-border-radius: 2px;
+                border-radius: 2px;
+            }
+        }
+    }
+
+    .recipe-list-menu {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        flex-direction: row-reverse;
+        position: absolute;
+        top: 9px;
+        right: 12px;
+        display: none;
+
+        li {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 26px;
+            height: 26px;
+            cursor: pointer;
+
+            &.favorite-true {
+                svg {
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+
+            &.favorite-false {
+                svg {
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+
+            &.edit {
+                svg {
+                    width: 18px;
+                    height: 18px;
+                }
+            }
+
+            &.restore {
+                svg {
+                    width: 18px;
+                    height: 18px;
+                }
+            }
+
+            &.copy {
+                svg {
+                    width: 18px;
+                    height: 18px;
+                }
+            }
+
+            &.trash {
+                svg {
+                    width: 18px;
+                    height: 18px;
+                }
+            }
+        }
+    }
+}
+
+.imglist-display .body-container {
+    .list-header {
+        display: none;
+    }
+}
+.imglist-display .comp_recipe-list-item {
+    position: relative;
+
+    &:hover {
+        .recipe-list-menu {
+            display: flex;
+        }
+    }
+
+    .sub-container {
+        padding: 12px 15px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: row;
+        cursor: pointer;
+
+        .left-side {
+            display: flex;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            width: 100%;
+
+            .servings,
+            .difficulty,
+            .prep,
+            .cook {
+                display: none;
+            }
+
+            .image-preview {
+                width: 100px;
+                height: 70px;
+                overflow: hidden;
+                padding-right: 30px;
+
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+
+            .title {
+                font-size: 0.4rem;
+                font-weight: 700;
+                width: calc(100% - 140px);
+                text-overflow: ellipsis;
+            }
+
+            .tags-list {
+                width: 100%;
+                
+                li {
+                    margin: 10px 2px 0 10px;
+                }
+            }
+        }
+
+        .right-side {
+            svg {
+                position: absolute;
+                top: 11px;
+                right: 14px;
+                width: 22px;
+                height: 22px;
+            }
+        }
+
+        * {
+            user-select: none;
+        }
+
+        .title {
+            font-size: 0.275rem;
+            margin-bottom: 5px;
+        }
+
+        .code {
+            font-weight: bold;
+            font-size: 0.275rem;
+        }
+
+        .tags-list {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            list-style: none;
+
+            li {
+                height: 16px;
+                line-height: 16px;
+                position: relative;
+                font-size: 10px;
+                font-weight: 600;
+                margin: 20px 2px 0 10px;
+                padding: 0 10px;
+                text-decoration: none;
+                -moz-border-radius-bottomright: 4px;
+                -webkit-border-bottom-right-radius: 4px;
+                border-bottom-right-radius: 4px;
+                -moz-border-radius-topright: 4px;
+                -webkit-border-top-right-radius: 4px;
+                border-top-right-radius: 4px;
+            }
+
+            li:before {
+                content: "";
+                float: left;
+                position: absolute;
+                top: 0;
+                left: -8px;
+                width: 0;
+                height: 0;
+                border-color: transparent #0089e0 transparent transparent;
+                border-style: solid;
+                border-width: 8px 8px 8px 0;
+            }
+
+            li:after {
+                content: "";
+                position: absolute;
+                top: 6px;
+                left: 0;
+                float: left;
+                width: 4px;
+                height: 4px;
+                -moz-border-radius: 2px;
+                -webkit-border-radius: 2px;
+                border-radius: 2px;
+            }
+        }
+    }
+
+    .recipe-list-menu {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        flex-direction: row-reverse;
+        position: absolute;
+        top: 9px;
+        right: 12px;
+        display: none;
+
+        li {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 26px;
+            height: 26px;
+            cursor: pointer;
+
+            &.favorite-true {
+                svg {
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+
+            &.favorite-false {
+                svg {
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+
+            &.edit {
+                svg {
+                    width: 18px;
+                    height: 18px;
+                }
+            }
+
+            &.restore {
+                svg {
+                    width: 18px;
+                    height: 18px;
+                }
+            }
+
+            &.copy {
+                svg {
+                    width: 18px;
+                    height: 18px;
+                }
+            }
+
+            &.trash {
+                svg {
+                    width: 18px;
+                    height: 18px;
+                }
+            }
+        }
+    }
+}
+
+.simplelist-display .body-container {
+    .list-header {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        font-size: 0.275rem;
+        font-weight: 700;
+
+        .list-header-title {
+            width: 20%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .list-header-servings {
+            width: 10%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .list-header-difficulty {
+            width: 10%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .list-header-prep,
+        .list-header-cook {
+            width: 10%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+
+    .list-header-title,
+    .list-header-servings,
+    .list-header-difficulty,
+    .list-header-prep,
+    .list-header-cook {
+        padding-right: 10px;
+    }
+}
+
+.simplelist-display .comp_recipe-list-item {
+    position: relative;
+
+    &:hover {
+        .recipe-list-menu {
+            display: flex;
+        }
+    }
+
+    .sub-container {
+        padding: 12px 15px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: row;
+        cursor: pointer;
+
+        .left-side {
+            font-size: 0.275rem;
+            display: flex;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            width: 100%;
+
+            .tags-list,
+            .image-preview {
+                display: none;
+            }
+
+            .servings,
+            .difficulty,
+            .prep,
+            .cook {
+                padding: 5px 10px 5px 0;
+            }
+
+            .title {
+                width: 20%;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                font-weight: 700;
+                padding: 5px 10px 5px 5px;
+            }
+
+            .servings {
+                width: 10%;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .difficulty {
+                width: 10%;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .prep {
+                width: 10%;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .cook {
+                width: 10%;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .tags-list {
+                width: 100%;
+                
+                li {
+                    margin: 10px 2px 0 10px;
+                }
+            }
+        }
+
+        .right-side {
+            display: none;
+
+            svg {
+                position: absolute;
+                top: 30px;
+                right: 10px;
+                width: 14px;
+                height: 14px;
+            }
+        }
+
+        * {
+            user-select: none;
+        }
+    }
+
+    .recipe-list-menu {
+        display: none !important;
+    }
+}

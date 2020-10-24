@@ -1,0 +1,42 @@
+.grid-display {
+    .comp_recipe-list {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: 1fr;
+        grid-column-gap: 0;
+        grid-row-gap: 0;
+
+        .comp_recipe-list-item {
+            position: relative;
+            padding: 15px;
+
+            .sub-container {
+                .left-side {
+                    position: relative;
+                    width: 100%;
+
+                    .tags-list {
+                        position: absolute;
+                        bottom: 0;
+                    }
+                }
+
+                .right-side {
+                    svg {
+                        top: 4px;
+                        right: 22px;
+                    }
+                }
+            }
+
+            .recipe-list-menu {
+                top: 2px;
+                right: 20px;
+            }
+        }
+    }
+}
+
+.imglist-display {
+    .comp_recipe-list {}
+}
