@@ -34,7 +34,7 @@ Screenshots with french language turned on.
 
 ```bash
 # clone the project
-git clone https://github.com/fredserva/birds-kitchen.git
+git clone https://github.com/fredserva/birdskitchen.git
 
 # change directory to the project folder
 cd birds-kitchen
