@@ -37,7 +37,7 @@ Screenshots with french language turned on.
 git clone https://github.com/fredserva/birdskitchen.git
 
 # change directory to the project folder
-cd birds-kitchen
+cd birdskitchen
 
 # install dependencies
 npm install
