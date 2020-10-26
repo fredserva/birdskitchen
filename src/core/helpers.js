@@ -18,7 +18,7 @@ import path from 'path';
 const isWin = 'win32' === platform();
 const defaultPath = isWin ? `${homedir()}\\${App.folderName}` : `${homedir()}/${App.folderName}`;
 const backupPath = isWin ? `${defaultPath}\\${App.backupFolderName}` : `${defaultPath}/${App.backupFolderName}`;
-const storagePrefences = new Store({
+const storagePreferences = new Store({
     name: 'preferences',
     schema: {
         storagePath: {
@@ -154,11 +154,11 @@ const NotyHelpers = {
 };
 
 const StorageHelpers = {
-    preference: storagePrefences,
+    preference: storagePreferences,
 
     initDb: () => {
-        const appDir = storagePrefences.get( 'storagePath' ).toString();
-        const backupsDir = storagePrefences.get( 'backupPath' ).toString();
+        const appDir = storagePreferences.get( 'storagePath' ).toString();
+        const backupsDir = storagePreferences.get( 'backupPath' ).toString();
 
         if ( ! fs.existsSync( appDir ) ) {
             fs.mkdirSync( appDir );
@@ -171,7 +171,7 @@ const StorageHelpers = {
     },
 
     moveDb: ( willMoveDir ) => {
-        const dbFileExistPath = path.join( storagePrefences.get( 'storagePath' ).toString(), App.dbName );
+        const dbFileExistPath = path.join( storagePreferences.get( 'storagePath' ).toString(), App.dbName );
         const dbFileNewPath = path.join( willMoveDir, App.dbName );
 
         if ( ! fs.existsSync( willMoveDir ) ) {
@@ -179,11 +179,11 @@ const StorageHelpers = {
         }
 
         fs.renameSync( dbFileExistPath, dbFileNewPath );
-        storagePrefences.set( 'storagePath', willMoveDir );
+        storagePreferences.set( 'storagePath', willMoveDir );
     },
 
     restoreDb: ( willRestoreFilePath ) => {
-        const appDir = storagePrefences.get( 'storagePath' ).toString();
+        const appDir = storagePreferences.get( 'storagePath' ).toString();
 
         if ( ! fs.existsSync( appDir ) ) {
             fs.mkdirSync( appDir );
@@ -208,8 +208,8 @@ const StorageHelpers = {
     },
 
     backupNow: () => {
-        const dbFilePath = path.join( storagePrefences.get( 'storagePath' ).toString(), App.dbName );
-        const dbBackupDir = path.join( storagePrefences.get( 'backupPath' ).toString(), moment().format( 'YYYY-MM-DD_HH-mm-ss' ) );
+        const dbFilePath = path.join( storagePreferences.get( 'storagePath' ).toString(), App.dbName );
+        const dbBackupDir = path.join( storagePreferences.get( 'backupPath' ).toString(), moment().format( 'YYYY-MM-DD_HH-mm-ss' ) );
 
         if ( ! fs.existsSync( dbBackupDir ) ) {
             fs.mkdirSync( dbBackupDir );
@@ -220,7 +220,7 @@ const StorageHelpers = {
 
     backupFiles: () => {
         const result = [];
-        const backupDir = storagePrefences.get( 'backupPath' ).toString();
+        const backupDir = storagePreferences.get( 'backupPath' ).toString();
         const folders = fs.readdirSync( backupDir );
 
         _.forEach( folders, ( value ) => {

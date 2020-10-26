@@ -1,24 +1,24 @@
 {
   "name": "birdskitchen",
   "appname": "Birds Kitchen",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A free and open source recipe manager",
   "private": true,
   "main": "public/electron.js",
   "license": "GPL-3.0 License",
   "homepage": "./",
   "dependencies": {
-    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/jest-dom": "^5.11.5",
     "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.8",
+    "@testing-library/user-event": "^12.1.10",
     "electron-is-dev": "^1.2.0",
     "electron-store": "^6.0.1",
     "eslint-webpack-plugin": "^2.1.0",
     "html-react-parser": "^0.14.0",
-    "i18next": "^19.8.2",
+    "i18next": "^19.8.3",
     "lodash": "^4.17.20",
     "lowdb": "^1.0.0",
-    "markdown-it": "^12.0.1",
+    "markdown-it": "^12.0.2",
     "moment": "^2.29.1",
     "node-sass": "^4.14.1",
     "noty": "^3.2.0-beta",
@@ -31,10 +31,10 @@
     "react-markdown-editor-lite": "^1.2.2",
     "react-mousetrap": "^0.2.0",
     "react-redux": "^7.2.1",
-    "react-scripts": "^3.4.3",
+    "react-scripts": "^3.4.4",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
-    "shortid": "^2.2.15"
+    "shortid": "^2.2.16"
   },
   "scripts": {
     "start": "rescripts start",
@@ -42,7 +42,7 @@
     "test": "rescripts test",
     "eject": "react-scripts eject",
     "electron-dev": "concurrently \"cross-env BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\"",
-    "release": "rescripts build && electron-builder"
+    "release": "rescripts build && electron-builder -wml"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -64,7 +64,7 @@
     "@rescripts/rescript-env": "^0.0.12",
     "concurrently": "^5.3.0",
     "cross-env": "^7.0.2",
-    "electron": "^10.1.4",
+    "electron": "^10.1.5",
     "electron-builder": "^22.9.1",
     "typescript": "^4.0.3",
     "wait-on": "^5.2.0"
@@ -97,7 +97,7 @@
   "build": {
     "appId": "com.birdskitchen.app",
     "productName": "Birds Kitchen",
-    "asar": false,
+    "asar": true,
     "directories": {
       "output": "app"
     },
@@ -112,7 +112,20 @@
       ]
     },
     "dmg": {
-      "backgroundColor": "#cdcdcd"
+      "backgroundColor": "#cdcdcd",
+      "contents": [
+        {
+          "x": 410,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        },
+        {
+          "x": 130,
+          "y": 150,
+          "type": "file"
+        }
+      ]
     },
     "win": {
       "icon": "public/images/app.ico",

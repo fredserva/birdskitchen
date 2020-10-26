@@ -273,7 +273,7 @@ class SettingsModalNotExtended extends React.Component {
 											<td>{ t( 'New recipe' ) }</td>
 										</tr>
 										<tr>
-											<td>F11</td>
+											<td>F11 <span className='tiny-text'>{ t( '(Windows & Linux)' ) }</span> { t( 'or' ) } ^ &#8984; F <span className='tiny-text'>{ t( '(Mac)' ) }</span></td>
 											<td>{ t( 'Toggle Fullscreen' ) }</td>
 										</tr>
 									</tbody>
