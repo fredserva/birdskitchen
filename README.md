@@ -60,7 +60,7 @@ git clone https://github.com/fredserva/birdskitchen.git
 cd birdskitchen
 
 # install dependencies
-npm install
+yarn
 
 # run the app in development mode
 yarn electron-dev
