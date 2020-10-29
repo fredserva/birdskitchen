@@ -1,7 +1,7 @@
 {
   "name": "birdskitchen",
   "appname": "Birds Kitchen",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "A free and open source recipe manager",
   "private": true,
   "main": "public/electron.js",
@@ -40,8 +40,7 @@
     "start": "rescripts start",
     "build": "rescripts build",
     "test": "rescripts test",
-    "eject": "react-scripts eject",
-    "electron-dev": "concurrently \"cross-env BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\"",
+    "dev": "concurrently \"cross-env BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\"",
     "release": "rescripts build && electron-builder -wml"
   },
   "eslintConfig": {
@@ -99,7 +98,7 @@
     "productName": "Birds Kitchen",
     "asar": true,
     "directories": {
-      "output": "app"
+      "output": "dist"
     },
     "files": [
       "build/**/*"
