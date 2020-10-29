@@ -74,8 +74,8 @@ class SvgIcon extends Component {
 				</svg> );
 				break;
 			case 'minimize':
-				result = ( <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 497 32'>
-					<path fill='none' strokeLinecap='round' strokeLinejoin='round' strokeWidth='32' d='M481 16L16 16'/>
+				result = ( <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 50' fill='none' stroke='currentColor' strokeWidth='2' strokeLinecap='round' strokeLinejoin='round'>
+					<rect x='1' y='24' width='48' height='2'/>
 				</svg> );
 				break;
 			case 'close':

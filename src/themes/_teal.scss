@@ -107,6 +107,7 @@ body {
                         &.minimize {
                             svg {
                                 stroke: $text-color;
+                                fill: $text-color;
                             }
 
                             &:hover {
