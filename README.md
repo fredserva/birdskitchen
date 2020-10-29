@@ -63,7 +63,7 @@ cd birdskitchen
 yarn
 
 # run the app in development mode
-yarn electron-dev
+yarn dev
 ```
 
 ## Contributing
