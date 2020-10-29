@@ -16,7 +16,7 @@ const template = [
                 }
             },
             { type: 'separator' },
-            isMac ? { role: 'close' } : { role: 'quit' }
+            isMac ? { role: 'quit' } : { role: 'quit' }
         ]
     },
     {

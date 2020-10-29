@@ -261,7 +261,7 @@ class SettingsModalNotExtended extends React.Component {
 								<table>
 									<tbody>
 										<tr>
-											<td>{ t( 'Ctrl ,' ) } <span className='tiny-text'>{ t( '(Windows & Linux)' ) }</span> { t( 'or' ) } &#8984; , <span className='tiny-text'>{ t( '(Mac)' ) }</span></td>
+											<td>{ t( 'Ctrl ,' ) } <span className='tiny-text'>{ t( '(Windows & Linux)' ) }</span> { t( 'or' ) } &#8984; ; <span className='tiny-text'>{ t( '(Mac)' ) }</span></td>
 											<td>{ t( 'Preferences' ) }</td>
 										</tr>
 										<tr>
