@@ -30,7 +30,7 @@ I you want to contribute, please send me a mail or a pidgeon :grin:
 
 ## Features
 
-- Cross platform (Linux and Mac OS binaries for now)
+- Cross platform
 - Localized
 - Custom Themes (a light one and a dark one for now)
 - Content search
@@ -42,9 +42,11 @@ I you want to contribute, please send me a mail or a pidgeon :grin:
 
 ## Roadmap
 
-- [ ] Grocery List
-- [ ] Auto updates
 - [ ] Link to Recipe source
+- [ ] Ratings
+- [ ] Grocery List (?)
+- [ ] Categories (?)
+- [ ] Auto updates (?)
 
 ## Running locally
 
