@@ -50,5 +50,13 @@ body {
 .noty_theme__sunset {
   .noty_body {
     font-size: .4rem !important;
+    display: flex;
+    align-items: flex-start;
+
+    & svg {
+        width: 0.7rem;
+        height: 0.6rem;
+        padding-right: 10px;
+    }
   }
 }

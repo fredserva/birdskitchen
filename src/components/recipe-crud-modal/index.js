@@ -53,6 +53,7 @@ class RecipeCrudModalNotExtended extends React.Component {
     onSubmit = () => {
         const {formValues} = this.state;
         const {t, id} = this.props;
+        const feather = require( 'feather-icons' );
         let isFormValid = true;
         let errorValues = {};
 
@@ -90,7 +91,7 @@ class RecipeCrudModalNotExtended extends React.Component {
                 new Api().updateRecipeItem(dataToDb);
             }
 
-            NotyHelpers.open( t('Saved'), 'success', 2500 );
+            NotyHelpers.open( feather.icons.save.toSvg() + t('Saved'), 'success', 2500 );
             this.onClose();
 
         }

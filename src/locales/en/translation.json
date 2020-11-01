@@ -53,6 +53,7 @@
 	"Last backups are listed here. You can choose one to restore. Please be warned! No going back!": "Last backups are listed here. You can choose one to restore. Please be warned! No going back!",
 	"Do a backup before restoring": "Do a backup before restoring",
 	"Storage directory succesfully changed!": "Storage directory succesfully changed!",
+	"Backups directory succesfully changed!": "Backups directory succesfully changed!",
 	"Backup was successful!": "Backup was successful!",
 	"Backup restored successfully!": "Backup restored successfully!",
 	"Restore": "Restore",

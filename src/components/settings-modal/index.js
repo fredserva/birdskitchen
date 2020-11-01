@@ -41,12 +41,13 @@ class SettingsModalNotExtended extends React.Component {
 
 	moveStorage = type => {
 		const { t, setRecipeList } = this.props;
+		const feather = require( 'feather-icons' );
 
 		const dir = remote.dialog.showOpenDialogSync( { properties: [ 'openDirectory' ] } );
 
 		if ( undefined !== dir ) {
 			StorageHelpers.preference.set( 'storagePath', dir[ 0 ] );
-			NotyHelpers.open( t( 'Storage directory succesfully changed!' ), 'success', 2500 );
+			NotyHelpers.open( feather.icons.folder.toSvg() + t( 'Storage directory succesfully changed!' ), 'success', 2500 );
 			setRecipeList();
 			this.setState( { dbDirectory: dir[ 0 ] } );
 		}
@@ -54,23 +55,26 @@ class SettingsModalNotExtended extends React.Component {
 
 	changeOrBackupNow = type => {
 		const { t } = this.props;
+		const feather = require( 'feather-icons' );
 
 		if ( 'change' === type ) {
 			const dir = remote.dialog.showOpenDialogSync( { properties: [ 'openDirectory' ] } );
 
 			if ( undefined !== dir ) {
 				StorageHelpers.preference.set( 'backupPath', dir[ 0 ] );
+				NotyHelpers.open( feather.icons.folder.toSvg() + t( 'Backups directory succesfully changed!' ), 'success', 2500 );
 				this.setState( { backupDirectory: dir[ 0 ] } );
 			}
 		} else {
 			StorageHelpers.backupNow();
 			this.listBackupFiles();
-			NotyHelpers.open( t( 'Backup was successful!' ), 'success', 2500 );
+			NotyHelpers.open( feather.icons.archive.toSvg() + t( 'Backup was successful!' ), 'success', 2500 );
 		}
 	};
 
 	restoreFromBackup = file => {
 		const { t, setRecipeList } = this.props;
+		const feather = require( 'feather-icons' );
 
 		openConfirmDialog( {
 			title: t( 'Confirmation' ),
@@ -80,7 +84,7 @@ class SettingsModalNotExtended extends React.Component {
 					label: t( 'Yes' ),
 					onClick: () => {
 						StorageHelpers.restoreDb( file.filePath );
-						NotyHelpers.open( t( 'Backup restored successfully!' ), 'success', 2500 );
+						NotyHelpers.open( feather.icons.database.toSvg() + t( 'Backup restored successfully!' ), 'success', 2500 );
 						setRecipeList();
 					},
 					className: 'btn btn-success'

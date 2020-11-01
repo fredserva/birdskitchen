@@ -14,6 +14,7 @@
     "electron-is-dev": "^1.2.0",
     "electron-store": "^6.0.1",
     "eslint-webpack-plugin": "^2.1.0",
+    "feather-icons": "^4.28.0",
     "html-react-parser": "^0.14.0",
     "i18next": "^19.8.3",
     "lodash": "^4.17.20",
@@ -107,29 +108,12 @@
       "icon": "public/images/app.icns",
       "category": "public.app-category.productivity",
       "target": [
-        "dmg"
-      ]
-    },
-    "dmg": {
-      "backgroundColor": "#cdcdcd",
-      "contents": [
-        {
-          "x": 410,
-          "y": 150,
-          "type": "link",
-          "path": "/Applications"
-        },
-        {
-          "x": 130,
-          "y": 150,
-          "type": "file"
-        }
+        "zip"
       ]
     },
     "win": {
       "icon": "public/images/app.ico",
       "target": [
-        "zip",
         "nsis"
       ]
     },

@@ -1,7 +1,7 @@
-import React from "react";
-import {connect} from "react-redux";
+import React from 'react';
+import {connect} from 'react-redux';
 
-import ContentHeader from "../content-header";
+import ContentHeader from '../content-header';
 import RecipeList from '../recipe-list';
 
 import './style.scss';

@@ -34,6 +34,7 @@ class RecipeListItemNotExtended extends Component {
 
     onClickMoveOnTrash = item => {
         const { t, selectedMenu, setRecipeList, setTags } = this.props;
+        const feather = require( 'feather-icons' );
 
         openConfirmDialog({
             title: t( 'Confirmation' ),
@@ -46,7 +47,7 @@ class RecipeListItemNotExtended extends Component {
                         new Api().updateRecipeItem( item );
                         setRecipeList( selectedMenu );
                         setTags();
-                        NotyHelpers.open( t( 'This recipe has been trashed!' ), 'error', 2000 );
+                        NotyHelpers.open( feather.icons.trash.toSvg() + t( 'This recipe has been trashed!' ), 'error', 2000 );
                     },
                     className: 'btn btn-danger'
                 },
@@ -61,6 +62,7 @@ class RecipeListItemNotExtended extends Component {
 
     onClickRemovePermanently = id => {
         const { t, selectedMenu, setRecipeList, setTags } = this.props;
+        const feather = require( 'feather-icons' );
 
         openConfirmDialog({
             title: t( 'Confirmation' ),
@@ -72,7 +74,7 @@ class RecipeListItemNotExtended extends Component {
                         new Api().deleteRecipeById( id );
                         setRecipeList( selectedMenu );
                         setTags();
-                        NotyHelpers.open( t( 'This recipe has been deleted permanently!' ), 'success', 2500 );
+                        NotyHelpers.open( feather.icons.zap.toSvg() + t( 'This recipe has been deleted permanently!' ), 'success', 2500 );
                     },
                     className: 'btn btn-danger'
                 },
@@ -87,11 +89,13 @@ class RecipeListItemNotExtended extends Component {
 
     restoreFromTrash = item => {
         const { t, selectedMenu, setRecipeList, setTags } = this.props;
+        const feather = require( 'feather-icons' );
+
         item.isTrash = false;
         new Api().updateRecipeItem( item );
         setRecipeList( selectedMenu );
         setTags();
-        NotyHelpers.open( t( 'The recipe has been restored from trash!' ), 'success', 2000 );
+        NotyHelpers.open( feather.icons.award.toSvg() + t( 'The recipe has been restored from trash!' ), 'success', 2000 );
     };
 
     getTags = () => {

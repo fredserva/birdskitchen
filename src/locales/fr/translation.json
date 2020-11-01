@@ -53,6 +53,7 @@
 	"Last backups are listed here. You can choose one to restore. Please be warned! No going back!": "Les dernières sauvegardes sont listées ici. Vous pouvez choisir de restaurer l'une d'elles. Mais attention : Aucun retour en arrière n'est possible !",
 	"Do a backup before restoring": "Faites une sauvegarde avant une restauration",
 	"Storage directory succesfully changed!": "Le chemin de stockage a bien été déplacé !",
+	"Backups directory succesfully changed!": "Le chemin de sauvegarde a bien été déplacé !",
 	"Backup was successful!": "La sauvegarde a bien été effectuée !",
 	"Backup restored successfully!": "Sauvegarde restaurée !",
 	"Restore": "Restauration",
