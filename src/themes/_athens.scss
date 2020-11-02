@@ -177,10 +177,6 @@ body {
             }
 
             .header {
-                .sidebar-title {
-                    color: $text-color;
-                }
-
                 .new-recipe-container {
                     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 
@@ -200,11 +196,19 @@ body {
 
                 .main-menu-container {
                     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+
+                    .sidebar-title {
+                        color: $text-color;
+                    }
                 }
 
                 .search-result-container {
                     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
                 }
+            }
+
+            .accordion__heading {
+                    color: $text-color;
             }
 
             .menu-list {

@@ -35,7 +35,7 @@ body {
             // background:$base-color;
             border-bottom: 1px solid $side-color;
             background: linear-gradient(180deg,$linear-gradient-start 0,$linear-gradient-end);
-            box-shadow: 0 1px 0 rgba(0,0,0,.2), inset 0 1px 0 #182026;
+            box-shadow: 0 1px 0 rgba(0,0,0,.2), inset 0 -1px 0 #182026;
 
             .btn-menubar {
                 &.menu {
@@ -178,10 +178,6 @@ body {
             }
 
             .header {
-                .sidebar-title {
-                    color: #eeeeee;
-                }
-
                 .new-recipe-container {
                     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 
@@ -190,7 +186,7 @@ body {
                     }
 
                     .text {
-                        color: #eeeeee;
+                        color: $text-color;
                     }
 
                     .plus {
@@ -201,6 +197,10 @@ body {
 
                 .main-menu-container {
                     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
+                    .sidebar-title {
+                        color: $text-color;
+                    }
                 }
 
                 .search-result-container {
@@ -208,10 +208,14 @@ body {
                 }
             }
 
+            .accordion__heading {
+                    color: $text-color;
+            }
+
             .menu-list {
                 .menu-list-item {
                     .text-container {
-                        color: #eeeeee;
+                        color: $text-color;
                     }
 
                     &.active {

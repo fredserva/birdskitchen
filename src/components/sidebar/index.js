@@ -100,37 +100,40 @@ class SidebarNotExtended extends React.Component {
                             }
                         </ul>
                     </div>
-                    <div className='sidebar-title'>{ t( 'Tags' ) }</div>
                 </div>
-                <div className='body'>
-                    {
-                        0 === tags.length ?
-                            <div className='no-item-text'>{ t( "There isn't any tag yet" ) }</div>
-                            : (
-                                <ul className='menu-list'>
-                                    {
-                                        tags.map( ( value, index ) => {
-                                            let containerClassName = 'menu-list-item';
-                                            if ( value === selectedMenu.slug ) {
-                                                containerClassName += ' active';
-                                            }
+                <input type='checkbox' className='accordion__checkbox' id='accordion-tags' />
+                <label className='sidebar-title accordion__heading' htmlFor='accordion-tags'>{ t( 'Tags' ) }</label>
+                <div className='tags-wrapper accordion'>
+                    <div className='tags-container accordion__content'>
+                        {
+                            0 === tags.length ?
+                                <div className='no-item-text'>{ t( 'There isn\'t any tag yet' ) }</div>
+                                : (
+                                    <ul className='menu-list'>
+                                        {
+                                            tags.map( ( value, index ) => {
+                                                let containerClassName = 'menu-list-item';
+                                                if ( value === selectedMenu.slug ) {
+                                                    containerClassName += ' active';
+                                                }
 
-                                            return (
-                                                <li key={index} onClick={() => this.setSelectedMenu( value, 'tag' )}
-                                                    className={containerClassName}>
-                                                    <div className='icon-container'>
-                                                        <SvgIcon name={'tag'}/>
-                                                    </div>
-                                                    <div className='others-container'>
-                                                        <div className='text-container'>{value}</div>
-                                                    </div>
-                                                </li>
-                                            );
-                                        })
-                                    }
-                                </ul>
-                            )
-                    }
+                                                return (
+                                                    <li key={index} onClick={() => this.setSelectedMenu( value, 'tag' )}
+                                                        className={containerClassName}>
+                                                        <div className='icon-container'>
+                                                            <SvgIcon name={'tag'}/>
+                                                        </div>
+                                                        <div className='others-container'>
+                                                            <div className='text-container'>{value}</div>
+                                                        </div>
+                                                    </li>
+                                                );
+                                            })
+                                        }
+                                    </ul>
+                                )
+                        }
+                    </div>
                 </div>
             </div>
         );

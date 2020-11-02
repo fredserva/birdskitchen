@@ -1,116 +1,185 @@
 .comp_sidebar {
-  display: flex;
-  flex-direction: column;
-  width: 6rem;
-  height: 100%;
-
-  * {
-    user-select: none;
-  }
-
-  .no-item-text {
-    font-size: .35rem;
-    padding: 10px 20px;
-    text-align: left;
-  }
-
-  .menu-list {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-
-    .menu-list-item {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      padding: 5px 9px;
-      cursor: pointer;
-
-      .icon-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: .75rem;
-        text-align: center;
-        margin-right: 3px;
-
-        svg {
-          height: .35rem;
-          width: .35rem;
-        }
-      }
-
-      .others-container {
-        display: flex;
-        flex: 1;
-        width: calc(100% - 50px);
-
-        .text-container {
-          font-size: .4rem;
-          width: 100%;
-          overflow: hidden;
-          display: inline-block;
-          text-overflow: ellipsis;
-          white-space: nowrap;
-        }
-      }
-    }
-  }
-
-  .header {
-    .sidebar-title {
-      text-transform: uppercase;
-      font-weight: bold;
-      font-size: .4rem;
-      padding: 10px 15px;
-    }
-
-    .new-recipe-container {
-      cursor: pointer;
-      display: flex;
-      padding: 20px 15px 0;
-      height: 52px;
-      align-items: flex-start;
-      justify-content: space-between;
-
-      .plus {
-        border-radius: 50%;
-        margin-top: -5px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 28px;
-        padding: 0;
-        width: 28px;
-        height: 28px;
-        cursor: pointer;
-      }
-
-      .text {
-        font-size: .4rem;
-        font-weight: 400;
-
-        i {
-          font-size: 24px;
-        }
-      }
-    }
-
-    .main-menu-container {
-      padding: 10px 0;
-    }
-
-    .search-result-container {
-      padding: 10px 0;
-    }
-  }
-
-  .body {
     display: flex;
-    flex: 1;
-    overflow-y: auto;
-    overflow-x: hidden;
     flex-direction: column;
-  }
+    width: 6rem;
+    height: 100%;
+
+    * {
+        user-select: none;
+    }
+
+    .no-item-text {
+        font-size: 0.35rem;
+        padding: 10px 20px;
+        text-align: left;
+    }
+
+    .menu-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        .menu-list-item {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            padding: 5px 9px;
+            cursor: pointer;
+
+            .icon-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 0.75rem;
+                text-align: center;
+                margin-right: 3px;
+
+                svg {
+                    height: 0.35rem;
+                    width: 0.35rem;
+                }
+            }
+
+            .others-container {
+                display: flex;
+                flex: 1;
+                width: calc(100% - 50px);
+
+                .text-container {
+                    font-size: 0.4rem;
+                    width: 100%;
+                    overflow: hidden;
+                    display: inline-block;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                }
+            }
+        }
+    }
+
+    .header {
+        .new-recipe-container {
+            cursor: pointer;
+            display: flex;
+            padding: 20px 15px 0;
+            height: 52px;
+            align-items: flex-start;
+            justify-content: space-between;
+
+            .plus {
+                border-radius: 50%;
+                margin-top: -5px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 28px;
+                padding: 0;
+                width: 28px;
+                height: 28px;
+                cursor: pointer;
+            }
+
+            .text {
+                font-size: 0.4rem;
+                font-weight: 400;
+
+                i {
+                    font-size: 24px;
+                }
+            }
+        }
+
+        .main-menu-container {
+            padding: 10px 0;
+
+            .sidebar-title {
+                text-transform: uppercase;
+                font-weight: bold;
+                font-size: 0.4rem;
+                padding: 10px 15px;
+            }
+        }
+
+        .search-result-container {
+            padding: 10px 0;
+        }
+    }
+
+    .accordion__heading {
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 0.4rem;
+        padding: 10px 15px;
+        transition: all 0.4s;
+        position: relative;
+        display: block;
+        margin: 5px 0;
+        cursor: pointer;
+        
+        &:before {
+            position: absolute;
+            content: '\2304';
+            font-size: 0.6rem;
+            width: 0.4rem;
+            height: 0.4rem;
+            top: 0.1rem;
+            right: 5px;
+            transition: all 0.4s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 1;
+        }
+        
+        &:after {
+            position: absolute;
+            content: '\2303';
+            font-size: 0.6rem;
+            width: 0.4rem;
+            height: 0.4rem;
+            top: 0.4rem;
+            right: 5px;
+            transition: all 0.4s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+        }
+    }
+    
+    .accordion__checkbox {
+        display: none;
+        position: absolute;
+        left: -9999em;
+
+        &:checked ~ label:before {
+            opacity: 0;
+        }
+
+        &:checked ~ label:after {
+            opacity: 1;
+        }
+
+        &:checked + label + .accordion .accordion__content {
+            opacity: 1;
+            max-height: 1000vh;
+            transition: all 0.4s;
+        }
+    }
+    
+    .tags-wrapper {
+        overflow-y: auto;
+        overflow-x: hidden;
+
+        .accordion {
+            &__content {
+                opacity: 0;
+                max-height: 0;
+                margin: 0 0 20px 0;
+                overflow: hidden;
+                transition: all 0.4s;
+            }
+        }
+    }
 }
