@@ -1,16 +1,18 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import { withTranslation } from 'react-i18next';
+import hoistStatics from 'hoist-non-react-statics';
 
 import './style.scss';
 
-class ChoiceField extends Component {
+class ChoiceFieldNotExtended extends Component {
     onChange = e => {
         const { onChangeText } = this.props;
         onChangeText && onChangeText( e.target.value );
     };
 
     render() {
-        const { label, name, items, errorText } = this.props;
+        const { t, id, label, name, options, placeholder, errorText } = this.props;
         let formGroupClassName = 'form-group';
         if ( '' !== errorText ) {
             formGroupClassName += ' has-error';
@@ -21,10 +23,11 @@ class ChoiceField extends Component {
                 <div className={formGroupClassName}>
                     { '' !== label ? <label className='form-label' htmlFor={name}>{label}</label> : null}
 
-                    <select id={name} onChange={this.onChange} className='form-control'>
+                    <select id={name} onChange={this.onChange} value={id} className='form-control'>
+                        <option>{placeholder}</option>
                         {
-                            items.map( ( val, index ) => {
-                                return <option key={`choice_${index}`} value={val}>{val}</option>;
+                            options.map( ( val, index ) => {
+                                return <option key={`choice_${index}`} value={val}>{ t( val.charAt( 0 ).toUpperCase() + val.slice( 1 ) ) }</option>;
                             })
                         }
                     </select>
@@ -36,19 +39,21 @@ class ChoiceField extends Component {
     }
 }
 
-ChoiceField.defaultProps = {
+ChoiceFieldNotExtended.defaultProps = {
     label: '',
     errorText: '',
-    items: []
+    options: []
 };
 
-ChoiceField.propTypes = {
+ChoiceFieldNotExtended.propTypes = {
     name: PropTypes.string.isRequired,
     placeholder: PropTypes.string,
     value: PropTypes.string,
-    items: PropTypes.array,
+    options: PropTypes.array,
     onChangeText: PropTypes.func,
     errorText: PropTypes.string
 };
+
+const ChoiceField = hoistStatics( withTranslation()( ChoiceFieldNotExtended ), ChoiceFieldNotExtended );
 
 export default ChoiceField;

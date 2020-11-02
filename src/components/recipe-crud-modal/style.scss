@@ -6,7 +6,7 @@
             display: flex;
             flex-wrap: wrap;
             box-sizing: border-box;
-            margin-bottom: 30px;
+            margin-bottom: 50px;
             
             .title-tech-wrapper {
                 box-sizing: border-box;
@@ -22,6 +22,12 @@
 
             .tech {
                 margin: 0;
+            }
+
+            .tech-two {
+                margin: 30px 0 0;
+                display: flex;
+                align-items: center;
             }
         }
 

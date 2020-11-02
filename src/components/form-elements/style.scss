@@ -1,14 +1,26 @@
-.tech {
+.tech,
+.tech-two {
     display: flex;
     align-items: center;
     margin-bottom: 50px;
-    
+
     & > div:not(:last-of-type) {
         margin-right: 10px;
     }
-    
+
     .comp_fe_choice-field {
         min-width: 100px;
+
+        label {
+            span {
+                display: flex;
+                align-items: center;
+
+                svg {
+                    margin-right: 10px;
+                }
+            }
+        }
     }
 }
 
@@ -47,7 +59,7 @@
                 top: 1.5rem;
                 height: 20vh;
             }
-        
+
             & + div img {
                 padding-top: 30px;
                 margin: 0 !important;
@@ -63,7 +75,7 @@
             top: calc(.35rem + .4rem);
             display: flex;
             align-items: center;
-            font-size: .4rem;
+            font-size: 0.4rem;
 
             svg {
                 padding: 6px;
@@ -76,7 +88,6 @@
 
 .comp_fe_text-field {
     .form-group {
-        
         &.title {
             margin-bottom: 50px;
         }
@@ -88,32 +99,32 @@
                 font-size: 0.35rem;
                 margin-bottom: 20px;
                 cursor: pointer;
-                
+
                 span {
                     display: flex;
                     align-items: center;
                     line-height: 1.1;
                     height: 30px;
-                    
+
                     svg {
                         margin-right: 10px;
                     }
                 }
             }
-            
+
             &.error-label {
                 display: block;
                 font-size: 0.3rem;
                 margin-top: 5px;
                 cursor: pointer;
             }
-            
+
             svg {
                 width: 0.5rem;
                 margin-left: 5px;
             }
         }
-        
+
         .form-control {
             display: block;
             width: calc(100% - 26px);
@@ -138,30 +149,30 @@
                 font-size: 0.35rem;
                 margin-bottom: 22px;
                 cursor: pointer;
-                
+
                 span {
                     display: flex;
                     align-items: center;
-                    
+
                     svg {
                         margin-right: 10px;
                     }
                 }
             }
-            
+
             &.error-label {
                 display: block;
                 font-size: 0.3rem;
                 margin-top: 5px;
                 cursor: pointer;
             }
-            
+
             svg {
                 width: 0.5rem;
                 margin-left: 5px;
             }
         }
-        
+
         .form-control {
             display: block;
             width: calc(100% - 26px);
@@ -176,7 +187,7 @@
 
 .comp_fe_number-field {
     width: 200px;
-    
+
     .form-group {
         label {
             &.form-label {
@@ -197,20 +208,20 @@
                     }
                 }
             }
-            
+
             &.error-label {
                 display: block;
                 font-size: 0.3rem;
                 margin-top: 5px;
                 cursor: pointer;
             }
-            
+
             svg {
                 width: 0.5rem;
                 margin-left: 5px;
             }
         }
-        
+
         .form-control {
             display: block;
             width: calc(100% - 26px);
@@ -234,19 +245,19 @@
                 height: 34px;
                 cursor: pointer;
             }
-            
+
             &.error-label {
                 font-size: 0.35rem;
                 margin-top: 5px;
                 cursor: pointer;
             }
-            
+
             svg {
                 width: 0.5rem;
                 margin-left: 5px;
             }
         }
-        
+
         .form-control {
             display: block;
             width: 100%;
@@ -262,18 +273,18 @@
     .rc-md-editor {
         border-radius: 3px;
         overflow: hidden;
-        
+
         .tool-bar {
             position: absolute;
             z-index: 1;
             right: 3px;
             top: -25px;
         }
-        
+
         .rc-md-navigation {
             border-radius: 3px 3px 0 0;
         }
-        
+
         .navigation-nav {
             &.right {
                 .button-wrap {
@@ -286,14 +297,14 @@
             }
         }
     }
-    
+
     .form-group {
         .title-area {
             display: flex;
             margin-bottom: 5px;
             align-items: center;
             justify-content: space-between;
-            
+
             .md-link-text {
                 font-size: 0.275rem;
                 text-align: right;
@@ -301,13 +312,13 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                
+
                 .fas {
                     margin-left: 5px;
                 }
             }
         }
-        
+
         label {
             &.form-label {
                 display: block;
@@ -316,14 +327,14 @@
                 margin-bottom: 20px;
                 cursor: pointer;
             }
-            
+
             &.error-label {
                 font-size: 0.35rem;
                 margin-top: 5px;
                 cursor: pointer;
             }
         }
-        
+
         .form-control {
             display: block;
             width: calc(100% - 26px);
@@ -337,7 +348,7 @@
 
 .comp_fe_tags-field {
     margin-bottom: 50px;
-    
+
     .form-group {
         .title-area {
             display: flex;
@@ -345,38 +356,38 @@
             align-items: center;
             justify-content: space-between;
         }
-        
+
         label {
             &.form-label {
                 font-weight: bold;
                 font-size: 0.35rem;
                 margin-bottom: 10px;
                 cursor: pointer;
-                
+
                 span {
                     display: flex;
                     align-items: center;
-                    
+
                     svg {
                         width: 21px;
                         margin-right: 10px;
                     }
                 }
             }
-            
+
             &.info-text {
                 font-size: 0.275rem;
                 text-align: right;
                 cursor: pointer;
             }
-            
+
             &.error-label {
                 font-size: 0.35rem;
                 margin-top: 5px;
                 cursor: pointer;
             }
         }
-        
+
         .form-control {
             display: block;
             width: calc(100% - 26px);
@@ -386,7 +397,7 @@
             border-radius: 4px;
         }
     }
-    
+
     .tags-input-main-container {
         display: flex;
         align-items: center;
@@ -394,7 +405,7 @@
         border-radius: 3px;
         flex-wrap: wrap;
         padding: 3px;
-        
+
         .tag-wrapper {
             font-size: 0.35rem;
             display: flex;
@@ -402,11 +413,11 @@
             margin: 3px;
             border-radius: 2px;
             user-select: none;
-            
+
             .tag-text {
                 padding: 4px 20px 4px 10px;
             }
-            
+
             .close-link {
                 display: flex;
                 width: 25px;
@@ -416,18 +427,18 @@
                 cursor: pointer;
             }
         }
-        
+
         .input-container {
             margin-left: 3px;
             position: relative;
-            
+
             .form-element {
                 padding: 4px 0;
                 font-size: 0.35rem;
                 margin: 4px 3px;
                 border: none;
             }
-            
+
             .auto-suggestion-container {
                 position: absolute;
                 margin-left: -7px;
@@ -437,16 +448,16 @@
                 overflow: hidden;
                 border: none;
                 z-index: 2;
-                
+
                 ul {
                     margin: 0;
                     padding: 0;
                     list-style: none;
-                    
+
                     li {
                         padding: 8px 12px;
                         cursor: pointer;
-                        
+
                         &:last-child {
                             border: none;
                         }
@@ -466,13 +477,13 @@
             left: 0;
             top: 0;
             z-index: 1000;
-            
+
             .body {
                 height: 100%;
             }
         }
     }
-    
+
     .form-group {
         label {
             &.form-label {
@@ -482,14 +493,14 @@
                 margin-bottom: 5px;
                 cursor: pointer;
             }
-            
+
             &.error-label {
                 font-size: 0.35rem;
                 margin-top: 5px;
                 cursor: pointer;
             }
         }
-        
+
         .form-control {
             display: block;
             width: calc(100% - 26px);
@@ -499,30 +510,30 @@
             border-radius: 4px;
         }
     }
-    
+
     .recipe-container {
         border-radius: 3px;
         overflow: hidden;
-        
+
         .header {
             padding: 0 2px 0 5px;
             border-radius: 3px 3px 0 0;
             display: flex;
             flex-direction: row;
-            
+
             .navigation-nav {
                 display: flex;
                 flex-direction: row;
-                
+
                 &.right {
                     margin-left: auto;
-                    
+
                     .rmel-iconfont {
                         font-size: 0.55rem;
                     }
                 }
             }
-            
+
             .button {
                 font-size: 0.275rem;
                 height: 36px;
@@ -531,17 +542,17 @@
                 justify-content: center;
                 align-items: center;
                 cursor: pointer;
-                
+
                 svg {
                     height: 14px;
                 }
             }
         }
-        
+
         .body {
             height: 150px;
             overflow: hidden;
-            
+
             textarea {
                 border: none;
                 resize: none;
@@ -567,7 +578,7 @@
         display: flex;
         align-items: center;
         align-content: center;
-        
+
         .search-icon-container {
             position: absolute;
             height: 30px;
@@ -575,13 +586,13 @@
             left: 10px;
             display: flex;
             align-items: center;
-            
+
             svg {
                 width: 12px;
                 height: 12px;
             }
         }
-        
+
         .clear-icon-container {
             position: absolute;
             top: 0;
@@ -592,13 +603,13 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            
+
             svg {
                 width: 14px;
                 height: 14px;
             }
         }
-        
+
         .form-control {
             width: 200px;
             min-width: 150px;
