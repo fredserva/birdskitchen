@@ -21,6 +21,7 @@ class SidebarNotExtended extends React.Component {
 
     componentDidMount() {
         this.props.setTags();
+        this.props.setCategories();
         this.setSelectedMenu( MainMenus[0], 'menu' );
         Mousetrap.bind( ['ctrl+n', 'command+n'], () => this.setState( { recipeModalVisible: true } ) );
     }
@@ -31,7 +32,31 @@ class SidebarNotExtended extends React.Component {
 
     setSelectedMenu = ( item, type ) => {
         const { setSelectedMenu, setRecipeList, setQuery } = this.props;
-        const selectedMenu = 'tag' === type ? { slug: item, name: item, icon: 'tag', type } : { ...item, type };
+
+        // Old
+        // const selectedMenu = 'tag' === type ? { slug: item, name: item, icon: 'tag', type } : { ...item, type };
+        let letSelectedMenu = {};
+        if ( 'tag' === type ) {
+            letSelectedMenu = {
+                slug: item,
+                name: item,
+                icon: 'tag',
+                type
+            };
+        } else if ( 'category' === type ) {
+            letSelectedMenu = {
+                slug: item,
+                name: item.charAt( 0 ).toUpperCase() + item.slice( 1 ),
+                icon: 'meal',
+                type
+            };
+        } else {
+            letSelectedMenu = {
+                ...item,
+                type
+            };
+        }
+        const selectedMenu = letSelectedMenu;
 
         setSelectedMenu( selectedMenu );
         setRecipeList( selectedMenu );
@@ -39,7 +64,7 @@ class SidebarNotExtended extends React.Component {
     };
 
     render() {
-        const { t, tags, selectedMenu, query } = this.props;
+        const { t, tags, categories, selectedMenu, query } = this.props;
         const { recipeModalVisible } = this.state;
 
         return (
@@ -110,6 +135,7 @@ class SidebarNotExtended extends React.Component {
                                 <div className='no-item-text'>{ t( 'There isn\'t any tag yet' ) }</div>
                                 : (
                                     <ul className='menu-list'>
+                                    { console.log( selectedMenu ) }
                                         {
                                             tags.map( ( value, index ) => {
                                                 let containerClassName = 'menu-list-item';
@@ -135,21 +161,56 @@ class SidebarNotExtended extends React.Component {
                         }
                     </div>
                 </div>
+                <input type='checkbox' className='accordion__checkbox' id='accordion-categories' />
+                <label className='sidebar-title accordion__heading' htmlFor='accordion-categories'>{ t( 'Categories' ) }</label>
+                <div className='categories-wrapper accordion'>
+                    <div className='categories-container accordion__content'>
+                        {
+                            0 === categories.length ?
+                                <div className='no-item-text'>{ t( 'There isn\'t any category yet' ) }</div>
+                                : (
+                                    <ul className='menu-list'>
+                                        {
+                                            categories.map( ( value, index ) => {
+                                                let containerClassName = 'menu-list-item';
+                                                if ( value === selectedMenu.slug ) {
+                                                    containerClassName += ' active';
+                                                }
+
+                                                return (
+                                                    <li key={index} onClick={() => this.setSelectedMenu( value, 'category' )}
+                                                        className={containerClassName}>
+                                                        <div className='icon-container'>
+                                                            <SvgIcon name={'meal'}/>
+                                                        </div>
+                                                        <div className='others-container'>
+                                                            <div className='text-container'>{value.charAt( 0 ).toUpperCase() + value.slice( 1 )}</div>
+                                                        </div>
+                                                    </li>
+                                                );
+                                            })
+                                        }
+                                    </ul>
+                                )
+                        }
+                    </div>
+                </div>
             </div>
         );
     }
 }
 
 const mapStateToProps = state => {
-    const { tags, selectedMenu } = state.sidebar;
+    const { tags, categories, selectedMenu } = state.sidebar;
     const { query } = state.search;
-    return { tags, selectedMenu, query };
+    return { tags, categories, selectedMenu, query };
 };
 
 const mapDispatchToProps = ( dispatch ) => {
     return {
         setSelectedMenu: selectedMenu => ReduxHelpers.setSelectedMenu( dispatch, selectedMenu ),
         setTags: () => ReduxHelpers.fillTags( dispatch ),
+        setCategories: () => ReduxHelpers.fillCategories( dispatch ),
         setRecipeList: selectedMenu => ReduxHelpers.fillRecipes( dispatch, selectedMenu ),
         setQuery: query => dispatch({ type: SET_SEARCH_QUERY, payload: query })
     };

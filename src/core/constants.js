@@ -18,6 +18,12 @@ const MainMenus = [
         type: 'menu'
     },
     {
+        slug: 'uncategorized',
+        icon: 'ghost',
+        name: 'Uncategorized',
+        type: 'menu'
+    },
+    {
         slug: 'trash',
         icon: 'trash',
         name: 'Trash',
@@ -30,6 +36,16 @@ const SearchResult = {
     icon: 'search',
     name: 'Search result',
     type: 'search'
+};
+
+const TagsResult = {
+    slug: 'tags',
+    type: 'tags'
+};
+
+const CategoriesResult = {
+    slug: 'categories',
+    type: 'categories'
 };
 
 const Keys = {
@@ -48,4 +64,4 @@ const App = {
     dbName: 'birdskitchen.db'
 };
 
-export { MainMenus, Keys, SearchResult, App };
+export { MainMenus, Keys, SearchResult, TagsResult, CategoriesResult, App };

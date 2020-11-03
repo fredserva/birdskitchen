@@ -6,7 +6,7 @@ import Store from 'electron-store';
 import moment from 'moment';
 
 import Api from './api';
-import {SET_SELECTED_MENU_ITEM, SET_TAGS} from '../redux/actions/sidebarActions';
+import {SET_SELECTED_MENU_ITEM, SET_TAGS, SET_CATEGORIES} from '../redux/actions/sidebarActions';
 import {SET_RECIPE_LIST} from '../redux/actions/recipeActions';
 
 import 'noty/src/noty.scss';
@@ -87,13 +87,19 @@ const RecipeHelpers = {
                     result = new Api().getAllFavoriteRecipes();
                 } else if ( 'untagged' === slug ) {
                     result = new Api().getAllUntaggedRecipes();
+                } else if ( 'uncategorized' === slug ) {
+                    result = new Api().getAllUncategorizedRecipes();
                 } else if ( 'trash' === slug ) {
                     result = new Api().getAllRecipesInTrash();
                 }
             } else if ( 'search' === selectedMenu.type ) {
                 result = new Api().queryRecipe( query.toLowerCase() );
-            } else {
+            } else if ( 'tag' === selectedMenu.type ) {
                 result = new Api().getRecipesContainsTag( slug );
+            } else if ( 'category' === selectedMenu.type ) {
+                result = new Api().getRecipesContainsCategory( slug );
+            } else {
+                result = new Api().getAllRecipes();
             }
         }
 
@@ -120,10 +126,34 @@ const TagHelpers = {
     }
 };
 
+const CategoriesHelpers = {
+    getAllItems: () => {
+        let categoriesAsStr = '';
+
+        _.forEach( new Api().getAllCategories(), key => {
+            if ( null !== key && '' !== key && undefined !== key ) {
+                categoriesAsStr += `${key},`;
+            }
+        });
+
+        if ( '' === categoriesAsStr ) {
+            return [];
+        }
+
+        categoriesAsStr = categoriesAsStr.substring( 0, categoriesAsStr.length - 1 );
+        return _.sortBy( _.uniq( categoriesAsStr.split( ',' ) ) );
+    }
+};
+
 const ReduxHelpers = {
     fillTags: dispatch => dispatch({
         type: SET_TAGS,
         payload: TagHelpers.getAllItems()
+    }),
+
+    fillCategories: dispatch => dispatch({
+        type: SET_CATEGORIES,
+        payload: CategoriesHelpers.getAllItems()
     }),
 
     fillRecipes: ( dispatch, selectedMenu, query ) => dispatch({
@@ -237,4 +267,4 @@ const StorageHelpers = {
     }
 };
 
-export {RecipeHelpers, TagHelpers, ReduxHelpers, NotyHelpers, StorageHelpers};
+export {RecipeHelpers, TagHelpers, CategoriesHelpers, ReduxHelpers, NotyHelpers, StorageHelpers};

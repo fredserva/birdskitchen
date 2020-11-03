@@ -32,11 +32,20 @@ class Api {
         isTrash: false
     }).value();
 
+    getAllUncategorizedRecipes = () => db.get( 'recipes' ).filter( { categories: '', isTrash: false } || {
+        categories: null,
+        isTrash: false
+    }).value();
+
     getAllFavoriteRecipes = () => db.get( 'recipes' ).filter( { isfavorite: true, isTrash: false } ).sortBy( 'title' ).value();
 
     getAllTags = () => db.get( 'recipes' ).filter( { isTrash: false } ).map( 'tags' ).value();
 
     getRecipesContainsTag = tag => db.get( 'recipes' ).filter( ( t => t.tags.indexOf( tag ) > -1 && false === t.isTrash ) ).value();
+
+    getAllCategories = () => db.get( 'recipes' ).filter( { isTrash: false } ).map( 'categories' ).value();
+
+    getRecipesContainsCategory = category => db.get( 'recipes' ).filter( ( t => t.categories.indexOf( category ) > -1 && false === t.isTrash ) ).value();
 
     queryRecipe = query => db.get( 'recipes' ).filter( ( t => ( t.title.toLowerCase().indexOf( query ) > -1 ) && false === t.isTrash ) ).value();
 }
