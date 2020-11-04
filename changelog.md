@@ -1,3 +1,10 @@
+## Version 0.2.1
+
+**New features**
+&nbsp;
+&nbsp;
+- Add ratings
+
 ## Version 0.2.0
 
 **New features**
