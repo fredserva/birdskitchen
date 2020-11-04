@@ -109,10 +109,40 @@ class RecipeListItemNotExtended extends Component {
         return tags;
     };
 
+    stars = () => {
+        const { item } = this.props;
+
+        if ( 1 === item.rating ) {
+            return <span><SvgIcon name='star'/></span>;
+        } else if ( 2 === item.rating ) {
+            return <span><SvgIcon name='star'/><SvgIcon name='star'/></span>;
+        } else if ( 3 === item.rating ) {
+            return <span><SvgIcon name='star'/><SvgIcon name='star'/><SvgIcon name='star'/></span>;
+        } else if ( 4 === item.rating ) {
+            return <span><SvgIcon name='star'/><SvgIcon name='star'/><SvgIcon name='star'/><SvgIcon name='star'/></span>;
+        } else if ( 5 === item.rating ) {
+            return <span><SvgIcon name='star'/><SvgIcon name='star'/><SvgIcon name='star'/><SvgIcon name='star'/><SvgIcon name='star'/></span>;
+        } else {
+            return;
+        }
+    };
+
+    favorite = () => {
+        const { item } = this.props;
+
+        if ( true === item.isfavorite ) {
+            return <span><SvgIcon name='bookmark'/></span>;
+        } else {
+            return;
+        }
+    };
+
     render() {
         const { t, item, selectedMenu } = this.props;
         const { showCrudModal, showGeneratorModal } = this.state;
         const tags = this.getTags();
+        const stars = this.stars();
+        const favorite = this.favorite();
 
         return (
             <div className='comp_recipe-list-item'>
@@ -138,6 +168,8 @@ class RecipeListItemNotExtended extends Component {
                         <div className='difficulty'>{item.difficultylevel}</div>
                         <div className='prep'>{item.prep}</div>
                         <div className='cook'>{item.cook}</div>
+                        <div className='rating'>{stars}</div>
+                        <div className='favorite'>{favorite}</div>
 
                         <ul className='tags-list'>
                             {
@@ -151,7 +183,7 @@ class RecipeListItemNotExtended extends Component {
                     </div>
                     <div className='right-side'>
                         {
-                            'trash' !== selectedMenu.slug && item.isfavorite ? <SvgIcon name='star'/> : null
+                            'trash' !== selectedMenu.slug && item.isfavorite ? <SvgIcon name='bookmark'/> : null
                         }
                     </div>
                 </div>
@@ -176,7 +208,7 @@ class RecipeListItemNotExtended extends Component {
                                     title={ t( 'Favorite / Unfavorite' ) }
                                 >
                                     {
-                                        item.isfavorite ? <SvgIcon name='star'/> : <SvgIcon name='star_outline'/>
+                                        item.isfavorite ? <SvgIcon name='bookmark'/> : <SvgIcon name='bookmark_outline'/>
                                     }
                                 </li>
                                 <li className='edit' title={ t( 'Edit ' ) } onClick={ () => this.setState( { showCrudModal: true } ) }>

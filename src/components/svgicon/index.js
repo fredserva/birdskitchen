@@ -111,9 +111,14 @@ class SvgIcon extends Component {
 					<polygon points='12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2'></polygon>
 				</svg> );
 				break;
-			case 'star_outline':
-				result = ( <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 576 512' fill='currentColor' stroke='currentColor'>
-					<path d='M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z'/>
+			case 'bookmark':
+				result = ( <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' fill='currentColor' stroke='currentColor'>
+					<path d='M317.379,0H97.951C83.322,0,71.828,11.494,71.828,26.122v373.029c0,5.747,3.135,10.971,7.837,13.584 c2.612,1.567,5.224,2.09,7.837,2.09s5.747-0.522,8.359-2.09l111.804-69.486l111.804,68.441c4.702,3.135,10.971,3.135,15.673,0.522 c4.702-2.612,7.837-7.837,7.837-13.584V26.122C343.502,11.494,332.008,0,317.379,0z'/>
+				</svg> );
+				break;
+			case 'bookmark_outline':
+				result = ( <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' fill='currentColor' stroke='currentColor'>
+					<path d='M391.416,0H120.584c-17.778,0-32.242,14.464-32.242,32.242v460.413c0,7.016,3.798,13.477,9.924,16.895 c2.934,1.638,6.178,2.45,9.421,2.45c3.534,0,7.055-0.961,10.169-2.882l138.182-85.312l138.163,84.693 c5.971,3.669,13.458,3.817,19.564,0.387c6.107-3.418,9.892-9.872,9.892-16.875V32.242C423.657,14.464,409.194,0,391.416,0z M384.967,457.453l-118.85-72.86c-6.229-3.817-14.07-3.798-20.28,0.032l-118.805,73.35V38.69h257.935V457.453z'/>
 				</svg> );
 				break;
 			case 'restore':
@@ -224,7 +229,7 @@ class SvgIcon extends Component {
 				</svg> );
 				break;
 			case 'x_circle':
-				result = ( <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' strokewidth='2' strokelinecap='round' strokelinejoin='round'>
+				result = ( <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' strokeWidth='2' strokeLinecap='round' strokeLinejoin='round'>
 					<circle cx='12' cy='12' r='10'></circle>
 					<line x1='15' y1='9' x2='9' y2='15'></line>
 					<line x1='9' y1='9' x2='15' y2='15'></line>
@@ -260,6 +265,8 @@ SvgIcon.propTypes = {
 		'edit',
 		'ghost',
 		'grid',
+		'bookmark',
+		'bookmark_outline',
 		'imglist',
 		'inbox',
 		'ingredients',
@@ -277,7 +284,6 @@ SvgIcon.propTypes = {
 		'sidebar',
 		'simplelist',
 		'star',
-		'star_outline',
 		'tag',
 		'toque',
 		'trash',

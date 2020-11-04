@@ -307,8 +307,8 @@ body {
 
                 .right-side {
                     svg {
-                        fill: #fabe77;
-                        color: #fabe77;
+                        fill: #ff3d00;
+                        color: #ff3d00;
                     }
                 }
 
@@ -365,7 +365,7 @@ body {
                             color: $text-color;
 
                             path {
-                                fill: #fabe77;
+                                fill: #ff3d00;
                             }
                         }
                     }
@@ -947,7 +947,8 @@ body {
                         .cook,
                         .difficulty,
                         .prep,
-                        .servings {
+                        .servings,
+                        .rating {
                             label {
                                 font-weight: 700;
                             }
@@ -1056,7 +1057,8 @@ body {
             .cook,
             .difficulty,
             .prep,
-            .servings {
+            .servings,
+            .rating {
                 color: $text-color;
             }
         }
@@ -1072,7 +1074,8 @@ body {
         .cook,
         .difficulty,
         .prep,
-        .servings {
+        .servings,
+        .rating {
             color: $text-color;
         }
     }

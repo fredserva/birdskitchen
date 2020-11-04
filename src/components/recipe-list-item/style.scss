@@ -31,14 +31,16 @@
             .servings,
             .difficulty,
             .prep,
-            .cook {
+            .cook,
+            .rating,
+            .favorite {
                 display: none;
             }
 
             .image-preview {
                 width: 100%;
                 height: 100px;
-                margin-bottom: 10px;
+                margin: 10px 0;
 
                 img {
                     width: 100%;
@@ -51,7 +53,7 @@
                 font-size: 0.35rem;
                 line-height: 1;
                 font-weight: 700;
-                max-width: 80%;
+                max-width: 100%;
                 text-overflow: ellipsis;
             }
 
@@ -227,7 +229,9 @@
             .servings,
             .difficulty,
             .prep,
-            .cook {
+            .cook,
+            .rating,
+            .favorite {
                 display: none;
             }
 
@@ -407,7 +411,7 @@
         font-weight: 700;
 
         .list-header-title {
-            width: 20%;
+            width: 30%;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -428,7 +432,9 @@
         }
 
         .list-header-prep,
-        .list-header-cook {
+        .list-header-cook,
+        .list-header-rating,
+        .list-header-favorite {
             width: 10%;
             white-space: nowrap;
             overflow: hidden;
@@ -440,7 +446,9 @@
     .list-header-servings,
     .list-header-difficulty,
     .list-header-prep,
-    .list-header-cook {
+    .list-header-cook,
+    .list-header-rating,
+    .list-header-favorite {
         padding-right: 10px;
     }
 }
@@ -476,12 +484,30 @@
             .servings,
             .difficulty,
             .prep,
-            .cook {
+            .cook,
+            .rating,
+            .favorite {
                 padding: 5px 10px 5px 0;
+            }
+            
+            .rating {
+                svg {
+                    color: #ffb400;
+                    fill: #ffb400;
+                    width: .3rem;
+                }
+            }
+
+            .favorite {
+                svg {
+                    color: #ff3d00;
+                    fill: #ff3d00;
+                    width: .3rem;
+                }
             }
 
             .title {
-                width: 20%;
+                width: 30%;
                 white-space: nowrap;
                 overflow: hidden;
                 text-overflow: ellipsis;
@@ -511,6 +537,20 @@
             }
 
             .cook {
+                width: 10%;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .rating {
+                width: 10%;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .favorite {
                 width: 10%;
                 white-space: nowrap;
                 overflow: hidden;

@@ -7,7 +7,7 @@ const MainMenus = [
     },
     {
         slug: 'favorites',
-        icon: 'star_outline',
+        icon: 'bookmark_outline',
         name: 'Favorites',
         type: 'menu'
     },

@@ -28,6 +28,12 @@ class RecipeListNotExtended extends React.Component {
                     <div className='list-header-cook'>
                         { t( 'Cook time' ) }
                     </div>
+                    <div className='list-header-rating'>
+                        { t( 'Rating' ) }
+                    </div>
+                    <div className='list-header-favorite'>
+                        { t( 'Favorites' ) }
+                    </div>
                 </div>
                 <div className='comp_recipe-list'>
                     {
