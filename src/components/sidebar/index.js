@@ -33,8 +33,6 @@ class SidebarNotExtended extends React.Component {
     setSelectedMenu = ( item, type ) => {
         const { setSelectedMenu, setRecipeList, setQuery } = this.props;
 
-        // Old
-        // const selectedMenu = 'tag' === type ? { slug: item, name: item, icon: 'tag', type } : { ...item, type };
         let letSelectedMenu = {};
         if ( 'tag' === type ) {
             letSelectedMenu = {
@@ -135,7 +133,6 @@ class SidebarNotExtended extends React.Component {
                                 <div className='no-item-text'>{ t( 'There isn\'t any tag yet' ) }</div>
                                 : (
                                     <ul className='menu-list'>
-                                    { console.log( selectedMenu ) }
                                         {
                                             tags.map( ( value, index ) => {
                                                 let containerClassName = 'menu-list-item';

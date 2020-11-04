@@ -214,6 +214,15 @@ class SvgIcon extends Component {
 					<path d='M468.25,426.6h-194.6c-11.4,0-20.8,9.4-20.8,20.8s9.4,20.8,20.8,20.8h194.5c11.4,0,20.8-9.4,20.8-20.8 C489.05,435.9,479.65,426.6,468.25,426.6z'/>
 				</svg> );
 				break;
+			case 'toque':
+				result = ( <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='currentColor' color='currentColor' strokeWidth='2' strokeLinecap='round' strokeLinejoin='round'>
+					<path d='M22.4,8.1C22.7,8,23.1,8,23.5,8c3,0,5.5,2.5,5.5,5.5S26.5,19,23.5,19l0.5,9H8l0.5-9c-3,0-5.5-2.5-5.5-5.5 S5.5,8,8.5,8c0.4,0,0.8,0,1.1,0.1'/>
+					<path d='M23,11c0-3.9-3.1-7-7-7s-7,3.1-7,7'/>
+					<line x1='16' y1='21' x2='16' y2='24'/>
+					<line x1='12.5' y1='21' x2='12' y2='23.7'/>
+					<line x1='19.5' y1='21' x2='20' y2='23.7'/>
+				</svg> );
+				break;
 			case 'x_circle':
 				result = ( <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' strokewidth='2' strokelinecap='round' strokelinejoin='round'>
 					<circle cx='12' cy='12' r='10'></circle>
@@ -270,6 +279,7 @@ SvgIcon.propTypes = {
 		'star',
 		'star_outline',
 		'tag',
+		'toque',
 		'trash',
 		'x_circle',
 		'upload'

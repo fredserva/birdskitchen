@@ -5,6 +5,7 @@ import FileInputComponent from 'react-file-input-previews-base64';
 import {connect} from 'react-redux';
 import { withTranslation } from 'react-i18next';
 import hoistStatics from 'hoist-non-react-statics';
+import StarRatingComponent from 'react-star-rating-controlled-component';
 
 import Modal from '../modal';
 import Api from '../../core/api';
@@ -52,20 +53,20 @@ class RecipeCrudModalNotExtended extends React.Component {
 
     onSubmit = () => {
         const { formValues } = this.state;
-	const { t, id } = this.props;
-	const feather = require( 'feather-icons' );
-	let isFormValid = true;
-	let errorValues = {};
+		const { t, id } = this.props;
+		const feather = require( 'feather-icons' );
+		let isFormValid = true;
+		let errorValues = {};
 
-	if ( ! isTextValid( formValues.title ) ) {
-		errorValues.title = t( 'This field is required!' );
-		isFormValid = false;
-	}
+		if ( ! isTextValid( formValues.title ) ) {
+			errorValues.title = t( 'This field is required!' );
+			isFormValid = false;
+		}
 
-	if ( ( formValues.servings > 1 ) && isNaN( formValues.servings ) ) {
-		errorValues.servings = t( 'Not a valid number' );
-		isFormValid = false;
-	}
+		if ( ( formValues.servings > 1 ) && isNaN( formValues.servings ) ) {
+			errorValues.servings = t( 'Not a valid number' );
+			isFormValid = false;
+		}
 
         if ( undefined === formValues.picture || '' === formValues.picture ) {
             formValues.picture = {
@@ -97,6 +98,7 @@ class RecipeCrudModalNotExtended extends React.Component {
         }
 
         this.setState({ errorValues });
+        window.location.reload();
     };
 
     _footer = () => {
@@ -162,7 +164,7 @@ class RecipeCrudModalNotExtended extends React.Component {
                                     name='difficultylevel'
                                     label={<SvgIcon name='difficulty'/>}
                                     id={formValues.difficultylevel}
-                                    value={formValues.difficultylevel}
+                                    value={'undefined' !== typeof formValues.difficultylevel ? formValues.difficultylevel : ''}
                                     options={levels}
                                     placeholder={''}
                                     errorText={errorValues.difficultylevel}
@@ -198,12 +200,27 @@ class RecipeCrudModalNotExtended extends React.Component {
                                     name='categories'
                                     label={ <span><SvgIcon name='meal'/> { t( 'Category' ) }</span> }
                                     id={formValues.categories}
-                                    value={formValues.categories}
+                                    value={'undefined' !== typeof formValues.categories ? formValues.categories : ''}
                                     options={categories}
 									placeholder={''}
                                     errorText={errorValues.categories}
                                     onChangeText={categories => this.setFormValues({ categories })}
                                 />
+                                <div className='comp_fe_choice-field'>
+									<div className='form-group rating'>
+										<label className='form-label'>
+											<span><SvgIcon name='toque'/> { t( 'Rating' ) }</span>
+										</label>
+										<StarRatingComponent
+											name='rating'
+											value={'undefined' !== typeof formValues.rating ? formValues.rating : 0}
+                                            renderStarIcon={() => <SvgIcon name='star'/>}
+											onStarClick={rating => this.setFormValues({ rating })}
+											starColor='#ffb400'
+											emptyStarColor='#333'
+										/>
+									</div>
+                                </div>
                             </div>
                         </div>
 

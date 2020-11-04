@@ -1,3 +1,17 @@
+.form-group.rating {
+    display: flex;
+    flex-direction: column;
+    margin-left: 50px;
+
+    .dv-star-rating {
+        font-size: 0.5rem;
+        display: flex !important;
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+        margin: 0 0 0 5px;
+    }
+}
+
 .comp_sidebar {
     display: flex;
     flex-direction: column;
@@ -116,7 +130,7 @@
         display: block;
         margin: 5px 0;
         cursor: pointer;
-        
+
         &:before {
             position: absolute;
             content: '\2304';
@@ -131,7 +145,7 @@
             justify-content: center;
             opacity: 1;
         }
-        
+
         &:after {
             position: absolute;
             content: '\2303';
@@ -147,7 +161,7 @@
             opacity: 0;
         }
     }
-    
+
     .accordion__checkbox {
         display: none;
         position: absolute;
@@ -167,9 +181,9 @@
             transition: all 0.4s;
         }
     }
-    
-    .tags-wrapper,
-    .categories-wrapper {
+
+    .categories-wrapper,
+    .tags-wrapper {
         overflow-y: auto;
         overflow-x: hidden;
 
@@ -177,7 +191,7 @@
             &__content {
                 opacity: 0;
                 max-height: 0;
-                margin: 0 0 20px 0;
+                margin: 0 0 20px;
                 overflow: hidden;
                 transition: all 0.4s;
             }

@@ -1,4 +1,4 @@
-# Birds Kitchen  <span style="font-size:.6em;font-weight: normal;">- 0.2.0</span>
+# Birds Kitchen
 
 #### ⚠️ The project is under early development, many bugs and architect changes are expected.
 
@@ -36,6 +36,7 @@ I you want to contribute, please send me a mail or a pidgeon :grin:
 - Content search
 - Tags
 - Categories
+- Ratings
 - Favorites
 - Print current recipe
 - Choose your storage directory (including Sync Services)
@@ -44,8 +45,9 @@ I you want to contribute, please send me a mail or a pidgeon :grin:
 ## Roadmap
 
 - [x] Categories
+- [x] Ratings
 - [ ] Link to Recipe source
-- [ ] Ratings
+- [ ] Table view with column sorting
 - [ ] Grocery List (?)
 - [ ] Auto updates (?)
 
