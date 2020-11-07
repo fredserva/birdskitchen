@@ -8,6 +8,7 @@
         display: none;
     }
 }
+
 .grid-display .comp_recipe-list-item {
     position: relative;
 
@@ -28,12 +29,12 @@
         .left-side {
             margin-right: auto;
 
-            .servings,
-            .difficulty,
-            .prep,
             .cook,
+            .difficulty,
+            .favorite,
+            .prep,
             .rating,
-            .favorite {
+            .servings {
                 display: none;
             }
 
@@ -56,7 +57,6 @@
                 max-width: 100%;
                 text-overflow: ellipsis;
             }
-
         }
 
         .right-side {
@@ -204,6 +204,7 @@
         display: none;
     }
 }
+
 .imglist-display .comp_recipe-list-item {
     position: relative;
 
@@ -226,12 +227,12 @@
             flex-wrap: wrap;
             width: 100%;
 
-            .servings,
-            .difficulty,
-            .prep,
             .cook,
+            .difficulty,
+            .favorite,
+            .prep,
             .rating,
-            .favorite {
+            .servings {
                 display: none;
             }
 
@@ -256,7 +257,7 @@
 
             .tags-list {
                 width: 100%;
-                
+
                 li {
                     margin: 10px 2px 0 10px;
                 }
@@ -431,10 +432,10 @@
             text-overflow: ellipsis;
         }
 
-        .list-header-prep,
         .list-header-cook,
-        .list-header-rating,
-        .list-header-favorite {
+        .list-header-favorite,
+        .list-header-prep,
+        .list-header-rating {
             width: 10%;
             white-space: nowrap;
             overflow: hidden;
@@ -442,13 +443,13 @@
         }
     }
 
-    .list-header-title,
-    .list-header-servings,
-    .list-header-difficulty,
-    .list-header-prep,
     .list-header-cook,
+    .list-header-difficulty,
+    .list-header-favorite,
+    .list-header-prep,
     .list-header-rating,
-    .list-header-favorite {
+    .list-header-servings,
+    .list-header-title {
         padding-right: 10px;
     }
 }
@@ -476,25 +477,25 @@
             flex-wrap: wrap;
             width: 100%;
 
-            .tags-list,
-            .image-preview {
+            .image-preview,
+            .tags-list {
                 display: none;
             }
 
-            .servings,
-            .difficulty,
-            .prep,
             .cook,
+            .difficulty,
+            .favorite,
+            .prep,
             .rating,
-            .favorite {
+            .servings {
                 padding: 5px 10px 5px 0;
             }
-            
+
             .rating {
                 svg {
                     color: #ffb400;
                     fill: #ffb400;
-                    width: .3rem;
+                    width: 0.3rem;
                 }
             }
 
@@ -502,7 +503,7 @@
                 svg {
                     color: #ff3d00;
                     fill: #ff3d00;
-                    width: .3rem;
+                    width: 0.3rem;
                 }
             }
 
@@ -559,7 +560,7 @@
 
             .tags-list {
                 width: 100%;
-                
+
                 li {
                     margin: 10px 2px 0 10px;
                 }
@@ -584,6 +585,42 @@
     }
 
     .recipe-list-menu {
-        display: none !important;
+        display: none;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        flex-direction: row-reverse;
+        position: absolute;
+        top: 7px;
+        right: 17px;
+
+        li {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            width: 26px;
+            height: 26px;
+            cursor: pointer;
+
+            svg {
+                width: 16px;
+                height: 16px;
+            }
+
+            &.favorite-false {
+                svg {
+                    width: 16px;
+                    height: 16px;
+                }
+            }
+
+            &.favorite-true {
+                svg {
+                    width: 20px;
+                    height: 20px;
+                    margin-left: 4px;
+                }
+            }
+        }
     }
 }
