@@ -38,6 +38,7 @@ I you want to contribute, please send me a mail or a pidgeon :grin:
 - Categories
 - Ratings
 - Favorites
+- Source URL
 - Print current recipe
 - Choose your storage directory (including Sync Services)
 - Backups and Restore backups
@@ -46,8 +47,7 @@ I you want to contribute, please send me a mail or a pidgeon :grin:
 
 - [x] Categories
 - [x] Ratings
-- [ ] Link to Recipe source
-- [ ] Table view with column sorting
+- [x] Link to Recipe source
 - [ ] Grocery List (?)
 - [ ] Auto updates (?)
 
