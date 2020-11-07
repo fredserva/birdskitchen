@@ -9,7 +9,7 @@ import StarRatingComponent from 'react-star-rating-controlled-component';
 
 import Modal from '../modal';
 import Api from '../../core/api';
-import { ChoiceField, NumberField, TextareaField, TextField, TagsField, MarkdownField } from '../form-elements';
+import { ChoiceField, NumberField, TextareaField, TextField, TagsField, MarkdownField, UrlField } from '../form-elements';
 import {isTextValid} from '../../core/utils';
 import SvgIcon from '../svgicon';
 import { NotyHelpers, ReduxHelpers, TagHelpers } from '../../core/helpers';
@@ -68,6 +68,16 @@ class RecipeCrudModalNotExtended extends React.Component {
 			isFormValid = false;
 		}
 
+		if ( undefined !== formValues.sourceurl || '' !== formValues.sourceurl ) {
+
+            // eslint-disable-next-line
+			let regex = /^(http:\/\/www\.|https:\/\/www\.|www\.)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?/;
+			if ( ! regex.test( formValues.sourceurl ) ) {
+				errorValues.sourceurl = t( 'Non-valid URL' );
+				isFormValid = false;
+			}
+		}
+
         if ( undefined === formValues.picture || '' === formValues.picture ) {
             formValues.picture = {
                 '': 'placeholder.png',
@@ -94,11 +104,13 @@ class RecipeCrudModalNotExtended extends React.Component {
 
             NotyHelpers.open( feather.icons.save.toSvg() + t( 'Saved' ), 'success', 2500 );
             this.onClose();
+			setTimeout( function() {
+				window.location.reload();
+			}, 2500 );
 
         }
 
         this.setState({ errorValues });
-        window.location.reload();
     };
 
     _footer = () => {
@@ -251,6 +263,13 @@ class RecipeCrudModalNotExtended extends React.Component {
                         </div>
                     </div>
 
+                    <UrlField
+                        name='sourceurl'
+                        label={<span><SvgIcon name='global'/> {t( 'Source url' )}</span>}
+                        value={formValues.sourceurl}
+                        errorText={errorValues.sourceurl}
+                        onChangeText={sourceurl => this.setFormValues({ sourceurl })}
+                    />
                     <TagsField
                         name='tags'
                         label={<span><SvgIcon name='tag'/> {t( 'Tags' )}</span>}

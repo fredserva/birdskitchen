@@ -1,3 +1,11 @@
+## Version 0.3.0
+
+**New features**
+&nbsp;
+&nbsp;
+- Add source url
+- Now follow semantic versioning
+
 ## Version 0.2.1
 
 **New features**

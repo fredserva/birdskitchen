@@ -100,5 +100,7 @@
 	"item": "item",
 	"items": "items",
 	"Search recipe...": "Search recipe...",
-	"Markdown Guide": "Markdown Guide"
+	"Markdown Guide": "Markdown Guide",
+	"Source url": "Source url",
+	"Non-valid URL": "Non-valid URL"
 }

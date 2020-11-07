@@ -52,6 +52,34 @@
 							}
 						}
 					}
+					
+					.source-url {
+						display: flex;
+						flex-direction: column;
+						margin-top: 20px;
+
+						label {
+							display: flex;
+							flex-direction: row;
+							font-weight: 700;
+
+							span {
+								width: 24px;
+								height: 24px;
+								margin-right: 10px;
+							}
+						}
+
+						.ext-link {
+							font-size: .3rem;
+							padding-bottom: 3px;
+							cursor: pointer;
+
+							&:hover {
+								border-bottom: 1px solid;
+							}
+						}
+					}
 				}
 			}
 

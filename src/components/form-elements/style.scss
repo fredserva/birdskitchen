@@ -136,6 +136,54 @@
     }
 }
 
+.comp_fe_url-field {
+    margin-bottom: 50px;
+    
+    .form-group {
+        label {
+            &.form-label {
+                display: block;
+                font-weight: bold;
+                font-size: 0.35rem;
+                margin-bottom: 20px;
+                cursor: pointer;
+
+                span {
+                    display: flex;
+                    align-items: center;
+                    line-height: 1.1;
+                    height: 30px;
+
+                    svg {
+                        margin-right: 10px;
+                    }
+                }
+            }
+
+            &.error-label {
+                display: block;
+                font-size: 0.3rem;
+                margin-top: 5px;
+                cursor: pointer;
+            }
+
+            svg {
+                width: 0.5rem;
+                margin-left: 5px;
+            }
+        }
+
+        .form-control {
+            display: block;
+            width: calc(100% - 26px);
+            height: 34px;
+            padding: 0 12px;
+            font-size: 0.35rem;
+            border-radius: 4px;
+        }
+    }
+}
+
 .comp_fe_textarea-field {
     .form-group {
         &.ingredients {

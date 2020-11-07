@@ -621,6 +621,23 @@ body {
             }
         }
 
+        .comp_fe_url-field {
+            .form-group {
+                label {
+                    &.error-label {
+                        color: #F44336;
+                    }
+                }
+
+                .form-control {
+                    border: none;
+                    color: $text-color;
+                    background: $base-color;
+                    box-shadow: 0 0 0 0 rgba(19,124,189,0), 0 0 0 0 rgba(19,124,189,0), 0 0 0 0 rgba(19,124,189,0), inset 0 0 0 1px rgba(16,22,26,.3), inset 0 1px 1px rgba(16,22,26,.4);
+                }
+            }
+        }
+
         .comp_fe_textarea-field {
             .form-group {
                 label {

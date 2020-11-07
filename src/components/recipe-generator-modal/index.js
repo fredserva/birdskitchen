@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import MarkdownIt from 'markdown-it';
 import Parser from 'html-react-parser';
+import { shell } from 'electron';
 import { withTranslation } from 'react-i18next';
 import hoistStatics from 'hoist-non-react-statics';
 
@@ -29,6 +30,10 @@ class RecipeGeneratorModalNotExtended extends React.Component {
     printThis = () => {
         window.print();
     };
+
+    openLinkInBrowser = async url => {
+		await shell.openExternal( url );
+	};
 
     onClose = () => {
         const { onClose } = this.props;
@@ -140,6 +145,14 @@ class RecipeGeneratorModalNotExtended extends React.Component {
                                     <span><SvgIcon name='clock'/></span>{ t( 'Cook time' ) }
                                 </label>
                                 {item.cook}
+                            </div>
+                        </div>
+                        <div className='tech'>
+                            <div className='source-url'>
+                                <label>
+                                    <span><SvgIcon name='global'/></span>{ t( 'Source url' ) }
+                                </label>
+                                <div className='ext-link' onClick={() => this.openLinkInBrowser( item.sourceurl )}>{item.sourceurl}</div>
                             </div>
                         </div>
                     </div>

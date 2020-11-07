@@ -100,5 +100,7 @@
 	"item": "correspondance",
 	"items": "correspondances",
 	"Search recipe...": "Cherchez une recette...",
-	"Markdown Guide": "Guide Markdown"
+	"Markdown Guide": "Guide Markdown",
+	"Source url": "URL source",
+	"Non-valid URL": "URL non valide"
 }
