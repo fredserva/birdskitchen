@@ -58,6 +58,9 @@ class RecipeCrudModalNotExtended extends React.Component {
 		let isFormValid = true;
 		let errorValues = {};
 
+		// eslint-disable-next-line
+		let regex = /^(http:\/\/www\.|https:\/\/www\.|www\.)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?/;
+
 		if ( ! isTextValid( formValues.title ) ) {
 			errorValues.title = t( 'This field is required!' );
 			isFormValid = false;
@@ -68,14 +71,9 @@ class RecipeCrudModalNotExtended extends React.Component {
 			isFormValid = false;
 		}
 
-		if ( undefined !== formValues.sourceurl || '' !== formValues.sourceurl ) {
-
-            // eslint-disable-next-line
-			let regex = /^(http:\/\/www\.|https:\/\/www\.|www\.)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?/;
-			if ( ! regex.test( formValues.sourceurl ) ) {
-				errorValues.sourceurl = t( 'Non-valid URL' );
-				isFormValid = false;
-			}
+		if ( ! regex.test( formValues.sourceurl ) && '' !== formValues.sourceurl ) {
+			errorValues.sourceurl = t( 'Non-valid URL' );
+			isFormValid = false;
 		}
 
         if ( undefined === formValues.picture || '' === formValues.picture ) {
