@@ -13,8 +13,12 @@ import './style.scss';
 
 class RecipeGeneratorModalNotExtended extends React.Component {
     mdParser = new MarkdownIt();
+
     state = {
         formValues: {},
+        initialCount: +this.props.item.servings,
+        count: +this.props.item.servings,
+        ingredients: this.props.item.ingredients,
         formElements: []
     };
 
@@ -31,6 +35,20 @@ class RecipeGeneratorModalNotExtended extends React.Component {
         window.print();
     };
 
+    plusQty = () => {
+        this.setState( {
+            count: +this.props.item.servings++,
+            ingredients: this.props.item.ingredients.replace( /\d*\.?\d+/g, k => ( k * +this.props.item.servings / this.state.initialCount ) )
+        } );
+    };
+
+    minusQty = () => {
+        this.setState( {
+            count: +this.props.item.servings--,
+            ingredients: this.props.item.ingredients.replace( /\d*\.?\d+/g, k => ( k * +this.props.item.servings / this.state.initialCount ) )
+        } );
+    };
+
     openLinkInBrowser = async url => {
 		await shell.openExternal( url );
 	};
@@ -39,6 +57,7 @@ class RecipeGeneratorModalNotExtended extends React.Component {
         const { onClose } = this.props;
         this.setState( { formValues: {} } );
         onClose && onClose();
+		window.location.reload();
     };
 
     _footer = () => {
@@ -122,12 +141,6 @@ class RecipeGeneratorModalNotExtended extends React.Component {
                             <img src={item.picture.base64} alt=''/>
                         </div>
                         <div className='tech'>
-                            <div className='servings'>
-                                <label>
-                                    <span><SvgIcon name='servings'/></span>{ t( 'Servings' ) }
-                                </label>
-                                {item.servings}
-                            </div>
                             <div className='difficulty'>
                                 <label>
                                     <span><SvgIcon name='difficulty'/></span>{ t( 'Difficulty' ) }
@@ -158,9 +171,15 @@ class RecipeGeneratorModalNotExtended extends React.Component {
                     </div>
                     <div className='ingredients-wrapper'>
                         <label>
-                            <span><SvgIcon name='ingredients'/></span>{ t( 'Ingredients' ) }
+                            <div className='plus-minus'>
+                                <div className='plus' onClick={this.plusQty}><SvgIcon name='plus'/></div>
+                                <div className='minus' onClick={this.minusQty}><SvgIcon name='minus'/></div>
+                            </div>
+                            <span><SvgIcon name='ingredients'/></span>
+                            { t( 'Ingredients' ) }
+                            <span className='qty'><SvgIcon name='servings'/> <span id='qtynb'>{item.servings}</span></span>
                         </label>
-                        {Parser( this.nToBr( item.ingredients ) )}
+                        { Parser( this.nToBr( this.state.ingredients ) ) }
                     </div>
                     <div className='directions-wrapper'>
                         <label>

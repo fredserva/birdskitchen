@@ -66,6 +66,12 @@ class RecipeCrudModalNotExtended extends React.Component {
 			isFormValid = false;
 		}
 
+		if ( undefined === formValues.ingredients || '' === formValues.ingredients ) {
+		} else {
+			formValues.ingredients = formValues.ingredients.replace( /,/g, '.' );
+			formValues.ingredients = formValues.ingredients.replace( /\d+/g, k => Number( k ).toFixed( 0 ) );
+		}
+
 		if ( ( formValues.servings > 1 ) && isNaN( formValues.servings ) ) {
 			errorValues.servings = t( 'Not a valid number' );
 			isFormValid = false;

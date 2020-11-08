@@ -39,6 +39,7 @@ I you want to contribute, please send me a mail or a pidgeon :grin:
 - Ratings
 - Favorites
 - Source URL
+- Change the ingredients amounts when adjusting the servings
 - Print current recipe
 - Choose your storage directory (including Sync Services)
 - Backups and Restore backups

@@ -34,8 +34,8 @@
 					.cook,
 					.difficulty,
 					.prep,
-					.servings,
-					.rating {
+					.rating,
+					.servings {
 						margin-right: 20px;
 						display: flex;
 						flex-direction: column;
@@ -52,7 +52,7 @@
 							}
 						}
 					}
-					
+
 					.source-url {
 						display: flex;
 						flex-direction: column;
@@ -71,7 +71,7 @@
 						}
 
 						.ext-link {
-							font-size: .3rem;
+							font-size: 0.3rem;
 							padding-bottom: 3px;
 							cursor: pointer;
 
@@ -84,17 +84,35 @@
 			}
 
 			.ingredients-wrapper {
+				word-wrap: break-word;
 				box-sizing: border-box;
 				width: 25%;
 				padding: 0 20px;
 				font-size: 0.35rem;
 
 				label {
+					position: relative;
+					box-sizing: border-box;
 					display: flex;
 					align-items: center;
 					margin-bottom: 10px;
 					font-size: 0.4rem;
 					padding-bottom: 5px;
+
+					.plus-minus {
+						position: absolute;
+						right: 0;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						box-sizing: border-box;
+						padding-top: 0.1rem;
+
+						svg {
+							width: 0.4rem;
+							height: 0.4rem;
+						}
+					}
 
 					span {
 						display: inline-block;
@@ -104,10 +122,23 @@
 							width: 0.5rem;
 						}
 					}
+
+					.qty {
+						padding: 0.1rem 0 0;
+						font-size: 0.3rem;
+						font-weight: normal;
+						position: absolute;
+						right: 1rem;
+
+						#qtynb {
+							width: 0.5rem;
+						}
+					}
 				}
 			}
 
 			.directions-wrapper {
+				word-wrap: break-word;
 				box-sizing: border-box;
 				width: 35%;
 				padding: 0 20px;
