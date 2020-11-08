@@ -1,3 +1,10 @@
+## Version 0.4.2
+
+**Refactor**
+&nbsp;
+&nbsp;
+- Remove escape key listener
+
 ## Version 0.4.1
 
 **Fixed bugs**

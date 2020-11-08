@@ -23,21 +23,6 @@ class RecipeGeneratorModalNotExtended extends React.Component {
         formElements: []
     };
 
-	componentDidMount() {
-        document.addEventListener( 'keyup', this.onKeyUpInput );
-    }
-
-    componentWillUnmount() {
-        document.removeEventListener( 'keyup', this.onKeyUpInput );
-    }
-
-	onKeyUpInput = ( e ) => {
-        e.preventDefault();
-		if ( e.keyCode === Keys.escape ) {
-			this.onClose();
-		}
-	};
-
     nToBr = ( data ) => {
         if ( undefined === data || '' === data ) {
             return ' ';
