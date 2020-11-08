@@ -69,11 +69,17 @@ class RecipeCrudModalNotExtended extends React.Component {
 		if ( ( formValues.servings > 1 ) && isNaN( formValues.servings ) ) {
 			errorValues.servings = t( 'Not a valid number' );
 			isFormValid = false;
+		} else if ( '' === formValues.servings || 'undefined' === formValues.servings || isNaN( formValues.servings ) ) {
+			formValues.servings = 1;
 		}
 
-		if ( ! regex.test( formValues.sourceurl ) && '' !== formValues.sourceurl ) {
-			errorValues.sourceurl = t( 'Non-valid URL' );
-			isFormValid = false;
+		if ( '' !== formValues.sourceurl ) {
+			if ( ! regex.test( formValues.sourceurl ) ) {
+				errorValues.sourceurl = t( 'Non-valid URL' );
+				isFormValid = false;
+			}
+		} else if ( undefined === formValues.sourceurl || '' === formValues.sourceurl ) {
+			isFormValid = true;
 		}
 
         if ( undefined === formValues.picture || '' === formValues.picture ) {
@@ -158,7 +164,7 @@ class RecipeCrudModalNotExtended extends React.Component {
                     title={modalTitle}
                     footerTemplate={this._footer}
                 >
-                
+
                     <div className='title-image-tech-wrapper'>
                         <div className='title-tech-wrapper'>
                             <TextField
