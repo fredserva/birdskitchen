@@ -87,7 +87,6 @@ class TopMenu extends Component {
         const { query } = this.props;
 
         // NOTE: Why react-i18n-next doesn't work here?
-        // super( props )?
         const appLang = StorageHelpers.preference.get( 'appLang' );
         let searchtext;
 		switch ( appLang ) {

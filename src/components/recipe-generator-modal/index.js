@@ -8,6 +8,7 @@ import hoistStatics from 'hoist-non-react-statics';
 
 import Modal from '../modal';
 import SvgIcon from '../svgicon';
+import {Keys} from '../../core/constants';
 
 import './style.scss';
 
@@ -21,6 +22,21 @@ class RecipeGeneratorModalNotExtended extends React.Component {
         ingredients: this.props.item.ingredients,
         formElements: []
     };
+
+	componentDidMount() {
+        document.addEventListener( 'keyup', this.onKeyUpInput );
+    }
+
+    componentWillUnmount() {
+        document.removeEventListener( 'keyup', this.onKeyUpInput );
+    }
+
+	onKeyUpInput = ( e ) => {
+        e.preventDefault();
+		if ( e.keyCode === Keys.escape ) {
+			this.onClose();
+		}
+	};
 
     nToBr = ( data ) => {
         if ( undefined === data || '' === data ) {
@@ -38,14 +54,18 @@ class RecipeGeneratorModalNotExtended extends React.Component {
     plusQty = () => {
         this.setState( {
             count: +this.props.item.servings++,
-            ingredients: this.props.item.ingredients.replace( /\d*\.?\d+/g, k => ( k * +this.props.item.servings / this.state.initialCount ) )
+            ingredients: this.props.item.ingredients.replace( /\d*\.?\d+/g, k => ( k * +this.props.item.servings / this.state.initialCount ).toFixed( 2 ).replace( /\.0+$/, '' ) )
         } );
     };
 
     minusQty = () => {
+        if ( +this.props.item.servings >  1 ) {
+            this.setState( {
+                count: +this.props.item.servings--
+            } );
+        }
         this.setState( {
-            count: +this.props.item.servings--,
-            ingredients: this.props.item.ingredients.replace( /\d*\.?\d+/g, k => ( k * +this.props.item.servings / this.state.initialCount ) )
+            ingredients: this.props.item.ingredients.replace( /\d*\.?\d+/g, k => ( k * +this.props.item.servings / this.state.initialCount ).toFixed( 2 ).replace( /\.0+$/, '' ) )
         } );
     };
 
@@ -57,7 +77,7 @@ class RecipeGeneratorModalNotExtended extends React.Component {
         const { onClose } = this.props;
         this.setState( { formValues: {} } );
         onClose && onClose();
-		window.location.reload();
+        window.location.reload();
     };
 
     _footer = () => {

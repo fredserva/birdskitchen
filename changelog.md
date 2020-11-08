@@ -1,3 +1,23 @@
+## Version 0.4.1
+
+**Fixed bugs**
+&nbsp;
+&nbsp;
+- Fix decimals for ingredients amounts. Now display only two decimals and remove insignificant trailing zeros.
+- Fix decrement going past zero.
+
+## Version 0.4.0
+
+**New features**
+&nbsp;
+&nbsp;
+- Change the ingredients amounts when adjusting the servings
+
+**Fixed bugs**
+&nbsp;
+&nbsp;
+- Fix empty source url unvalidate form
+
 ## Version 0.3.0
 
 **New features**
