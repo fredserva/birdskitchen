@@ -73,13 +73,12 @@ class RecipeCrudModalNotExtended extends React.Component {
 			formValues.servings = 1;
 		}
 
-		if ( '' !== formValues.sourceurl ) {
+		if ( undefined === formValues.sourceurl || '' === formValues.sourceurl ) {
+		} else {
 			if ( ! regex.test( formValues.sourceurl ) ) {
 				errorValues.sourceurl = t( 'Non-valid URL' );
 				isFormValid = false;
 			}
-		} else if ( undefined === formValues.sourceurl || '' === formValues.sourceurl ) {
-			isFormValid = true;
 		}
 
         if ( undefined === formValues.picture || '' === formValues.picture ) {
