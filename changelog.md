@@ -1,3 +1,10 @@
+## Version 0.5.0
+
+**New feature**
+&nbsp;
+&nbsp;
+- Table view with column sorting
+
 ## Version 0.4.3
 
 **Refactor**
@@ -25,7 +32,7 @@
 **New features**
 &nbsp;
 &nbsp;
-- Change the ingredients amounts when adjusting the servings
+- Change the ingredients amounts when adjusting the servings (ready to print view)
 
 **Fixed bugs**
 &nbsp;

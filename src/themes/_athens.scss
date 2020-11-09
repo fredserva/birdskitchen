@@ -1063,37 +1063,33 @@ body {
     }
 
     &.athens-theme.simplelist-display {
-        .body-container {
-            .list-header {
-                background-color: darken($base-color, 10%);
-                color: $text-color;
-                padding: 5px;
-                border-bottom: 1px solid $text-color;
+        color: $text-color;
+        
+        .comp_recipe-table-row:hover {
+            background-color: darken($base-color, 10%);
+        }
+        
+        thead {
+            background-color: darken($base-color, 20%);
+
+            th {
+                svg {
+                    fill: $text-color;
+                }
             }
+        }
 
-            .cook,
-            .difficulty,
-            .prep,
-            .servings,
-            .rating {
-                color: $text-color;
+        .td-rating {
+            svg {
+                color: #ffb400;
+                fill: #ffb400;
             }
         }
 
-        .sub-container {
-            padding: 0;
-        }
-
-        .title {
-            color: $text-color;
-        }
-
-        .cook,
-        .difficulty,
-        .prep,
-        .servings,
-        .rating {
-            color: $text-color;
+        .favorite-true {
+            svg {
+                color: #ff3d00;
+            }
         }
     }
 }

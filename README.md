@@ -39,7 +39,8 @@ I you want to contribute, please send me a mail or a pidgeon :grin:
 - Ratings
 - Favorites
 - Source URL
-- Change the ingredients amounts when adjusting the servings
+- Table view with column sorting
+- Change the ingredients amounts when adjusting the servings (ready to print view)
 - Print current recipe
 - Choose your storage directory (including Sync Services)
 - Backups and Restore backups
@@ -49,6 +50,7 @@ I you want to contribute, please send me a mail or a pidgeon :grin:
 - [x] Categories
 - [x] Ratings
 - [x] Link to Recipe source
+- [x] Table view with column sorting
 - [ ] Grocery List (?)
 - [ ] Auto updates (?)
 
