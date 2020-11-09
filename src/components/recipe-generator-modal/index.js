@@ -8,7 +8,6 @@ import hoistStatics from 'hoist-non-react-statics';
 
 import Modal from '../modal';
 import SvgIcon from '../svgicon';
-import {Keys} from '../../core/constants';
 
 import './style.scss';
 

@@ -1,3 +1,10 @@
+## Version 0.4.3
+
+**Refactor**
+&nbsp;
+&nbsp;
+- Remove unused variable
+
 ## Version 0.4.2
 
 **Refactor**
