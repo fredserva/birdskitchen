@@ -59,7 +59,7 @@ class RecipeCrudModalNotExtended extends React.Component {
 		let errorValues = {};
 
 		// eslint-disable-next-line
-		let regex = /^(http:\/\/www\.|https:\/\/www\.|www\.)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?/;
+		let regex = /(http[s]?:\/\/)?[^\s(["<,>]*\.[^\s[",><]*/igm;
 
 		if ( ! isTextValid( formValues.title ) ) {
 			errorValues.title = t( 'This field is required!' );
