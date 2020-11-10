@@ -61,7 +61,9 @@ class RecipeGeneratorModalNotExtended extends React.Component {
         const { onClose } = this.props;
         this.setState( { formValues: {} } );
         onClose && onClose();
-        window.location.reload();
+
+		// BUG: Lag
+        // window.location.reload();
     };
 
     _footer = () => {

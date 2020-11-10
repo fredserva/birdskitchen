@@ -74,7 +74,7 @@ class RecipeListItemNotExtended extends Component {
                         new Api().deleteRecipeById( id );
                         setRecipeList( selectedMenu );
                         setTags();
-                        NotyHelpers.open( feather.icons.zap.toSvg() + t( 'This recipe has been deleted permanently!' ), 'success', 2500 );
+                        NotyHelpers.open( feather.icons.zap.toSvg() + t( 'This recipe has been deleted permanently!' ), 'success', 1500 );
                     },
                     className: 'btn btn-danger'
                 },

@@ -111,11 +111,13 @@ class RecipeCrudModalNotExtended extends React.Component {
                 new Api().updateRecipeItem( dataToDb );
             }
 
-            NotyHelpers.open( feather.icons.save.toSvg() + t( 'Saved' ), 'success', 2500 );
+            NotyHelpers.open( feather.icons.save.toSvg() + t( 'Saved' ), 'success', 1500 );
             this.onClose();
-			setTimeout( function() {
-				window.location.reload();
-			}, 2500 );
+
+			// BUG: Lag
+			// setTimeout( function() {
+			// 	window.location.reload();
+			// }, 1500 );
 
         }
 

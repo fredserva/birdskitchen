@@ -22,7 +22,7 @@ class TopMenu extends Component {
     }
 
     handleSidebarClick() {
-        const sidebar = document.getElementById( 'sidebar-container' );
+        const sidebar = document.querySelector( '#sidebar-container' );
         sidebar.classList.toggle( 'hidden' );
     }
 

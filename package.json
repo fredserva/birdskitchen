@@ -1,7 +1,7 @@
 {
   "name": "birdskitchen",
   "appname": "Birds Kitchen",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "A free and open source recipe manager",
   "private": true,
   "main": "public/electron.js",
@@ -63,6 +63,7 @@
   "devDependencies": {
     "@rescripts/cli": "^0.0.14",
     "@rescripts/rescript-env": "^0.0.12",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "concurrently": "^5.3.0",
     "cross-env": "^7.0.2",
     "electron": "^10.1.5",

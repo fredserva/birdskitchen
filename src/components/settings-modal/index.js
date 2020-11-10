@@ -47,7 +47,7 @@ class SettingsModalNotExtended extends React.Component {
 
 		if ( undefined !== dir ) {
 			StorageHelpers.preference.set( 'storagePath', dir[ 0 ] );
-			NotyHelpers.open( feather.icons.folder.toSvg() + t( 'Storage directory succesfully changed!' ), 'success', 2500 );
+			NotyHelpers.open( feather.icons.folder.toSvg() + t( 'Storage directory succesfully changed!' ), 'success', 1500 );
 			setRecipeList();
 			this.setState( { dbDirectory: dir[ 0 ] } );
 		}
@@ -62,13 +62,13 @@ class SettingsModalNotExtended extends React.Component {
 
 			if ( undefined !== dir ) {
 				StorageHelpers.preference.set( 'backupPath', dir[ 0 ] );
-				NotyHelpers.open( feather.icons.folder.toSvg() + t( 'Backups directory succesfully changed!' ), 'success', 2500 );
+				NotyHelpers.open( feather.icons.folder.toSvg() + t( 'Backups directory succesfully changed!' ), 'success', 1500 );
 				this.setState( { backupDirectory: dir[ 0 ] } );
 			}
 		} else {
 			StorageHelpers.backupNow();
 			this.listBackupFiles();
-			NotyHelpers.open( feather.icons.archive.toSvg() + t( 'Backup was successful!' ), 'success', 2500 );
+			NotyHelpers.open( feather.icons.archive.toSvg() + t( 'Backup was successful!' ), 'success', 1500 );
 		}
 	};
 
@@ -84,7 +84,7 @@ class SettingsModalNotExtended extends React.Component {
 					label: t( 'Yes' ),
 					onClick: () => {
 						StorageHelpers.restoreDb( file.filePath );
-						NotyHelpers.open( feather.icons.database.toSvg() + t( 'Backup restored successfully!' ), 'success', 2500 );
+						NotyHelpers.open( feather.icons.database.toSvg() + t( 'Backup restored successfully!' ), 'success', 1500 );
 						setRecipeList();
 					},
 					className: 'btn btn-success'

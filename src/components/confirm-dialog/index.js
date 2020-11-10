@@ -74,7 +74,7 @@ const ConfirmDialog = hoistStatics( withTranslation()( ConfirmDialogNotExtended 
 export default ConfirmDialog;
 
 function createElementReconfirm( properties ) {
-    let divTarget = document.getElementById( 'react-custom-confirm-dialog' );
+    let divTarget = document.querySelector( '#react-custom-confirm-dialog' );
 
     if ( null === divTarget ) {
         divTarget = document.createElement( 'div' );
@@ -86,7 +86,7 @@ function createElementReconfirm( properties ) {
 }
 
 function removeElementReconfirm() {
-    const target = document.getElementById( 'react-custom-confirm-dialog' );
+    const target = document.querySelector( '#react-custom-confirm-dialog' );
     if ( target ) {
         unmountComponentAtNode( target );
         target.parentNode.removeChild( target );

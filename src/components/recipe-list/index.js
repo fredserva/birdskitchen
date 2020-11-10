@@ -11,7 +11,7 @@ import './style.scss';
 class RecipeListNotExtended extends React.Component {
 	sortTable = n => {
 		var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-		table = document.getElementById( 'recipe-table' );
+		table = document.querySelector( '#recipe-table' );
 		switching = true;
 		dir = 'asc';
 		while ( switching ) {
