@@ -1,10 +1,8 @@
 # Birds Kitchen
 
-#### ⚠️ The project is under early development, many bugs and architect changes are expected.
-
 I wanted to learn something new...
 
-So, this is an attempt to create a Desktop Recipe Manager application using Electron and React.
+So, I decided to take a crack at learning React and building an application that I found deeply missing in Linux: a Desktop Recipe Manager (I know there is some, but they don't match my needs...)
 
 I you want to contribute, please send me a mail or a pidgeon :grin:
 
@@ -12,20 +10,53 @@ I you want to contribute, please send me a mail or a pidgeon :grin:
 
 ## Screenshots
 
+&nbsp;
+
+**Dark and light theme - Grid view**
 <p align="center">
     <img src="screenshots/01.png" alt="Birds Kitchen" title="Birds Kitchen" />
 </p>
 
 &nbsp;
 
+**Image list view**
 <p align="center">
     <img src="screenshots/02.png" alt="Birds Kitchen" title="Birds Kitchen" />
 </p>
 
 &nbsp;
 
+**Table view**
 <p align="center">
     <img src="screenshots/03.png" alt="Birds Kitchen" title="Birds Kitchen" />
+</p>
+
+&nbsp;
+
+**Print view**
+<p align="center">
+    <img src="screenshots/04.png" alt="Birds Kitchen" title="Birds Kitchen" />
+</p>
+
+&nbsp;
+
+**Edit view**
+<p align="center">
+    <img src="screenshots/05.png" alt="Birds Kitchen" title="Birds Kitchen" />
+</p>
+
+&nbsp;
+
+**Preferences screen - Storage tab**
+<p align="center">
+    <img src="screenshots/06.png" alt="Birds Kitchen" title="Birds Kitchen" />
+</p>
+
+&nbsp;
+
+**Preferences screen - Theme tab**
+<p align="center">
+    <img src="screenshots/07.png" alt="Birds Kitchen" title="Birds Kitchen" />
 </p>
 
 ## Features
@@ -47,11 +78,20 @@ I you want to contribute, please send me a mail or a pidgeon :grin:
 
 ## Roadmap
 
+**A lot to do! Contributions are welcome.**
+
 - [x] Categories
 - [x] Ratings
 - [x] Link to Recipe source
 - [x] Table view with column sorting
+- [ ] Store images locally (*base64 for now*)
+- [ ] Guided tour
+- [ ] Documentation
+- [ ] Videos (?)
+- [ ] Imports from popular recipe websites (*Allrecipes, The Food Network, Marmiton*) (?)
+- [ ] CSV import/export
 - [ ] Grocery List (?)
+- [ ] Internal browser (?)
 - [ ] Auto updates (?)
 
 ## Running locally
