@@ -148,7 +148,7 @@ class RecipeCrudModalNotExtended extends React.Component {
         // eslint-disable-next-line
         const modalTitle = `${undefined !== id ? t( 'Edit' ) : t( 'New' )}` + ' ' + `${t( 'Recipe' )}`;
         const item = new Api().getRecipeById( id );
-        const previewImg = `${ undefined !== id ? StorageHelpers.readImg( item.picName ) : '' }`;
+        const previewImg = `${ undefined !== id ? StorageHelpers.readImg( item.picName ) : 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAlgAAAGQAgMAAAAPW/YLAAAACVBMVEVjaWygp6t+hIjGrRbLAAACnUlEQVR42u3bPY7TQBiA4bUlFz7AHsH3yBFSZKyFKkJCQpwiIHEE9zQ0nJIZO/YalKyEKOaLeJ5mtXHzKh6Pxz95egIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeEh9esOhWlb3VtZLtaznB8w6yZL1L1k/76qadbm3qZX10Fnt9Cli1pDyx+Gy2vnEEy5rXlbEyxpK1iVc1lSyzuGy5jPPMVpWHvHvp3SKltXk8d7Fy+pzT5vGeFnHPL7CZXUla0rxss6y/m5sBc2KeCSe8tw1xptOx5IWJOv77uTzOczJpx/3q8Awp+rh9XuLtLCZyvG3WwYeQmS1u/tGZdE8xlg0l5SAlxhlx22D60e5QRkiaz74wl2+Nq83JadLnIv9LqWPy+Bqy/ohStZzSt0yuPr1iAyQVaaHdhlc3XpEBsjK08M5T6gvy/d2iJI136J5nr+naT0iA2RNeVYvX9llnkrHIFnLmacp39M8UwTJmofW0zy45odA5xhZy6ia/wzp/XVerZ91HU5lcOX1zbT8Vz2ruR58+e85Tw9Dug64ylndOlVN6V1O6pfK6lnXvbY8ARrLPj0FyGq3h0798vxpOQJqZ12nh+vy5rju1NpZQ9pdZ5TCZp4iamdtQ2vefZf1XFQ5649rnu3MXTmr24ZW2X2nbZ1TOWt4vRLLu+9lu2isnPXbM+nhvA79yllfdhdim676xf63W+/SNNXv2Oymh51U+/7W7Vdp8udfK2edb3yep4gPlbMuNz4vT8nqZo03N0y137G5/ZbWUDvrcHNDXzvrzpbKWaf7wTWzjne2dCnkqz9NzKw8RYTMGmJm9V4re5isoG9Seh1W1n+V9eavC47VsoL+FgMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeBS/APEipcI05evwAAAAAElFTkSuQmCC' }`;
         const levels = [
             t( 'easy' ),
             t( 'medium' ),
