@@ -125,6 +125,10 @@ class RecipeGeneratorModalNotExtended extends React.Component {
                                 width: 80%;
                                 padding: 0;
                             }
+							.comp_recipe-generator-modal .modal-content .modal-body .ingredients-wrapper label .plus-minus,
+                            .comp_recipe-generator-modal .modal-content .modal-body .ingredients-wrapper label .qty {
+								display: none;
+							}
                         }
                     `}
                 </style>
