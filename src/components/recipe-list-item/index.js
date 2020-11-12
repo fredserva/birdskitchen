@@ -5,7 +5,7 @@ import _ from 'lodash';
 import { withTranslation } from 'react-i18next';
 import hoistStatics from 'hoist-non-react-statics';
 
-import {NotyHelpers, ReduxHelpers} from '../../core/helpers';
+import {NotyHelpers, ReduxHelpers, StorageHelpers} from '../../core/helpers';
 import SvgIcon from '../svgicon';
 import RecipeCrudModal from '../recipe-crud-modal';
 import Api from '../../core/api';
@@ -161,7 +161,7 @@ class RecipeListItemNotExtended extends Component {
                 <div onClick={ () => this.setState( { showGeneratorModal: true } ) } className='sub-container'>
                     <div className='left-side'>
                         <div className='image-preview'>
-                            <img src={item.picture.base64} alt=''/>
+                            <img src={ StorageHelpers.readImg( item.picName ) } alt=''/>
                         </div>
                         <div className='title'>{item.title}</div>
                         <div className='servings'>{item.servings}</div>

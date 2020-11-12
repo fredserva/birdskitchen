@@ -39,17 +39,22 @@ class SettingsModalNotExtended extends React.Component {
 		tabChanged && tabChanged( selectedTab );
 	};
 
-	moveStorage = type => {
+	openmoveStorage = type => {
 		const { t, setRecipeList } = this.props;
 		const feather = require( 'feather-icons' );
 
 		const dir = remote.dialog.showOpenDialogSync( { properties: [ 'openDirectory' ] } );
 
 		if ( undefined !== dir ) {
-			StorageHelpers.preference.set( 'storagePath', dir[ 0 ] );
-			NotyHelpers.open( feather.icons.folder.toSvg() + t( 'Storage directory succesfully changed!' ), 'success', 1500 );
-			setRecipeList();
-			this.setState( { dbDirectory: dir[ 0 ] } );
+			if ( 'move' === type ) {
+				StorageHelpers.moveDb( dir[0] );
+				NotyHelpers.open( feather.icons.folder.toSvg() + t( 'Storage directory succesfully moved!' ), 'success', 1500 );
+			} else {
+				NotyHelpers.open( feather.icons.folder.toSvg() + t( 'New Storage directory succesfully set!' ), 'success', 1500 );
+				StorageHelpers.preference.set( 'storagePath', dir[0] );
+				setRecipeList();
+			}
+			this.setState( { dbDirectory: dir[0] } );
 		}
 	};
 
@@ -162,8 +167,11 @@ class SettingsModalNotExtended extends React.Component {
 									<TextField name={''} readOnly={true} value={dbDirectory}/>
 								</div>
 								<div className='buttons-container'>
-									<button className='btn btn-default' onClick={() => this.moveStorage()}>
-										{ t( 'Select folder' ) }
+									<button className='btn btn-default' onClick={() => this.openmoveStorage( 'open' )}>
+										{ t( 'Open existing Storage folder' ) }
+									</button>
+									<button className='btn btn-default' onClick={() => this.openmoveStorage( 'move' )}>
+										{ t( 'Move Storage folder' ) }
 									</button>
 								</div>
 							</div>
@@ -181,7 +189,7 @@ class SettingsModalNotExtended extends React.Component {
 								</div>
 								<div className='buttons-container'>
 									<button className='btn btn-default' onClick={() => this.changeOrBackupNow( 'change' )}>
-										{ t( 'Select folder' ) }
+										{ t( 'Select backup folder' ) }
 									</button>
 									<button className='btn btn-default' onClick={() => this.changeOrBackupNow( 'backup' )}>
 										{ t( 'Backup now' ) }
@@ -313,7 +321,7 @@ class SettingsModalNotExtended extends React.Component {
 									</div>
 							</div>
 							</div>
-							
+
 						</div>
 					</div>
 				</div>

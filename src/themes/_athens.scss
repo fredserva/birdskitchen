@@ -655,30 +655,8 @@ body {
         }
 
         .comp_fe_image-field {
-            .image-preview + div {
-                label {
-                    color: $text-color !important;
-
-                    & + div {
-                        background-color: $base-color;
-
-                        & img {
-                            background-color: $base-color;
-                        }
-                    }
-                }
-
-                span {
-                    svg {
-                        background-color: rgba(0, 0, 0, 0.1);
-                        stroke: $text-color;
-
-                        &:hover {
-                            background-color: rgba(0, 0, 0, 0.2);
-                            cursor: pointer;
-                        }
-                    }
-                }
+            .image-preview {
+                background-color: $base-color;
             }
         }
 

@@ -1,3 +1,10 @@
+## Version 0.6.0
+
+**New feature**
+&nbsp;
+&nbsp;
+- Store images locally
+
 ## Version 0.5.0
 
 **New feature**

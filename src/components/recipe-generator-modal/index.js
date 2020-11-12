@@ -8,6 +8,7 @@ import hoistStatics from 'hoist-non-react-statics';
 
 import Modal from '../modal';
 import SvgIcon from '../svgicon';
+import { StorageHelpers } from '../../core/helpers';
 
 import './style.scss';
 
@@ -144,7 +145,7 @@ class RecipeGeneratorModalNotExtended extends React.Component {
                 >
                     <div className='image-tech-wrapper'>
                         <div className='image'>
-                            <img src={item.picture.base64} alt=''/>
+                            <img src={ StorageHelpers.readImg( item.picName ) } alt=''/>
                         </div>
                         <div className='tech'>
                             <div className='difficulty'>

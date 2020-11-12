@@ -1,7 +1,7 @@
 {
   "name": "birdskitchen",
   "appname": "Birds Kitchen",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "description": "A free and open source recipe manager",
   "private": true,
   "main": "public/electron.js",
@@ -29,6 +29,7 @@
     "react-dom": "^16.14.0",
     "react-file-input-previews-base64": "^1.0.8",
     "react-i18next": "^11.7.3",
+    "react-images-upload": "^1.2.8",
     "react-markdown-editor-lite": "^1.2.2",
     "react-mousetrap": "^0.2.0",
     "react-redux": "^7.2.2",

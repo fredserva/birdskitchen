@@ -1,18 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import shortid from 'shortid';
-import FileInputComponent from 'react-file-input-previews-base64';
 import {connect} from 'react-redux';
 import { withTranslation } from 'react-i18next';
 import hoistStatics from 'hoist-non-react-statics';
 import StarRatingComponent from 'react-star-rating-controlled-component';
+import ImageUploader from 'react-images-upload';
+import fs from 'fs';
 
 import Modal from '../modal';
 import Api from '../../core/api';
 import { ChoiceField, NumberField, TextareaField, TextField, TagsField, MarkdownField, UrlField } from '../form-elements';
 import {isTextValid} from '../../core/utils';
 import SvgIcon from '../svgicon';
-import { NotyHelpers, ReduxHelpers, TagHelpers } from '../../core/helpers';
+import { NotyHelpers, ReduxHelpers, TagHelpers, StorageHelpers } from '../../core/helpers';
 import '../i18n';
 
 import './style.scss';
@@ -21,7 +22,8 @@ class RecipeCrudModalNotExtended extends React.Component {
     state = {
 		formValues: {},
 		errorValues: {},
-		autoSuggest: []
+		autoSuggest: [],
+		isMouseInside: false
 	};
 
 	componentDidUpdate( prevProps, prevState, snapshot ) {
@@ -37,6 +39,14 @@ class RecipeCrudModalNotExtended extends React.Component {
 			this.setState( { autoSuggest } );
 		}
 	}
+
+	hideImgPreview = () => {
+		this.setState({ isMouseInside: true });
+	};
+
+	showImgPreview = () => {
+		this.setState({ isMouseInside: false });
+	};
 
     setFormValues = ( obj ) => {
 		const { formValues } = this.state;
@@ -87,16 +97,6 @@ class RecipeCrudModalNotExtended extends React.Component {
 			}
 		}
 
-        if ( undefined === formValues.picture || '' === formValues.picture ) {
-            formValues.picture = {
-                '': 'placeholder.png',
-                'type': 'image/png',
-                'size': '996',
-                'base64': 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAlgAAAGQAgMAAAAPW/YLAAAACVBMVEVjaWygp6t+hIjGrRbLAAACnUlEQVR42u3bPY7TQBiA4bUlFz7AHsH3yBFSZKyFKkJCQpwiIHEE9zQ0nJIZO/YalKyEKOaLeJ5mtXHzKh6Pxz95egIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeEh9esOhWlb3VtZLtaznB8w6yZL1L1k/76qadbm3qZX10Fnt9Cli1pDyx+Gy2vnEEy5rXlbEyxpK1iVc1lSyzuGy5jPPMVpWHvHvp3SKltXk8d7Fy+pzT5vGeFnHPL7CZXUla0rxss6y/m5sBc2KeCSe8tw1xptOx5IWJOv77uTzOczJpx/3q8Awp+rh9XuLtLCZyvG3WwYeQmS1u/tGZdE8xlg0l5SAlxhlx22D60e5QRkiaz74wl2+Nq83JadLnIv9LqWPy+Bqy/ohStZzSt0yuPr1iAyQVaaHdhlc3XpEBsjK08M5T6gvy/d2iJI136J5nr+naT0iA2RNeVYvX9llnkrHIFnLmacp39M8UwTJmofW0zy45odA5xhZy6ia/wzp/XVerZ91HU5lcOX1zbT8Vz2ruR58+e85Tw9Dug64ylndOlVN6V1O6pfK6lnXvbY8ARrLPj0FyGq3h0798vxpOQJqZ12nh+vy5rju1NpZQ9pdZ5TCZp4iamdtQ2vefZf1XFQ5649rnu3MXTmr24ZW2X2nbZ1TOWt4vRLLu+9lu2isnPXbM+nhvA79yllfdhdim676xf63W+/SNNXv2Oymh51U+/7W7Vdp8udfK2edb3yep4gPlbMuNz4vT8nqZo03N0y137G5/ZbWUDvrcHNDXzvrzpbKWaf7wTWzjne2dCnkqz9NzKw8RYTMGmJm9V4re5isoG9Seh1W1n+V9eavC47VsoL+FgMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeBS/APEipcI05evwAAAAAElFTkSuQmCC',
-                'file': {}
-            };
-        }
-
         if ( isFormValid ) {
             let dataToDb = { ...formValues };
             dataToDb.tags = dataToDb.tags || '';
@@ -115,9 +115,9 @@ class RecipeCrudModalNotExtended extends React.Component {
             this.onClose();
 
 			// BUG: Lag
-			// setTimeout( function() {
-			// 	window.location.reload();
-			// }, 1500 );
+			setTimeout( function() {
+				window.location.reload();
+			}, 1500 );
 
         }
 
@@ -140,11 +140,15 @@ class RecipeCrudModalNotExtended extends React.Component {
     render() {
         const { formValues, errorValues, autoSuggest } = this.state;
         const { t, id, show } = this.props;
+		const picsDirectory = StorageHelpers.preference.get( 'storagePath' ) + '/medias';
+		if ( ! fs.existsSync( picsDirectory ) ) {
+			fs.mkdirSync( picsDirectory );
+		}
 
         // eslint-disable-next-line
         const modalTitle = `${undefined !== id ? t( 'Edit' ) : t( 'New' )}` + ' ' + `${t( 'Recipe' )}`;
         const item = new Api().getRecipeById( id );
-        const previewImg = `${ undefined !== id ? item.picture.base64 : '' }`;
+        const previewImg = `${ undefined !== id ? StorageHelpers.readImg( item.picName ) : '' }`;
         const levels = [
             t( 'easy' ),
             t( 'medium' ),
@@ -248,29 +252,39 @@ class RecipeCrudModalNotExtended extends React.Component {
                         </div>
 
                         <div className='comp_fe_image-field'>
-                            <div className='image-preview'>
-                                <img className={id} src={previewImg} alt='' />
-                            </div>
-                            <FileInputComponent
-                                inputName='picture'
-                                inputId={'pic-' + id}
-                                value={formValues.picture}
-                                labelText={t( 'Picture' )}
-                                multiple={false}
-                                accept='image/*'
-                                imagePreview={true}
-                                buttonComponent={<span><SvgIcon name='upload'/>{t( 'import a picture' )}</span>}
-                                parentStyle={{ margin:'0 0 50px 0' }}
-                                callbackFunction={
-                                    picture => {
-                                        this.setFormValues({ picture });
-                                        let target = document.getElementsByClassName( id );
-                                        if ( 0 !== target.length ) {
-                                            target[0].remove();
-                                        }
-                                    }
-                                }
-                            />
+							<div className='image-preview' onMouseEnter={this.hideImgPreview} onMouseLeave={this.showImgPreview}>
+								{this.state.isMouseInside ? null : <img className={id} src={previewImg} alt='' />}
+							</div>
+								{this.state.isMouseInside ?
+									<div className='uploader-wrapper'>
+										<div className='uploader-close' onClick={this.showImgPreview}>x</div>
+										<ImageUploader
+											className='image-uploader'
+											name='image'
+											accept='image/*'
+											withPreview={true}
+											withIcon={true}
+											singleImage={true}
+											buttonText={t( 'Choose an image' )}
+											onChange={
+												pic => {
+													if ( pic[0] ) {
+														const picName = pic[0].name;
+														const initialPath = pic[0].path;
+														const imgPath = picsDirectory + '/' + picName;
+														fs.copyFileSync( initialPath, imgPath );
+														this.setFormValues({ picName });
+													}
+												}
+											}
+											imgExtension={['.jpg', '.jpeg', '.png']}
+											maxFileSize={1048576}
+											label={t( 'Max file size 1mb - Type accepted jpg or png' )}
+											fileSizeError={' ' + t( 'file size is too big' )}
+											fileTypeError={' ' + t( 'is not supported file extension' )}
+										/>
+									</div>
+								: null }
                         </div>
                     </div>
 
