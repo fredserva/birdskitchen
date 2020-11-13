@@ -238,7 +238,6 @@ const StorageHelpers = {
 
             fs.copyFileSync( oldPath, newPath );
             fs.unlinkSync( oldPath );
-            fs.rmdirSync( mediasFolderExistPath );
         }
 
         fs.copyFileSync( oldPathForDbFile, newPathForDbFile );

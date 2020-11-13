@@ -46,10 +46,10 @@
         align-items: center;
         user-select: none;
         padding: 20px 50px 20px 55px;
-        
+
         svg {
             width: 24px;
-            
+
             &:hover {
                 cursor: pointer;
             }
@@ -79,7 +79,7 @@
 
         .modal-footer {
             width: 100%;
-            
+
             .footer-buttons {
                 display: flex;
                 align-items: center;
@@ -90,12 +90,12 @@
                     display: flex;
                     align-items: center;
                     padding: 10px 0;
-                    
+
                     svg {
                         width: 24px;
                         height: 24px;
                         margin: 0 5px;
-                        
+
                         &:hover {
                             cursor: pointer;
                         }

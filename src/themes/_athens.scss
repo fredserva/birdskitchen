@@ -208,7 +208,7 @@ body {
             }
 
             .accordion__heading {
-                    color: $text-color;
+                color: $text-color;
             }
 
             .menu-list {
@@ -354,6 +354,7 @@ body {
                             fill: $text-color;
                         }
                     }
+
                     svg {
                         // fill: $text-color;
                         color: $text-color;
@@ -942,8 +943,8 @@ body {
                         .cook,
                         .difficulty,
                         .prep,
-                        .servings,
-                        .rating {
+                        .rating,
+                        .servings {
                             label {
                                 font-weight: 700;
                             }
@@ -1042,11 +1043,11 @@ body {
 
     &.athens-theme.simplelist-display {
         color: $text-color;
-        
+
         .comp_recipe-table-row:hover {
             background-color: darken($base-color, 10%);
         }
-        
+
         thead {
             background-color: darken($base-color, 20%);
 

@@ -1,3 +1,15 @@
+## Version 0.6.2
+
+**Refactor**
+&nbsp;
+&nbsp;
+- Refactor all code
+
+**Fixed bugs**
+&nbsp;
+&nbsp;
+- Fix remove not-empty folder when moving database
+
 ## Version 0.6.1
 
 **New feature**

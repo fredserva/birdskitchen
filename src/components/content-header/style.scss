@@ -23,13 +23,13 @@
 
             .title {
                 font-weight: bold;
-                font-size: .275rem;
+                font-size: 0.275rem;
                 margin-left: 5px;
             }
         }
 
         .sub-text {
-            font-size: .275rem;
+            font-size: 0.275rem;
             margin-top: -5px;
             padding-left: 40px;
         }
@@ -42,7 +42,7 @@
         .icons-header {
             display: flex;
             align-items: flex-start;
-            
+
             .icon-wrapper {
                 display: flex;
                 align-items: flex-start;
@@ -51,7 +51,7 @@
                 border-radius: 5px;
 
                 svg {
-                    height: .35rem;
+                    height: 0.35rem;
                 }
             }
         }

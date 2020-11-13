@@ -1,42 +1,41 @@
 @import "../themes/theme";
 
-html,
-body {
-  padding: 0;
-  margin: 0;
-  height: 100%;
+body,
+html {
+    padding: 0;
+    margin: 0;
+    height: 100%;
 
-  * {
-    font-family: 'Open Sans', sans-serif;
-    outline: none !important;
+    * {
+        font-family: 'Open Sans', sans-serif;
+        outline: none !important;
 
-    &::-webkit-scrollbar {
-      width: 10px;
+        &::-webkit-scrollbar {
+            width: 10px;
+        }
     }
-  }
-  
-  font-size: calc( 16px + (60 - 16) * ((100vw - 320px) / (1980 - 320)));
+    font-size: calc(16px + (60 - 16) * ((100vw - 320px) / (1980 - 320)));
 }
 
 #root {
-  height: 100vh;
+    height: 100vh;
 
-  .content-main-container {
-    display: flex;
-    height: calc(100vh - 81px);
+    .content-main-container {
+        display: flex;
+        height: calc(100vh - 81px);
 
-    .content-container {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
+        .content-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
     }
-  }
 }
 
 #sidebar-container {
     margin-left: 0;
-    transition: all .5s linear;
+    transition: all 0.5s linear;
 }
 
 #sidebar-container.hidden {
@@ -44,19 +43,19 @@ body {
 }
 
 #noty_layout__bottomRight {
-  bottom: 60px !important;
+    bottom: 60px !important;
 }
 
 .noty_theme__sunset {
-  .noty_body {
-    font-size: .4rem !important;
-    display: flex;
-    align-items: flex-start;
+    .noty_body {
+        font-size: 0.4rem !important;
+        display: flex;
+        align-items: flex-start;
 
-    & svg {
-        width: 0.7rem;
-        height: 0.6rem;
-        padding-right: 10px;
+        & svg {
+            width: 0.7rem;
+            height: 0.6rem;
+            padding-right: 10px;
+        }
     }
-  }
 }
