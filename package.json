@@ -27,7 +27,6 @@
     "rc-input-number": "^6.1.1",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
-    "react-file-input-previews-base64": "^1.0.8",
     "react-i18next": "^11.7.3",
     "react-images-upload": "^1.2.8",
     "react-markdown-editor-lite": "^1.2.2",
