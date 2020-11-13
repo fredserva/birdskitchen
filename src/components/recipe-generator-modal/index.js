@@ -39,7 +39,9 @@ class RecipeGeneratorModalNotExtended extends React.Component {
     plusQty = () => {
         this.setState( {
             count: +this.props.item.servings++,
-            ingredients: this.props.item.ingredients.replace( /\d*\.?\d+/g, k => ( k * +this.props.item.servings / this.state.initialCount ).toFixed( 2 ).replace( /\.0+$/, '' ) )
+
+			// eslint-disable-next-line
+            ingredients: this.props.item.ingredients.replace( /(\d+[\/\d.,]*|\d)/g, k => ( eval( k ) * +this.props.item.servings / this.state.initialCount ).toFixed( 2 ).replace( /\.0+$/, '' ) )
         } );
     };
 
@@ -50,7 +52,9 @@ class RecipeGeneratorModalNotExtended extends React.Component {
             } );
         }
         this.setState( {
-            ingredients: this.props.item.ingredients.replace( /\d*\.?\d+/g, k => ( k * +this.props.item.servings / this.state.initialCount ).toFixed( 2 ).replace( /\.0+$/, '' ) )
+
+            // eslint-disable-next-line
+            ingredients: this.props.item.ingredients.replace( /(\d+[\/\d.,]*|\d)/g, k => ( eval( k ) * +this.props.item.servings / this.state.initialCount ).toFixed( 2 ).replace( /\.0+$/, '' ) )
         } );
     };
 
