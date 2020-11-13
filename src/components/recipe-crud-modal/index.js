@@ -252,7 +252,10 @@ class RecipeCrudModalNotExtended extends React.Component {
                         </div>
 
                         <div className='comp_fe_image-field'>
-							<div className='image-preview' onMouseEnter={this.hideImgPreview} onMouseLeave={this.showImgPreview}>
+							<div className='image-preview' onClick={this.hideImgPreview}>
+								<label className='form-label'>
+									<span>{ t( 'Click to upload an image' ) }</span>
+								</label>
 								{this.state.isMouseInside ? null : <img className={id} src={previewImg} alt='' />}
 							</div>
 								{this.state.isMouseInside ?
