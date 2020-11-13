@@ -44,6 +44,7 @@ html {
 
 #noty_layout__bottomRight {
     bottom: 60px !important;
+    width: 40vw;
 }
 
 .noty_theme__sunset {
@@ -51,6 +52,7 @@ html {
         font-size: 0.4rem !important;
         display: flex;
         align-items: flex-start;
+        padding: 20px !important;
 
         & svg {
             width: 0.7rem;
