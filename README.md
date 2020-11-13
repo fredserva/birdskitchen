@@ -85,6 +85,7 @@ I you want to contribute, please send me a mail or a pidgeon :grin:
 - [x] Link to Recipe source
 - [x] Table view with column sorting
 - [x] Store images locally (*base64 for now*)
+- [ ] Fix fraction calculations
 - [ ] Guided tour
 - [ ] Documentation
 - [ ] Videos (?)
