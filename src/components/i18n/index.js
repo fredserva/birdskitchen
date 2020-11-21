@@ -3,6 +3,7 @@ import { initReactI18next } from 'react-i18next';
 
 import translationEN from '../../locales/en/translation.json';
 import translationFR from '../../locales/fr/translation.json';
+import translationDE from '../../locales/de/translation.json';
 
 // The translations
 const resources = {
@@ -11,18 +12,22 @@ const resources = {
 	},
 	fr: {
 		translation: translationFR
+	},
+	de: {
+		translation: translationDE
 	}
 };
 
-i18n.use( initReactI18next ).init( {
+i18n.use(initReactI18next).init({
 	resources,
 	lng: 'en',
 	keySeparator: false,
 	fallbackLng: 'en',
+	debug: true,
 
 	interpolation: {
 		escapeValue: false
 	}
-} );
+});
 
 export default i18n;
