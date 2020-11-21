@@ -18,7 +18,7 @@ const resources = {
 	}
 };
 
-i18n.use(initReactI18next).init({
+i18n.use( initReactI18next ).init( {
 	resources,
 	lng: 'en',
 	keySeparator: false,
@@ -27,6 +27,6 @@ i18n.use(initReactI18next).init({
 	interpolation: {
 		escapeValue: false
 	}
-});
+} );
 
 export default i18n;

@@ -13,17 +13,17 @@ import SettingsModal from '../settings-modal';
 
 import './style.scss';
 
-const Mousetrap = require('mousetrap');
+const Mousetrap = require( 'mousetrap' );
 
 class TopMenu extends Component {
-    constructor(props) {
-        super(props);
-        this.handleSidebarClick = this.handleSidebarClick.bind(this);
+    constructor( props ) {
+        super( props );
+        this.handleSidebarClick = this.handleSidebarClick.bind( this );
     }
 
     handleSidebarClick() {
-        const sidebar = document.querySelector('#sidebar-container');
-        sidebar.classList.toggle('hidden');
+        const sidebar = document.querySelector( '#sidebar-container' );
+        sidebar.classList.toggle( 'hidden' );
     }
 
     state = {
@@ -36,50 +36,50 @@ class TopMenu extends Component {
     componentDidMount() {
         const { isWindows } = this.state;
 
-        Mousetrap.bind(['ctrl+b', 'command+b'], () => this.handleSidebarClick());
+        Mousetrap.bind( ['ctrl+b', 'command+b'], () => this.handleSidebarClick() );
 
-        ipcRenderer.on('appMenu', (event, args) => {
-            if ('preferences' === args.type) {
+        ipcRenderer.on( 'appMenu', ( event, args ) => {
+            if ( 'preferences' === args.type ) {
                 this.setState({ showSettingsModal: true, settingsSelectedTab: args.tab });
             }
         });
 
-        if (isWindows) {
+        if ( isWindows ) {
             this.onResizeWindow();
-            this.refMenu.addEventListener('click', this.onClickMenu);
-            this.refClose.addEventListener('click', this.onClickClose);
-            this.refMinimize.addEventListener('click', this.onClickMinimize);
-            this.refMaximize.addEventListener('click', this.onClickMaximize);
-            window.addEventListener('resize', this.onResizeWindow);
+            this.refMenu.addEventListener( 'click', this.onClickMenu );
+            this.refClose.addEventListener( 'click', this.onClickClose );
+            this.refMinimize.addEventListener( 'click', this.onClickMinimize );
+            this.refMaximize.addEventListener( 'click', this.onClickMaximize );
+            window.addEventListener( 'resize', this.onResizeWindow );
         }
     }
 
     componentWillUnmount() {
         const { isWindows } = this.state;
 
-        Mousetrap.unbind(['ctrl+b', 'command+b']);
+        Mousetrap.unbind( ['ctrl+b', 'command+b'] );
 
-        if (isWindows) {
-            this.refMenu.removeEventListener('click', this.onClickMenu);
-            this.refClose.removeEventListener('click', this.onClickClose);
-            this.refMinimize.removeEventListener('click', this.onClickMinimize);
-            this.refMaximize.removeEventListener('click', this.onClickMaximize);
-            window.removeEventListener('resize', this.onResizeWindow);
+        if ( isWindows ) {
+            this.refMenu.removeEventListener( 'click', this.onClickMenu );
+            this.refClose.removeEventListener( 'click', this.onClickClose );
+            this.refMinimize.removeEventListener( 'click', this.onClickMinimize );
+            this.refMaximize.removeEventListener( 'click', this.onClickMaximize );
+            window.removeEventListener( 'resize', this.onResizeWindow );
         }
     }
 
     onClickClose = () => remote.getCurrentWindow().close();
-    onClickMenu = async e => await ipcRenderer.invoke('display-app-menu', { x: e.x, y: e.y });
+    onClickMenu = async e => await ipcRenderer.invoke( 'display-app-menu', { x: e.x, y: e.y } );
     onClickMinimize = () => remote.getCurrentWindow().minimizable ? remote.getCurrentWindow().minimize() : null;
     onClickMaximize = () => remote.getCurrentWindow().isMaximized() ? remote.getCurrentWindow().unmaximize() : remote.getCurrentWindow().maximize();
     onResizeWindow = () => this.setState({ maximize: remote.getCurrentWindow().isMaximized() });
 
-    onChangeText = (text) => {
+    onChangeText = ( text ) => {
         const { setQuery, setSelectedMenu, setRecipeList } = this.props;
         const selectedMenu = '' === text ? MainMenus[0] : SearchResult;
-        setQuery(text);
-        setSelectedMenu(selectedMenu);
-        setRecipeList(selectedMenu, text);
+        setQuery( text );
+        setSelectedMenu( selectedMenu );
+        setRecipeList( selectedMenu, text );
     };
 
     render() {
@@ -87,21 +87,21 @@ class TopMenu extends Component {
         const { query } = this.props;
 
         // NOTE: Why react-i18n-next doesn't work here?
-        const appLang = StorageHelpers.preference.get('appLang');
+        const appLang = StorageHelpers.preference.get( 'appLang' );
         let searchtext;
-        switch (appLang) {
-            case 'en':
-                searchtext = 'Search recipe...';
-                break;
-            case 'fr':
+		switch ( appLang ) {
+			case 'en':
+				searchtext = 'Search recipe...';
+				break;
+			case 'fr':
                 searchtext = 'Cherchez une recette...';
                 break;
             case 'de':
                 searchtext = 'Rezept suchen...';
-                break;
-            default:
+                break;    
+			default:
                 searchtext = 'Search recipe...';
-        }
+		}
 
         return (
             <div className='comp_topmenu'>
@@ -142,8 +142,8 @@ class TopMenu extends Component {
                     <SearchField
                         placeholder={searchtext}
                         value={query}
-                        onChangeText={text => this.onChangeText(text)}
-                        onClearClick={() => this.onChangeText('')}
+                        onChangeText={text => this.onChangeText( text )}
+                        onClearClick={() => this.onChangeText( '' )}
                     />
                     <div className='content-header-divider'></div>
                     <button className='btn-preferences' title='Preferences'
@@ -182,12 +182,12 @@ const mapStateToProps = state => {
     return { query };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = ( dispatch ) => {
     return {
-        setSelectedMenu: selectedMenu => ReduxHelpers.setSelectedMenu(dispatch, selectedMenu),
-        setQuery: (query) => dispatch({ type: SET_SEARCH_QUERY, payload: query }),
-        setRecipeList: (selectedMenu, query) => ReduxHelpers.fillRecipes(dispatch, selectedMenu, query)
+        setSelectedMenu: selectedMenu => ReduxHelpers.setSelectedMenu( dispatch, selectedMenu ),
+        setQuery: ( query ) => dispatch({ type: SET_SEARCH_QUERY, payload: query }),
+        setRecipeList: ( selectedMenu, query ) => ReduxHelpers.fillRecipes( dispatch, selectedMenu, query )
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(TopMenu);
+export default connect( mapStateToProps, mapDispatchToProps )( TopMenu );
