@@ -240,14 +240,14 @@ class SettingsModalNotExtended extends React.Component {
 					<div className={`content${ 'language' === selectedTab ? ' active' : '' }`}>
 						<div className='language-section'>
 							<ul>
+								<li onClick={() => this.changeLanguage( 'de' )} className={ 'de' === appLang ? 'active' : ''}>
+									<div className='text-container'>Deutsch</div>
+								</li>
 								<li onClick={() => this.changeLanguage( 'en' )} className={ 'en' === appLang ? 'active' : ''}>
 									<div className='text-container'>English</div>
 								</li>
 								<li onClick={() => this.changeLanguage( 'fr' )} className={ 'fr' === appLang ? 'active' : ''}>
 									<div className='text-container'>Français</div>
-								</li>
-								<li onClick={() => this.changeLanguage( 'de' )} className={ 'de' === appLang ? 'active' : ''}>
-									<div className='text-container'>Deutsch</div>
 								</li>
 							</ul>
 						</div>

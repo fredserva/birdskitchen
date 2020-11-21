@@ -98,7 +98,7 @@ class TopMenu extends Component {
                 break;
             case 'de':
                 searchtext = 'Rezept suchen...';
-                break;    
+                break;
 			default:
                 searchtext = 'Search recipe...';
 		}
