@@ -43,7 +43,7 @@
     "build": "rescripts build",
     "test": "rescripts test",
     "dev": "concurrently \"cross-env BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\"",
-    "release": "rescripts build && electron-builder -wml"
+    "release": "rescripts build && electron-builder -wml --publish always"
   },
   "eslintConfig": {
     "extends": "react-app"
