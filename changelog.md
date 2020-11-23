@@ -1,3 +1,16 @@
+## Version 0.6.3
+
+**New feature**
+&nbsp;
+&nbsp;
+- Add German translation (Thanks to [YSchroe](https://github.com/YSchroe))
+- Add better comprehension for displaying / importing an image in CRUD modal
+
+**Fixed bugs**
+&nbsp;
+&nbsp;
+- Fix fraction calculations partially (eg: works with 1/4 but not with ¼ - doesn't work with 1 1/2)
+
 ## Version 0.6.2
 
 **Refactor**

@@ -85,15 +85,9 @@ I you want to contribute, please send me a mail or a pidgeon :grin:
 - [x] Link to Recipe source
 - [x] Table view with column sorting
 - [x] Store images locally (*base64 for now*)
-- [ ] Fix fraction calculations
-- [ ] Guided tour
-- [ ] Documentation
-- [ ] Videos (?)
-- [ ] Imports from popular recipe websites (*Allrecipes, The Food Network, Marmiton*) (?)
-- [ ] CSV import/export
-- [ ] Grocery List (?)
-- [ ] Internal browser (?)
-- [ ] Auto updates (?)
+- [x] Fix fraction calculations
+
+**Visit the [Roadmap Page](https://github.com/fredserva/birdskitchen/projects/2?fullscreen=true) for more...**
 
 ## Running locally
 
