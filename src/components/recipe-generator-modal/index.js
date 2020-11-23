@@ -5,6 +5,7 @@ import Parser from 'html-react-parser';
 import { shell } from 'electron';
 import { withTranslation } from 'react-i18next';
 import hoistStatics from 'hoist-non-react-statics';
+import { evaluate } from 'mathjs';
 
 import Modal from '../modal';
 import SvgIcon from '../svgicon';
@@ -39,9 +40,7 @@ class RecipeGeneratorModalNotExtended extends React.Component {
     plusQty = () => {
         this.setState( {
             count: +this.props.item.servings++,
-
-			// eslint-disable-next-line
-            ingredients: this.props.item.ingredients.replace( /(\d+[\/\d.,]*|\d)/g, k => ( eval( k ) * +this.props.item.servings / this.state.initialCount ).toFixed( 2 ).replace( /\.0+$/, '' ) )
+            ingredients: this.props.item.ingredients.replace( /(\d+[\d./,]*|\d)/g, k => ( evaluate( k ) * +this.props.item.servings / this.state.initialCount ).toFixed( 2 ).replace( /\.0+$/, '' ) )
         } );
     };
 
@@ -52,9 +51,7 @@ class RecipeGeneratorModalNotExtended extends React.Component {
             } );
         }
         this.setState( {
-
-            // eslint-disable-next-line
-            ingredients: this.props.item.ingredients.replace( /(\d+[\/\d.,]*|\d)/g, k => ( eval( k ) * +this.props.item.servings / this.state.initialCount ).toFixed( 2 ).replace( /\.0+$/, '' ) )
+            ingredients: this.props.item.ingredients.replace( /(\d+[\d./,]*|\d)/g, k => ( evaluate( k ) * +this.props.item.servings / this.state.initialCount ).toFixed( 2 ).replace( /\.0+$/, '' ) )
         } );
     };
 
