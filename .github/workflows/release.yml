@@ -1,9 +1,9 @@
-name: Build/release
+name: Build/Release
 
 on:
   push:
-    branches:
-      - master
+    tags:
+      - v*
 
 jobs:
   release:
@@ -22,11 +22,12 @@ jobs:
         with:
           node-version: 10
 
-      - name: Build/release App
+      - name: Build/Release App
         uses: samuelmeuli/action-electron-builder@v1
         with:
           github_token: ${{ secrets.github_token }}
 
           # If the commit is tagged with a version (e.g. "v1.0.0"),
           # release the app after building
+          # Artifacts will be published if draft release exists
           release: ${{ startsWith(github.ref, 'refs/tags/v') }}

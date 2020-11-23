@@ -105,6 +105,10 @@
     "files": [
       "build/**/*"
     ],
+    "publish": {
+      "provider": "github",
+      "releaseType": "release"
+    },
     "mac": {
       "icon": "public/images/app.icns",
       "category": "public.app-category.productivity",
