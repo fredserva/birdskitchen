@@ -24,7 +24,6 @@ class ModalNotExtended extends Component {
                             {
                                 headerIconsTemplate && <span className='header-icons'>{headerIconsTemplate()}</span>
                             }
-                            {/* <span onClick={onClose && onClose}><SvgIcon name='cancel'/></span> */}
                         </div>
                         <div className='modal-body'>{children}</div>
                     </div>
