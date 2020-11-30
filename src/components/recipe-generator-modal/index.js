@@ -137,6 +137,75 @@ class RecipeGeneratorModalNotExtended extends React.Component {
         );
     };
 
+    _headerIcons = () => {
+        return (
+            <div className='header-buttons'>
+                <span onClick={this.printThis}>
+                    <SvgIcon name='print'/>
+                </span>
+                <span onClick={this.onClose}>
+                    <SvgIcon name='cancel'/>
+                </span>
+                <style>
+                    {/* F... inline style */}
+                    {`
+                        @media print {
+                            body {
+                                padding: 0;
+                                margin: 0;
+                            }
+                            .modal-header {
+                                position: absolute;
+                                top: 200px;
+                                padding: 0;
+                                left: 50%;
+                            }
+                            .modal-header .title {
+                                color: #000 !important;
+                            }
+                            .modal-header span,
+                            .modal-footer {
+                                visibility: hidden;
+                            }
+                            .comp_recipe-generator-modal .modal-content .modal-body .image-tech-wrapper {
+                                width: 100%;
+                            }
+                            .comp_recipe-generator-modal .modal-content .modal-body .image-tech-wrapper .image {
+                                max-height: 200px;
+                            }
+                            .comp_recipe-generator-modal .modal-content .modal-body .image-tech-wrapper .tech {
+                                font-size: .25rem;
+                                color: #000 !important;
+                            }
+                            .comp_recipe-generator-modal .modal-content .modal-body .image-tech-wrapper .tech svg,
+                            .comp_recipe-generator-modal .modal-content .modal-body .ingredients-wrapper svg,
+                            .comp_recipe-generator-modal .modal-content .modal-body .directions-wrapper svg {
+                                color: #000 !important;
+                            }
+                            .comp_recipe-generator-modal .modal-content .modal-body .ingredients-wrapper {
+                                color: #000 !important;
+                                font-size: .35rem;
+                                line-height: 180%;
+                                width: 20%;
+                                padding: 0 20px 0 0;
+                            }
+                            .comp_recipe-generator-modal .modal-content .modal-body .directions-wrapper {
+                                color: #000 !important;
+                                font-size: .4rem;
+                                width: 80%;
+                                padding: 0;
+                            }
+							.comp_recipe-generator-modal .modal-content .modal-body .ingredients-wrapper label .plus-minus,
+                            .comp_recipe-generator-modal .modal-content .modal-body .ingredients-wrapper label .qty {
+								display: none;
+							}
+                        }
+                    `}
+                </style>
+            </div>
+        );
+    };
+
     render() {
         const { t, show, item } = this.props;
 
@@ -147,6 +216,7 @@ class RecipeGeneratorModalNotExtended extends React.Component {
                     onClose={this.onClose}
                     title={item.title}
                     footerTemplate={this._footer}
+                    headerIconsTemplate={this._headerIcons}
                 >
                     <div className='image-tech-wrapper'>
                         <div className='image'>

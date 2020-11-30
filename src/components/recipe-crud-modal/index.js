@@ -163,6 +163,19 @@ class RecipeCrudModalNotExtended extends React.Component {
         );
     };
 
+    _headerIcons = () => {
+        return (
+            <div className='header-buttons'>
+                <span onClick={this.onClose}>
+                    <SvgIcon name='cancel'/>
+                </span>
+                <span onClick={this.onSubmit}>
+                    <SvgIcon name='save'/>
+                </span>
+            </div>
+        );
+    };
+
     render() {
         const { formValues, errorValues, autoSuggest } = this.state;
         const { t, id, show } = this.props;
@@ -200,6 +213,7 @@ class RecipeCrudModalNotExtended extends React.Component {
                     onClose={this.onClose}
                     title={modalTitle}
                     footerTemplate={this._footer}
+                    headerIconsTemplate={this._headerIcons}
                 >
 
                     <div className='title-image-tech-wrapper'>

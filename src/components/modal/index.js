@@ -9,7 +9,7 @@ import './style.scss';
 
 class ModalNotExtended extends Component {
     render() {
-        const { t, show, title, onClose, children, footerTemplate } = this.props;
+        const { t, show, title, onClose, children, footerTemplate, headerIconsTemplate } = this.props;
         let modalClassName = 'comp_modal';
         if ( show ) {
             modalClassName += ' visible';
@@ -21,7 +21,10 @@ class ModalNotExtended extends Component {
                     <div className='wrapper'>
                         <div className='modal-header'>
                             <div className='title'>{ t( title ) }</div>
-                                <span onClick={onClose && onClose}><SvgIcon name='cancel'/></span>
+                            {
+                                headerIconsTemplate && <span className='header-icons'>{headerIconsTemplate()}</span>
+                            }
+                            {/* <span onClick={onClose && onClose}><SvgIcon name='cancel'/></span> */}
                         </div>
                         <div className='modal-body'>{children}</div>
                     </div>
@@ -39,7 +42,8 @@ ModalNotExtended.propTypes = {
     show: PropTypes.bool.isRequired,
     onClose: PropTypes.func.isRequired,
     title: PropTypes.string,
-    footerTemplate: PropTypes.any
+    footerTemplate: PropTypes.any,
+    headerIconsTemplate: PropTypes.any
 };
 
 const Modal = hoistStatics( withTranslation()( ModalNotExtended ), ModalNotExtended );
