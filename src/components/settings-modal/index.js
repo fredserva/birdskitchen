@@ -10,6 +10,7 @@ import i18n from '../i18n';
 import { TextField } from '../form-elements';
 import { NotyHelpers, ReduxHelpers, StorageHelpers } from '../../core/helpers';
 import { openConfirmDialog } from '../confirm-dialog';
+import SvgIcon from '../svgicon';
 import { MainMenus } from '../../core/constants';
 import { appname, version, author, links } from '../../../package.json';
 
@@ -126,12 +127,32 @@ class SettingsModalNotExtended extends React.Component {
 		this.setState( { appLang } );
 	};
 
+	onClose = () => {
+		const { onClose } = this.props;
+		onClose && onClose();
+    };
+
+	_headerIcons = () => {
+        return (
+            <div className='header-buttons'>
+                <span onClick={this.onClose}>
+                    <SvgIcon name='cancel'/>
+                </span>
+            </div>
+        );
+    };
+
 	render() {
 		const { dbDirectory, backupDirectory, backupFiles, appTheme, appLang } = this.state;
 		const { t, show, onClose, selectedTab } = this.props;
 
 		return ( <div className='comp_settings-modal'>
-			<Modal show={show} onClose={onClose} title={'Preferences'}>
+			<Modal
+				show={show}
+				onClose={onClose}
+				title={'Preferences'}
+				headerIconsTemplate={this._headerIcons}
+			>
 
 				<div className='tabs-header-container'>
 					<ul>

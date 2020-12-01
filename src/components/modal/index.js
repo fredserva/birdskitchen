@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
 import hoistStatics from 'hoist-non-react-statics';
 
-import SvgIcon from '../svgicon';
-
 import './style.scss';
 
 class ModalNotExtended extends Component {

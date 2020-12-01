@@ -153,11 +153,11 @@ class RecipeCrudModalNotExtended extends React.Component {
     _footer = () => {
         return (
             <div className='footer-buttons'>
-                <span onClick={this.onClose}>
-                    <SvgIcon name='cancel'/>
-                </span>
                 <span onClick={this.onSubmit}>
                     <SvgIcon name='save'/>
+                </span>
+                <span onClick={this.onClose}>
+                    <SvgIcon name='cancel'/>
                 </span>
             </div>
         );
@@ -166,11 +166,11 @@ class RecipeCrudModalNotExtended extends React.Component {
     _headerIcons = () => {
         return (
             <div className='header-buttons'>
-                <span onClick={this.onClose}>
-                    <SvgIcon name='cancel'/>
-                </span>
                 <span onClick={this.onSubmit}>
                     <SvgIcon name='save'/>
+                </span>
+                <span onClick={this.onClose}>
+                    <SvgIcon name='cancel'/>
                 </span>
             </div>
         );
