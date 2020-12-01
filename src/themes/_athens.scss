@@ -387,7 +387,6 @@ body {
                 background: $base-color;
 
                 .confirm-dialog-header {
-                    border-bottom: 1px solid $text-color;
 
                     .title {
                         color: $text-color;
@@ -401,7 +400,6 @@ body {
                 }
 
                 .confirm-dialog-footer {
-                    border-top: 1px solid $text-color;
                 }
             }
         }
@@ -989,9 +987,6 @@ body {
         .comp_confirm-dialog {
             .confirm-dialog-content {
                 .confirm-dialog-header {
-                    background: $base-color;
-                    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
-
                     .title {
                         color: $text-color;
                     }
@@ -1006,8 +1001,6 @@ body {
                 }
 
                 .confirm-dialog-footer {
-                    background: $base-color;
-                    border-top: 1px solid rgba(0, 0, 0, 0.15);
                 }
             }
         }

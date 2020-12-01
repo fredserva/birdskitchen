@@ -54,16 +54,18 @@
             font-size: 0.4rem;
 
             span {
-                width: 100%;
                 text-align: center;
-                padding: 20px 0;
-                height: calc(100% - 40px);
+                padding: 15px 20px;
                 display: flex;
                 justify-content: center;
                 align-items: flex-end;
-                border-radius: 20px;
+                border-radius: 10px;
+                font-size: 0.35rem;
                 font-weight: bold;
+                color: #fff;
                 text-shadow: 2px 4px 3px #000;
+                background: rgba(0, 0, 0, 0.4);
+                margin-bottom: 10px;
             }
         }
 
@@ -111,8 +113,8 @@
         .uploader-close {
             z-index: 1;
             position: absolute;
-            right: 1px;
-            top: 1px;
+            right: 5px;
+            top: 5px;
             background: #ff0000;
             color: #fff;
             border-radius: 50%;

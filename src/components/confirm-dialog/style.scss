@@ -17,7 +17,7 @@
         position: absolute;
         width: 100%;
         max-width: 480px;
-        border-radius: 3px;
+        border-radius: 10px;
 
         .confirm-dialog-header {
             padding: 10px 12px;
@@ -42,6 +42,10 @@
             justify-content: flex-end;
 
             .btn {
+                padding: 8px 40px;
+            }
+
+            .btn:last-of-type {
                 margin-left: 10px;
             }
         }
