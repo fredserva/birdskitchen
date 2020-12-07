@@ -50,7 +50,7 @@ body {
             }
 
             .content-header-divider {
-                border-left: 1px solid rgba(16,22,26,.15);
+                border-left: 1px solid rgba(16,22,26,.25);
             }
 
             .left-side {
@@ -62,15 +62,27 @@ body {
                     }
 
                     svg {
-                        stroke: #aaa;
+                        stroke: $text-color;
                         width: 18px;
                         height: 18px;
                     }
                 }
 
+                .calculator {
+                    &:hover {
+                        background: rgba(0, 0, 0, 0.1);
+                    }
+
+                    svg {
+                        fill: $text-color;
+                        width: 16px;
+                        height: 16px;
+                    }
+                }
+
                 .applogo {
-                    color: #aaa;
-                    fill: #aaa;
+                    color: $text-color;
+                    fill: $text-color;
 
                     &:hover {
                         cursor: default;
@@ -78,7 +90,7 @@ body {
                 }
 
                 .appname {
-                    color: #aaa;
+                    color: $text-color;
 
                     &:hover {
                         cursor: default;

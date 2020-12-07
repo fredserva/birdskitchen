@@ -70,6 +70,18 @@ body {
                     }
                 }
 
+                .calculator {
+                    &:hover {
+                        background: rgba(255, 255, 255, 0.1);
+                    }
+
+                    svg {
+                        fill: #bbb;
+                        width: 16px;
+                        height: 16px;
+                    }
+                }
+
                 .applogo {
                     color: #bbb;
                     fill: #bbb;

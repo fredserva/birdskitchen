@@ -82,6 +82,13 @@
                             cursor: pointer;
                         }
                     }
+
+                    &.crud-calculator {
+                        svg {
+                            width: 21px;
+                            height: 21px;
+                        }
+                    }
                 }
             }
         }
@@ -124,6 +131,13 @@
                         &:hover {
                             cursor: pointer;
                         }
+                    }
+                }
+
+                .crud-calculator {
+                    svg {
+                        width: 21px;
+                        height: 21px;
                     }
                 }
             }

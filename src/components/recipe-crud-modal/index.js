@@ -153,6 +153,9 @@ class RecipeCrudModalNotExtended extends React.Component {
     _footer = () => {
         return (
             <div className='footer-buttons'>
+                <span className='crud-calculator' onClick={this.handleUnitConverter}>
+                    <SvgIcon name='calculator'/>
+                </span>
                 <span onClick={this.onSubmit}>
                     <SvgIcon name='save'/>
                 </span>
@@ -166,6 +169,9 @@ class RecipeCrudModalNotExtended extends React.Component {
     _headerIcons = () => {
         return (
             <div className='header-buttons'>
+                <span className='crud-calculator' onClick={this.handleUnitConverter}>
+                    <SvgIcon name='calculator'/>
+                </span>
                 <span onClick={this.onSubmit}>
                     <SvgIcon name='save'/>
                 </span>
@@ -174,6 +180,12 @@ class RecipeCrudModalNotExtended extends React.Component {
                 </span>
             </div>
         );
+    };
+
+    handleUnitConverter = () => {
+        const unitConverter = document.querySelector( '.comp_unit-converter-modal' );
+        unitConverter.classList.toggle( 'visible' );
+        console.log( 'click' );
     };
 
     render() {

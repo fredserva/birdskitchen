@@ -305,6 +305,10 @@ class SettingsModalNotExtended extends React.Component {
 											<td>{ t( 'Hide / Show Sidebar' ) }</td>
 										</tr>
 										<tr>
+											<td>{ t( 'Ctrl u' ) } <span className='tiny-text'>{ t( '(Windows & Linux)' ) }</span> { t( 'or' ) } &#8984; u <span className='tiny-text'>{ t( '(Mac)' ) }</span></td>
+											<td>{ t( 'Hide / Show Unit Converter' ) }</td>
+										</tr>
+										<tr>
 											<td>{ t( 'Ctrl n' ) }<span className='tiny-text'>{ t( '(Windows & Linux)' ) }</span> { t( 'or' ) } &#8984; n <span className='tiny-text'>{ t( '(Mac)' ) }</span></td>
 											<td>{ t( 'New recipe' ) }</td>
 										</tr>

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { StorageHelpers } from '../../core/helpers';
 import { remote, ipcRenderer } from 'electron';
 import { connect } from 'react-redux';
+import { withTranslation } from 'react-i18next';
+import hoistStatics from 'hoist-non-react-statics';
 
 import SvgIcon from '../svgicon';
 import { SearchField } from '../form-elements';
@@ -10,15 +11,17 @@ import { ReduxHelpers } from '../../core/helpers';
 import { SET_SEARCH_QUERY } from '../../redux/actions/searchActions';
 import { MainMenus, SearchResult } from '../../core/constants';
 import SettingsModal from '../settings-modal';
+import UnitConverter from '../unit-converter';
 
 import './style.scss';
 
 const Mousetrap = require( 'mousetrap' );
 
-class TopMenu extends Component {
+class TopMenuNotExtended extends Component {
     constructor( props ) {
         super( props );
         this.handleSidebarClick = this.handleSidebarClick.bind( this );
+        this.handleUnitConverterClick = this.handleUnitConverterClick.bind( this );
     }
 
     handleSidebarClick() {
@@ -26,8 +29,14 @@ class TopMenu extends Component {
         sidebar.classList.toggle( 'hidden' );
     }
 
+    handleUnitConverterClick() {
+        const unitConverter = document.querySelector( '.comp_unit-converter-modal' );
+        unitConverter.classList.toggle( 'visible' );
+    }
+
     state = {
         maximize: false,
+        showUnitConverter: false,
         showSettingsModal: false,
         settingsSelectedTab: 'storage',
         isWindows: 'win32' === process.platform
@@ -37,6 +46,7 @@ class TopMenu extends Component {
         const { isWindows } = this.state;
 
         Mousetrap.bind( ['ctrl+b', 'command+b'], () => this.handleSidebarClick() );
+        Mousetrap.bind( ['ctrl+u', 'command+u'], () => this.handleUnitConverterClick() );
 
         ipcRenderer.on( 'appMenu', ( event, args ) => {
             if ( 'preferences' === args.type ) {
@@ -83,28 +93,15 @@ class TopMenu extends Component {
     };
 
     render() {
-        const { maximize, showSettingsModal, isWindows, settingsSelectedTab } = this.state;
-        const { query } = this.props;
-
-        // NOTE: Why react-i18n-next doesn't work here?
-        const appLang = StorageHelpers.preference.get( 'appLang' );
-        let searchtext;
-		switch ( appLang ) {
-			case 'en':
-				searchtext = 'Search recipe...';
-				break;
-			case 'fr':
-                searchtext = 'Cherchez une recette...';
-                break;
-            case 'de':
-                searchtext = 'Rezept suchen...';
-                break;
-			default:
-                searchtext = 'Search recipe...';
-		}
+        const { maximize, showUnitConverter, showSettingsModal, isWindows, settingsSelectedTab } = this.state;
+        const { t, query } = this.props;
 
         return (
             <div className='comp_topmenu'>
+                <UnitConverter
+                    show={showUnitConverter}
+                    onClose={() => this.setState({ showUnitConverter: false })}
+                />
                 <SettingsModal
                     show={showSettingsModal}
                     selectedTab={settingsSelectedTab}
@@ -127,6 +124,9 @@ class TopMenu extends Component {
                     <span className='sidebar' onClick={this.handleSidebarClick}>
                         <SvgIcon name='sidebar' />
                     </span>
+                    <span className='calculator' onClick={this.handleUnitConverterClick}>
+                        <SvgIcon name='calculator' />
+                    </span>
                     <div className='content-header-divider'></div>
                     <span className='applogo'>
                         <SvgIcon name='logo' />
@@ -140,7 +140,7 @@ class TopMenu extends Component {
                 </div>
                 <div className='right-side'>
                     <SearchField
-                        placeholder={searchtext}
+                        placeholder={t( 'Search recipe...' )}
                         value={query}
                         onChangeText={text => this.onChangeText( text )}
                         onClearClick={() => this.onChangeText( '' )}
@@ -173,7 +173,7 @@ class TopMenu extends Component {
     }
 }
 
-TopMenu.defaultProps = {
+TopMenuNotExtended.defaultProps = {
     onClickSettings: PropTypes.func
 };
 
@@ -189,5 +189,7 @@ const mapDispatchToProps = ( dispatch ) => {
         setRecipeList: ( selectedMenu, query ) => ReduxHelpers.fillRecipes( dispatch, selectedMenu, query )
     };
 };
+
+const TopMenu = hoistStatics( withTranslation()( TopMenuNotExtended ), TopMenuNotExtended );
 
 export default connect( mapStateToProps, mapDispatchToProps )( TopMenu );

@@ -22,6 +22,9 @@
 .env.test.local
 .env.production.local
 .editorconfig
+.prettierrc
+.prettierignore
+/.vscode
 
 npm-debug.log*
 yarn-debug.log*
