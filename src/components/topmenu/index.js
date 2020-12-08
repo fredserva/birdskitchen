@@ -153,20 +153,20 @@ class TopMenuNotExtended extends Component {
 
 		return (
 			<div className="comp_topmenu">
-				<div id="notification" class="hidden">
+				<div id="notification" className="hidden">
 					<p id="message"></p>
 					<div className="buttons">
 						<button
-							class="btn"
+							className="btn"
 							id="close-button"
-							onClick="closeNotification()"
+							onClick={this.closeNotification}
 						>
 							{t('close')}
 						</button>
 						<button
-							class="btn hidden"
+							className="btn hidden"
 							id="restart-button"
-							onClick="restartApp()"
+							onClick={this.restartApp}
 						>
 							{t('restart')}
 						</button>
