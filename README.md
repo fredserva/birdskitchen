@@ -5,7 +5,6 @@
 
 &nbsp;
 
-
 ---
 
 I wanted to learn something new...
@@ -70,8 +69,8 @@ I you want to contribute, please send me a mail or a pidgeon :grin:
 ## Features
 
 - Cross platform
-- Localized
-- Custom Themes (a light one and a dark one for now)
+- Localized (english, french and german)
+- Custom Themes (a light one and two dark ones for now)
 - Content search
 - Tags
 - Categories
@@ -83,19 +82,12 @@ I you want to contribute, please send me a mail or a pidgeon :grin:
 - Print current recipe
 - Choose your storage directory (including Sync Services)
 - Backups and Restore backups
+- Unit Converter
+- Auto updates
 
 ## Roadmap
 
-**A lot to do! Contributions are welcome.**
-
-- [x] Categories
-- [x] Ratings
-- [x] Link to Recipe source
-- [x] Table view with column sorting
-- [x] Store images locally (*base64 for now*)
-- [x] Fix fraction calculations
-
-**Visit the [Roadmap Page](https://github.com/fredserva/birdskitchen/projects/2?fullscreen=true) for more...**
+**Visit the [Roadmap Page](https://github.com/fredserva/birdskitchen/projects/2?fullscreen=true) for details...**
 
 ## Running locally
 

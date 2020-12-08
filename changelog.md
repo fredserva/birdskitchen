@@ -1,6 +1,29 @@
-## Version 0.6.3
+## Version 0.7.0
+
+**New features**
+&nbsp;
+&nbsp;
+- Add new theme (Woodsmoke - dark)
+- Add Auto updates
+- Add Unit converter
+
+## Version 0.6.4
 
 **New feature**
+&nbsp;
+&nbsp;
+- Add buttons to header
+
+**Changes**
+&nbsp;
+&nbsp;
+- Replace eval function with evaluate (mathjs library)
+- Replace fractions (Vulgar Fractions - Half, Thirds, Fourths, Fifths) on CRUD submit to improve calculations on print view
+- Change some elements style
+
+## Version 0.6.3
+
+**New features**
 &nbsp;
 &nbsp;
 - Add German translation (Thanks to [YSchroe](https://github.com/YSchroe))
