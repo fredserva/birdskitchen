@@ -115,6 +115,7 @@ class SettingsModalNotExtended extends React.Component {
 	changeTheme = appTheme => {
 		document.body.classList.remove( 'athens-theme' );
 		document.body.classList.remove( 'teal-theme' );
+		document.body.classList.remove( 'woodsmoke-theme' );
 		document.body.classList.add( `${ appTheme }-theme` );
 		StorageHelpers.preference.set( 'appTheme', appTheme );
 
@@ -253,6 +254,11 @@ class SettingsModalNotExtended extends React.Component {
 								<li onClick={() => this.changeTheme( 'teal' )} className={ 'teal' === appTheme ? 'active' : ''}>
 									<div className='image-container'>
 										<img src={'./images/themes/teal.png'} alt='Teal' width={240}/>
+									</div>
+								</li>
+								<li onClick={() => this.changeTheme( 'woodsmoke' )} className={ 'woodsmoke' === appTheme ? 'active' : ''}>
+									<div className='image-container'>
+										<img src={'./images/themes/woodsmoke.png'} alt='Woodsmoke' width={240}/>
 									</div>
 								</li>
 							</ul>
