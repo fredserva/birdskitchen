@@ -145,5 +145,9 @@
 	"gallons - dry (US)": "gallons - dry (US)",
 	"teaspoons (US)": "teaspoons (US)",
 	"tablespoons (US)": "tablespoons (US)",
-	"cups (US)": "cups (US)"
+	"cups (US)": "cups (US)",
+	"close": "close",
+	"restart": "restart",
+	"A new update is available. Downloading now...": "A new update is available. Downloading now...",
+	"Update Downloaded. It will be installed on restart. Restart now?": "Update Downloaded. It will be installed on restart. Restart now?"
 }

@@ -1,140 +1,195 @@
 .comp_topmenu {
-    height: 80px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+	height: 80px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
 
-    .left-side {
-        -webkit-app-region: none;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        margin-left: 10px;
+	#notification {
+		position: fixed;
+		z-index: 9;
+		bottom: 20px;
+		right: 20px;
+		padding: 20px;
+		border-radius: 5px;
+		background-color: #007a5a;
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 
-        .sidebar, .calculator {
-            border: none;
-            background: transparent;
-            font-size: 15px;
-            padding: 0;
-            width: 28px;
-            height: 28px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 3px;
-            cursor: pointer;
-            -webkit-app-region: none;
-        }
+		&.hidden {
+			display: none;
+		}
 
-        .applogo {
-            border: none;
-            background: transparent;
-            font-size: 15px;
-            padding: 0;
-            width: 28px;
-            height: 28px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 3px;
-            cursor: pointer;
-            -webkit-app-region: none;
-            margin-right: 10px;
-        }
+		#message {
+			color: #fff;
+			word-break: break-word;
+			font-size: 0.45rem;
+			margin: 0;
+		}
 
-        .appname {
-            font-size: 0.4rem;
-            font-weight: 500;
-        }
+		.buttons {
+			margin-top: 20px;
+			display: flex;
+			align-items: center;
+			justify-content: flex-start;
 
-        .btn-menubar {
-            width: 45px;
-            height: 40px;
-            padding: 0;
-            border: none;
-            display: flex;
-            background: transparent;
-            justify-content: center;
-            align-items: center;
+			#close-button {
+				margin-right: 20px;
+				font-size: 0.325rem;
+				border: 1px solid #fff;
+				background-color: #007a5a;
+				color: #fff;
 
-            &.menu {
-                display: flex;
-                flex-direction: column;
+				&:hover {
+					background-color: #fff;
+					color: #007a5a;
+				}
+			}
 
-                span {
-                    display: block;
-                    width: 15px;
-                    height: 1px;
-                    margin: 1px 0;
-                }
-            }
-        }
-    }
+			#restart-button {
+				font-size: 0.325rem;
+				border: 1px solid #fff;
+				background-color: #007a5a;
+				color: #fff;
 
-    .center-side {
-        margin: 0 auto;
-        -webkit-app-region: none;
-    }
+				&:hover {
+					background-color: #fff;
+					color: #007a5a;
+				}
+			}
+		}
+	}
 
-    .right-side {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
+	.left-side {
+		-webkit-app-region: none;
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		margin-left: 10px;
 
-        .btn-preferences {
-            margin-right: 7px;
-        }
+		.sidebar,
+		.calculator {
+			border: none;
+			background: transparent;
+			font-size: 15px;
+			padding: 0;
+			width: 28px;
+			height: 28px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			border-radius: 3px;
+			cursor: pointer;
+			-webkit-app-region: none;
+		}
 
-        button {
-            border: none;
-            background: transparent;
-            font-size: 15px;
-            padding: 0;
-            width: 28px;
-            height: 28px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 3px;
-            cursor: pointer;
-            -webkit-app-region: none;
+		.applogo {
+			border: none;
+			background: transparent;
+			font-size: 15px;
+			padding: 0;
+			width: 28px;
+			height: 28px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			border-radius: 3px;
+			cursor: pointer;
+			-webkit-app-region: none;
+			margin-right: 10px;
+		}
 
-            svg {
-                width: 16px;
-            }
-        }
+		.appname {
+			font-size: 0.4rem;
+			font-weight: 500;
+		}
 
-        .recipe-buttons {
-            display: flex;
-            flex-direction: row;
-            -webkit-app-region: none;
+		.btn-menubar {
+			width: 45px;
+			height: 40px;
+			padding: 0;
+			border: none;
+			display: flex;
+			background: transparent;
+			justify-content: center;
+			align-items: center;
 
-            .btn-menubar {
-                width: 45px;
-                height: 40px;
-                padding: 0;
-                border: none;
-                background: transparent;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                border-radius: 0;
+			&.menu {
+				display: flex;
+				flex-direction: column;
 
-                &.maximize,
-                &.minimize {
-                    svg {
-                        width: 12px;
-                    }
-                }
+				span {
+					display: block;
+					width: 15px;
+					height: 1px;
+					margin: 1px 0;
+				}
+			}
+		}
+	}
 
-                &.close {
-                    svg {
-                        width: 20px;
-                    }
-                }
-            }
-        }
-    }
+	.center-side {
+		margin: 0 auto;
+		-webkit-app-region: none;
+	}
+
+	.right-side {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+
+		.btn-preferences {
+			margin-right: 7px;
+		}
+
+		button {
+			border: none;
+			background: transparent;
+			font-size: 15px;
+			padding: 0;
+			width: 28px;
+			height: 28px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			border-radius: 3px;
+			cursor: pointer;
+			-webkit-app-region: none;
+
+			svg {
+				width: 16px;
+			}
+		}
+
+		.recipe-buttons {
+			display: flex;
+			flex-direction: row;
+			-webkit-app-region: none;
+
+			.btn-menubar {
+				width: 45px;
+				height: 40px;
+				padding: 0;
+				border: none;
+				background: transparent;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				border-radius: 0;
+
+				&.maximize,
+				&.minimize {
+					svg {
+						width: 12px;
+					}
+				}
+
+				&.close {
+					svg {
+						width: 20px;
+					}
+				}
+			}
+		}
+	}
 }

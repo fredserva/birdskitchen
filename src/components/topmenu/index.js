@@ -15,181 +15,278 @@ import UnitConverter from '../unit-converter';
 
 import './style.scss';
 
-const Mousetrap = require( 'mousetrap' );
+const Mousetrap = require('mousetrap');
 
 class TopMenuNotExtended extends Component {
-    constructor( props ) {
-        super( props );
-        this.handleSidebarClick = this.handleSidebarClick.bind( this );
-        this.handleUnitConverterClick = this.handleUnitConverterClick.bind( this );
-    }
+	constructor(props) {
+		super(props);
+		this.handleSidebarClick = this.handleSidebarClick.bind(this);
+		this.handleUnitConverterClick = this.handleUnitConverterClick.bind(
+			this
+		);
+	}
 
-    handleSidebarClick() {
-        const sidebar = document.querySelector( '#sidebar-container' );
-        sidebar.classList.toggle( 'hidden' );
-    }
+	handleSidebarClick() {
+		const sidebar = document.querySelector('#sidebar-container');
+		sidebar.classList.toggle('hidden');
+	}
 
-    handleUnitConverterClick() {
-        const unitConverter = document.querySelector( '.comp_unit-converter-modal' );
-        unitConverter.classList.toggle( 'visible' );
-    }
+	handleUnitConverterClick() {
+		const unitConverter = document.querySelector(
+			'.comp_unit-converter-modal'
+		);
+		unitConverter.classList.toggle('visible');
+	}
 
-    state = {
-        maximize: false,
-        showUnitConverter: false,
-        showSettingsModal: false,
-        settingsSelectedTab: 'storage',
-        isWindows: 'win32' === process.platform
-    };
+	closeNotification() {
+		const notification = document.querySelector('#notification');
+		notification.classList.add('hidden');
+	}
 
-    componentDidMount() {
-        const { isWindows } = this.state;
+	restartApp() {
+		ipcRenderer.send('restart_app');
+	}
 
-        Mousetrap.bind( ['ctrl+b', 'command+b'], () => this.handleSidebarClick() );
-        Mousetrap.bind( ['ctrl+u', 'command+u'], () => this.handleUnitConverterClick() );
+	state = {
+		maximize: false,
+		showUnitConverter: false,
+		showSettingsModal: false,
+		settingsSelectedTab: 'storage',
+		isWindows: 'win32' === process.platform,
+	};
 
-        ipcRenderer.on( 'appMenu', ( event, args ) => {
-            if ( 'preferences' === args.type ) {
-                this.setState({ showSettingsModal: true, settingsSelectedTab: args.tab });
-            }
-        });
+	componentDidMount() {
+		const { isWindows } = this.state;
+		const { t } = this.props;
+		const notification = document.querySelector('#notification');
+		const message = document.querySelector('#message');
+		const restartButton = document.querySelector('#restart-button');
 
-        if ( isWindows ) {
-            this.onResizeWindow();
-            this.refMenu.addEventListener( 'click', this.onClickMenu );
-            this.refClose.addEventListener( 'click', this.onClickClose );
-            this.refMinimize.addEventListener( 'click', this.onClickMinimize );
-            this.refMaximize.addEventListener( 'click', this.onClickMaximize );
-            window.addEventListener( 'resize', this.onResizeWindow );
-        }
-    }
+		Mousetrap.bind(['ctrl+b', 'command+b'], () =>
+			this.handleSidebarClick()
+		);
+		Mousetrap.bind(['ctrl+u', 'command+u'], () =>
+			this.handleUnitConverterClick()
+		);
 
-    componentWillUnmount() {
-        const { isWindows } = this.state;
+		ipcRenderer.on('appMenu', (event, args) => {
+			if ('preferences' === args.type) {
+				this.setState({
+					showSettingsModal: true,
+					settingsSelectedTab: args.tab,
+				});
+			}
+		});
 
-        Mousetrap.unbind( ['ctrl+b', 'command+b'] );
+		ipcRenderer.on('update_available', () => {
+			ipcRenderer.removeAllListeners('update_available');
+			message.innerText = t(
+				'A new update is available. Downloading now...'
+			);
+			notification.classList.remove('hidden');
+		});
 
-        if ( isWindows ) {
-            this.refMenu.removeEventListener( 'click', this.onClickMenu );
-            this.refClose.removeEventListener( 'click', this.onClickClose );
-            this.refMinimize.removeEventListener( 'click', this.onClickMinimize );
-            this.refMaximize.removeEventListener( 'click', this.onClickMaximize );
-            window.removeEventListener( 'resize', this.onResizeWindow );
-        }
-    }
+		ipcRenderer.on('update_downloaded', () => {
+			ipcRenderer.removeAllListeners('update_downloaded');
+			message.innerText = t(
+				'Update Downloaded. It will be installed on restart. Restart now?'
+			);
+			restartButton.classList.remove('hidden');
+			notification.classList.remove('hidden');
+		});
 
-    onClickClose = () => remote.getCurrentWindow().close();
-    onClickMenu = async e => await ipcRenderer.invoke( 'display-app-menu', { x: e.x, y: e.y } );
-    onClickMinimize = () => remote.getCurrentWindow().minimizable ? remote.getCurrentWindow().minimize() : null;
-    onClickMaximize = () => remote.getCurrentWindow().isMaximized() ? remote.getCurrentWindow().unmaximize() : remote.getCurrentWindow().maximize();
-    onResizeWindow = () => this.setState({ maximize: remote.getCurrentWindow().isMaximized() });
+		if (isWindows) {
+			this.onResizeWindow();
+			this.refMenu.addEventListener('click', this.onClickMenu);
+			this.refClose.addEventListener('click', this.onClickClose);
+			this.refMinimize.addEventListener('click', this.onClickMinimize);
+			this.refMaximize.addEventListener('click', this.onClickMaximize);
+			window.addEventListener('resize', this.onResizeWindow);
+		}
+	}
 
-    onChangeText = ( text ) => {
-        const { setQuery, setSelectedMenu, setRecipeList } = this.props;
-        const selectedMenu = '' === text ? MainMenus[0] : SearchResult;
-        setQuery( text );
-        setSelectedMenu( selectedMenu );
-        setRecipeList( selectedMenu, text );
-    };
+	componentWillUnmount() {
+		const { isWindows } = this.state;
 
-    render() {
-        const { maximize, showUnitConverter, showSettingsModal, isWindows, settingsSelectedTab } = this.state;
-        const { t, query } = this.props;
+		Mousetrap.unbind(['ctrl+b', 'command+b']);
 
-        return (
-            <div className='comp_topmenu'>
-                <UnitConverter
-                    show={showUnitConverter}
-                    onClose={() => this.setState({ showUnitConverter: false })}
-                />
-                <SettingsModal
-                    show={showSettingsModal}
-                    selectedTab={settingsSelectedTab}
-                    onClose={() => this.setState({ showSettingsModal: false })}
-                    tabChanged={settingsSelectedTab => this.setState({ settingsSelectedTab })}
-                />
+		if (isWindows) {
+			this.refMenu.removeEventListener('click', this.onClickMenu);
+			this.refClose.removeEventListener('click', this.onClickClose);
+			this.refMinimize.removeEventListener('click', this.onClickMinimize);
+			this.refMaximize.removeEventListener('click', this.onClickMaximize);
+			window.removeEventListener('resize', this.onResizeWindow);
+		}
+	}
 
-                <div className='left-side'>
-                    {
-                        isWindows ?
-                            (
-                                <button ref={ref => this.refMenu = ref} className='btn-menubar menu' type='button'>
-                                    <span />
-                                    <span />
-                                    <span />
-                                </button>
-                            )
-                            : null
-                    }
-                    <span className='sidebar' onClick={this.handleSidebarClick}>
-                        <SvgIcon name='sidebar' />
-                    </span>
-                    <span className='calculator' onClick={this.handleUnitConverterClick}>
-                        <SvgIcon name='calculator' />
-                    </span>
-                    <div className='content-header-divider'></div>
-                    <span className='applogo'>
-                        <SvgIcon name='logo' />
-                    </span>
-                    <span className='appname'>
-                        Birds Kitchen
-                    </span>
-                </div>
+	onClickClose = () => remote.getCurrentWindow().close();
+	onClickMenu = async (e) =>
+		await ipcRenderer.invoke('display-app-menu', { x: e.x, y: e.y });
+	onClickMinimize = () =>
+		remote.getCurrentWindow().minimizable
+			? remote.getCurrentWindow().minimize()
+			: null;
+	onClickMaximize = () =>
+		remote.getCurrentWindow().isMaximized()
+			? remote.getCurrentWindow().unmaximize()
+			: remote.getCurrentWindow().maximize();
+	onResizeWindow = () =>
+		this.setState({ maximize: remote.getCurrentWindow().isMaximized() });
 
-                <div className='center-side'>
-                </div>
-                <div className='right-side'>
-                    <SearchField
-                        placeholder={t( 'Search recipe...' )}
-                        value={query}
-                        onChangeText={text => this.onChangeText( text )}
-                        onClearClick={() => this.onChangeText( '' )}
-                    />
-                    <div className='content-header-divider'></div>
-                    <button className='btn-preferences' title='Preferences'
-                        onClick={() => this.setState({ showSettingsModal: true, settingsSelectedTab: 'storage' })}>
-                        <SvgIcon name='settings' />
-                    </button>
-                    {
-                        isWindows ?
-                            (
-                                <div className='recipe-buttons'>
-                                    <button ref={ref => this.refMinimize = ref} className='btn-menubar minimize'>
-                                        <SvgIcon name='minimize' />
-                                    </button>
-                                    <button ref={ref => this.refMaximize = ref} className='btn-menubar maximize'>
-                                        <SvgIcon name={maximize ? 'maximized' : 'maximize'} />
-                                    </button>
-                                    <button ref={ref => this.refClose = ref} className='btn-menubar close'>
-                                        <SvgIcon name='close' />
-                                    </button>
-                                </div>
-                            )
-                            : null
-                    }
-                </div>
-            </div>
-        );
-    }
+	onChangeText = (text) => {
+		const { setQuery, setSelectedMenu, setRecipeList } = this.props;
+		const selectedMenu = '' === text ? MainMenus[0] : SearchResult;
+		setQuery(text);
+		setSelectedMenu(selectedMenu);
+		setRecipeList(selectedMenu, text);
+	};
+
+	render() {
+		const {
+			maximize,
+			showUnitConverter,
+			showSettingsModal,
+			isWindows,
+			settingsSelectedTab,
+		} = this.state;
+		const { t, query } = this.props;
+
+		return (
+			<div className="comp_topmenu">
+				<div id="notification" class="hidden">
+					<p id="message"></p>
+					<div className="buttons">
+						<button
+							class="btn"
+							id="close-button"
+							onClick="closeNotification()"
+						>
+							{t('close')}
+						</button>
+						<button
+							class="btn hidden"
+							id="restart-button"
+							onClick="restartApp()"
+						>
+							{t('restart')}
+						</button>
+					</div>
+				</div>
+				<UnitConverter
+					show={showUnitConverter}
+					onClose={() => this.setState({ showUnitConverter: false })}
+				/>
+				<SettingsModal
+					show={showSettingsModal}
+					selectedTab={settingsSelectedTab}
+					onClose={() => this.setState({ showSettingsModal: false })}
+					tabChanged={(settingsSelectedTab) =>
+						this.setState({ settingsSelectedTab })
+					}
+				/>
+
+				<div className="left-side">
+					{isWindows ? (
+						<button
+							ref={(ref) => (this.refMenu = ref)}
+							className="btn-menubar menu"
+							type="button"
+						>
+							<span />
+							<span />
+							<span />
+						</button>
+					) : null}
+					<span className="sidebar" onClick={this.handleSidebarClick}>
+						<SvgIcon name="sidebar" />
+					</span>
+					<span
+						className="calculator"
+						onClick={this.handleUnitConverterClick}
+					>
+						<SvgIcon name="calculator" />
+					</span>
+					<div className="content-header-divider"></div>
+					<span className="applogo">
+						<SvgIcon name="logo" />
+					</span>
+					<span className="appname">Birds Kitchen</span>
+				</div>
+
+				<div className="center-side"></div>
+				<div className="right-side">
+					<SearchField
+						placeholder={t('Search recipe...')}
+						value={query}
+						onChangeText={(text) => this.onChangeText(text)}
+						onClearClick={() => this.onChangeText('')}
+					/>
+					<div className="content-header-divider"></div>
+					<button
+						className="btn-preferences"
+						title="Preferences"
+						onClick={() =>
+							this.setState({
+								showSettingsModal: true,
+								settingsSelectedTab: 'storage',
+							})
+						}
+					>
+						<SvgIcon name="settings" />
+					</button>
+					{isWindows ? (
+						<div className="recipe-buttons">
+							<button
+								ref={(ref) => (this.refMinimize = ref)}
+								className="btn-menubar minimize"
+							>
+								<SvgIcon name="minimize" />
+							</button>
+							<button
+								ref={(ref) => (this.refMaximize = ref)}
+								className="btn-menubar maximize"
+							>
+								<SvgIcon
+									name={maximize ? 'maximized' : 'maximize'}
+								/>
+							</button>
+							<button
+								ref={(ref) => (this.refClose = ref)}
+								className="btn-menubar close"
+							>
+								<SvgIcon name="close" />
+							</button>
+						</div>
+					) : null}
+				</div>
+			</div>
+		);
+	}
 }
 
 TopMenuNotExtended.defaultProps = {
-    onClickSettings: PropTypes.func
+	onClickSettings: PropTypes.func,
 };
 
-const mapStateToProps = state => {
-    const { query } = state.search;
-    return { query };
+const mapStateToProps = (state) => {
+	const { query } = state.search;
+	return { query };
 };
 
-const mapDispatchToProps = ( dispatch ) => {
-    return {
-        setSelectedMenu: selectedMenu => ReduxHelpers.setSelectedMenu( dispatch, selectedMenu ),
-        setQuery: ( query ) => dispatch({ type: SET_SEARCH_QUERY, payload: query }),
-        setRecipeList: ( selectedMenu, query ) => ReduxHelpers.fillRecipes( dispatch, selectedMenu, query )
-    };
+const mapDispatchToProps = (dispatch) => {
+	return {
+		setSelectedMenu: (selectedMenu) =>
+			ReduxHelpers.setSelectedMenu(dispatch, selectedMenu),
+		setQuery: (query) =>
+			dispatch({ type: SET_SEARCH_QUERY, payload: query }),
+		setRecipeList: (selectedMenu, query) =>
+			ReduxHelpers.fillRecipes(dispatch, selectedMenu, query),
+	};
 };
 
-const TopMenu = hoistStatics( withTranslation()( TopMenuNotExtended ), TopMenuNotExtended );
+const TopMenu = hoistStatics(
+	withTranslation()(TopMenuNotExtended),
+	TopMenuNotExtended
+);
 
-export default connect( mapStateToProps, mapDispatchToProps )( TopMenu );
+export default connect(mapStateToProps, mapDispatchToProps)(TopMenu);

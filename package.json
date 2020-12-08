@@ -13,6 +13,7 @@
     "@testing-library/user-event": "^12.1.10",
     "electron-is-dev": "^1.2.0",
     "electron-store": "^6.0.1",
+    "electron-updater": "^4.3.5",
     "eslint-webpack-plugin": "^2.1.0",
     "feather-icons": "^4.28.0",
     "html-react-parser": "^0.14.0",

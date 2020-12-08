@@ -145,5 +145,9 @@
 	"gallons - dry (US)": "Gallonen - fest (US)",
 	"teaspoons (US)": "Teelöffel (US)",
 	"tablespoons (US)": "Esslöffel (US)",
-	"cups (US)": "Tassen (US)"
+	"cups (US)": "Tassen (US)",
+	"close": "schließen",
+	"restart": "neustarten",
+	"A new update is available. Downloading now...": "Eine neue Aktualisierung ist verfügbar. Jetzt herunterladen...",
+	"Update Downloaded. It will be installed on restart. Restart now?": "Aktualisierung heruntergeladen. Es wird beim Neustart installiert. Jetzt neu starten?"
 }
