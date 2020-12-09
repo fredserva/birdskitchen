@@ -88,23 +88,23 @@ class RecipeCrudModalNotExtended extends React.Component {
 			formValues.ingredients = formValues.ingredients.replace( /⅗/g, '3/5' );
 			formValues.ingredients = formValues.ingredients.replace( /⅘/g, '4/5' );
 			formValues.ingredients = formValues.ingredients.replace( /(?: )?(1+)\/(2+)/g, '.5' );
-			formValues.ingredients = formValues.ingredients.replace( /(?:\n)+(.5+)/g, '\n0.5' );
+			formValues.ingredients = formValues.ingredients.replace( /(?:\n)+([.]5+)/g, '\n0.5' );
 			formValues.ingredients = formValues.ingredients.replace( /(?: )?(1+)\/(3+)/g, '.33' );
-			formValues.ingredients = formValues.ingredients.replace( /(?:\n)+(.33+)/g, '\n0.33' );
+			formValues.ingredients = formValues.ingredients.replace( /(?:\n)+([.]33+)/g, '\n0.33' );
 			formValues.ingredients = formValues.ingredients.replace( /(?: )?(2+)\/(3+)/g, '.66' );
-			formValues.ingredients = formValues.ingredients.replace( /(?:\n)+(.66+)/g, '\n0.66' );
+			formValues.ingredients = formValues.ingredients.replace( /(?:\n)+([.]66+)/g, '\n0.66' );
 			formValues.ingredients = formValues.ingredients.replace( /(?: )?(1+)\/(4+)/g, '.25' );
-			formValues.ingredients = formValues.ingredients.replace( /(?:\n)+(.25+)/g, '\n0.25' );
+			formValues.ingredients = formValues.ingredients.replace( /(?:\n)+([.]25+)/g, '\n0.25' );
 			formValues.ingredients = formValues.ingredients.replace( /(?: )?(3+)\/(4+)/g, '.75' );
-			formValues.ingredients = formValues.ingredients.replace( /(?:\n)+(.75+)/g, '\n0.75' );
+			formValues.ingredients = formValues.ingredients.replace( /(?:\n)+([.]75+)/g, '\n0.75' );
 			formValues.ingredients = formValues.ingredients.replace( /(?: )?(1+)\/(5+)/g, '.20' );
-			formValues.ingredients = formValues.ingredients.replace( /(?:\n)+(.20+)/g, '\n0.20' );
+			formValues.ingredients = formValues.ingredients.replace( /(?:\n)+([.]20+)/g, '\n0.20' );
 			formValues.ingredients = formValues.ingredients.replace( /(?: )?(2+)\/(5+)/g, '.40' );
-			formValues.ingredients = formValues.ingredients.replace( /(?:\n)+(.40+)/g, '\n0.40' );
+			formValues.ingredients = formValues.ingredients.replace( /(?:\n)+([.]40+)/g, '\n0.40' );
 			formValues.ingredients = formValues.ingredients.replace( /(?: )?(3+)\/(5+)/g, '.60' );
-			formValues.ingredients = formValues.ingredients.replace( /(?:\n)+(.60+)/g, '\n0.60' );
+			formValues.ingredients = formValues.ingredients.replace( /(?:\n)+([.]60+)/g, '\n0.60' );
 			formValues.ingredients = formValues.ingredients.replace( /(?: )?(4+)\/(5+)/g, '.80' );
-			formValues.ingredients = formValues.ingredients.replace( /(?:\n)+(.80+)/g, '\n0.80' );
+			formValues.ingredients = formValues.ingredients.replace( /(?:\n)+([.]80+)/g, '\n0.80' );
 			formValues.ingredients = formValues.ingredients.replace( /\d+/g, k => Number( k ).toFixed( 0 ) );
 		}
 
