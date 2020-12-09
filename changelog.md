@@ -1,3 +1,15 @@
+## Version 0.7.1
+
+**Fixed bugs**
+&nbsp;
+&nbsp;
+- Fix quantity replacement bug
+
+**Changes**
+&nbsp;
+&nbsp;
+- Adjust form fields background for Woodsmoke theme
+
 ## Version 0.7.0
 
 **New features**
