@@ -168,7 +168,7 @@ body {
                 .form-control {
                     border: none;
                     color: $text-color;
-                    background: lighten($base-color, 10%);
+                    background-color: lighten($base-color, 10%);
                     box-shadow: 0 0 0 0 rgba(19,124,189,0), 0 0 0 0 rgba(19,124,189,0), 0 0 0 0 rgba(19,124,189,0), inset 0 0 0 1px rgba(16,22,26,.3), inset 0 1px 1px rgba(16,22,26,.4);
 
                     &::placeholder {
@@ -627,7 +627,7 @@ body {
                 .form-control {
                     border: none;
                     color: $text-color;
-                    background: $base-color;
+                    background-color: lighten($base-color, 10%);
                     box-shadow: 0 0 0 0 rgba(19,124,189,0), 0 0 0 0 rgba(19,124,189,0), 0 0 0 0 rgba(19,124,189,0), inset 0 0 0 1px rgba(16,22,26,.3), inset 0 1px 1px rgba(16,22,26,.4);
                 }
             }
@@ -644,7 +644,7 @@ body {
                 .form-control {
                     border: none;
                     color: $text-color;
-                    background: $base-color;
+                    background-color: lighten($base-color, 10%);
                     box-shadow: 0 0 0 0 rgba(19,124,189,0), 0 0 0 0 rgba(19,124,189,0), 0 0 0 0 rgba(19,124,189,0), inset 0 0 0 1px rgba(16,22,26,.3), inset 0 1px 1px rgba(16,22,26,.4);
                 }
             }
@@ -683,7 +683,7 @@ body {
                 .form-control {
                     border: none;
                     color: $text-color;
-                    background: $base-color;
+                    background-color: lighten($base-color, 10%);
                     box-shadow: 0 0 0 0 rgba(19,124,189,0), 0 0 0 0 rgba(19,124,189,0), 0 0 0 0 rgba(19,124,189,0), inset 0 0 0 1px rgba(16,22,26,.3), inset 0 1px 1px rgba(16,22,26,.4);
                 }
             }
@@ -700,7 +700,7 @@ body {
                 .form-control {
                     border: none;
                     color: $text-color;
-                    background: $base-color;
+                    background-color: lighten($base-color, 10%);
                     box-shadow: 0 0 0 0 rgba(19,124,189,0), 0 0 0 0 rgba(19,124,189,0), 0 0 0 0 rgba(19,124,189,0), inset 0 0 0 1px rgba(16,22,26,.3), inset 0 1px 1px rgba(16,22,26,.4);
 
                     option {
@@ -758,7 +758,7 @@ body {
                 .form-control {
                     border: none;
                     color: $text-color;
-                    background: $base-color;
+                    background-color: lighten($base-color, 10%);
                     box-shadow: 0 0 0 0 rgba(19,124,189,0), 0 0 0 0 rgba(19,124,189,0), 0 0 0 0 rgba(19,124,189,0), inset 0 0 0 1px rgba(16,22,26,.3), inset 0 1px 1px rgba(16,22,26,.4);
                 }
             }
@@ -779,7 +779,7 @@ body {
                 .form-control {
                     border: none;
                     color: $text-color;
-                    background: $base-color;
+                    background-color: lighten($base-color, 10%);
                     box-shadow: 0 0 0 0 rgba(19,124,189,0), 0 0 0 0 rgba(19,124,189,0), 0 0 0 0 rgba(19,124,189,0), inset 0 0 0 1px rgba(16,22,26,.3), inset 0 1px 1px rgba(16,22,26,.4);
                 }
             }
@@ -866,7 +866,7 @@ body {
                 .form-control {
                     border: none;
                     color: $text-color;
-                    background: $base-color;
+                    background-color: lighten($base-color, 10%);
                     box-shadow: 0 0 0 0 rgba(19,124,189,0), 0 0 0 0 rgba(19,124,189,0), 0 0 0 0 rgba(19,124,189,0), inset 0 0 0 1px rgba(16,22,26,.3), inset 0 1px 1px rgba(16,22,26,.4);
                 }
             }
