@@ -109,6 +109,7 @@ class TopMenuNotExtended extends Component {
 		const { isWindows } = this.state;
 
 		Mousetrap.unbind(['ctrl+b', 'command+b']);
+		Mousetrap.unbind(['ctrl+u', 'command+u']);
 
 		if (isWindows) {
 			this.refMenu.removeEventListener('click', this.onClickMenu);
