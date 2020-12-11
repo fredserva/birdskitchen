@@ -126,6 +126,7 @@ class RecipeCrudModalNotExtended extends React.Component {
         if ( isFormValid ) {
             let dataToDb = { ...formValues };
             dataToDb.tags = dataToDb.tags || '';
+            dataToDb.categories = dataToDb.categories || '';
             dataToDb.directions = dataToDb.directions || '';
             dataToDb.isfavorite = dataToDb.isfavorite || false;
             dataToDb.isTrash = dataToDb.isTrash || false;
