@@ -41,11 +41,11 @@ class Api {
 
     getAllTags = () => db.get( 'recipes' ).filter( { isTrash: false } ).map( 'tags' ).value();
 
-    getRecipesContainsTag = tag => db.get( 'recipes' ).filter( ( t => t.tags.indexOf( tag ) > -1 && false === t.isTrash ) ).value();
+    getRecipesContainsTag = tag => db.get( 'recipes' ).filter( ( t => t.tags.indexOf( tag ) > -1 && false === t.isTrash ) ).sortBy( 'title' ).value();
 
     getAllCategories = () => db.get( 'recipes' ).filter( { isTrash: false } ).map( 'categories' ).value();
 
-    getRecipesContainsCategory = category => db.get( 'recipes' ).filter( ( t => t.categories.indexOf( category ) > -1 && false === t.isTrash ) ).value();
+    getRecipesContainsCategory = category => db.get( 'recipes' ).filter( ( t => t.categories.indexOf( category ) > -1 && false === t.isTrash ) ).sortBy( 'title' ).value();
 
     queryRecipe = query => db.get( 'recipes' ).filter( ( t => ( t.title.toLowerCase().indexOf( query ) > -1 ) && false === t.isTrash ) ).value();
 }

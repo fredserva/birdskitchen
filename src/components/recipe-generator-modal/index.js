@@ -17,12 +17,21 @@ class RecipeGeneratorModalNotExtended extends React.Component {
     mdParser = new MarkdownIt();
 
     state = {
-        formValues: {},
         initialCount: +this.props.item.servings,
         count: +this.props.item.servings,
-        ingredients: this.props.item.ingredients,
-        formElements: []
+        ingredients: this.props.item.ingredients
     };
+
+    componentDidUpdate(prevProps, prevState) {
+        const {show} = this.props;
+        if ( show && prevProps.show !== show ) {
+			this.setState( {
+                initialCount: +this.props.item.servings,
+                count: +this.props.item.servings,
+                ingredients: this.props.item.ingredients
+            } );
+		}
+    }
 
     nToBr = ( data ) => {
         if ( undefined === data || '' === data ) {
@@ -61,7 +70,6 @@ class RecipeGeneratorModalNotExtended extends React.Component {
 
     onClose = () => {
         const { onClose } = this.props;
-        this.setState( { formValues: {} } );
         onClose && onClose();
 
 		// BUG: Lag
