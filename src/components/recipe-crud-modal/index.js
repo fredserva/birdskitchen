@@ -186,7 +186,6 @@ class RecipeCrudModalNotExtended extends React.Component {
     handleUnitConverter = () => {
         const unitConverter = document.querySelector( '.comp_unit-converter-modal' );
         unitConverter.classList.toggle( 'visible' );
-        console.log( 'click' );
     };
 
     render() {
