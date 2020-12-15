@@ -1,3 +1,12 @@
+## Version 0.7.2
+
+**Fixed bugs**
+&nbsp;
+&nbsp;
+- Unbind keyboard shortcut
+- Fix indexOf bug when no category is assigned
+- Fix ingredients state on print view when sorting by tag or category
+
 ## Version 0.7.1
 
 **Fixed bugs**
