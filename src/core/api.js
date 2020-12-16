@@ -23,31 +23,31 @@ class Api {
 
     getRecipeById = id => db.get( 'recipes' ).find( { id } ).value();
 
-    getAllRecipes = () => db.get( 'recipes' ).filter( { isTrash: false } ).sortBy( 'title' ).value();
+    getAllRecipes = () => db.get( 'recipes' ).filter( { isTrash: false } ).sortBy( t => ( t.title.toLowerCase() ) ).value();
 
-    getAllRecipesInTrash = () => db.get( 'recipes' ).filter( { isTrash: true } ).value();
+    getAllRecipesInTrash = () => db.get( 'recipes' ).filter( { isTrash: true } ).sortBy( t => ( t.title.toLowerCase() ) ).value();
 
     getAllUntaggedRecipes = () => db.get( 'recipes' ).filter( { tags: '', isTrash: false } || {
         tags: null,
         isTrash: false
-    }).value();
+    }).sortBy( t => ( t.title.toLowerCase() ) ).value();
 
     getAllUncategorizedRecipes = () => db.get( 'recipes' ).filter( { categories: '', isTrash: false } || {
         categories: null,
         isTrash: false
-    }).value();
+    }).sortBy( t => ( t.title.toLowerCase() ) ).value();
 
-    getAllFavoriteRecipes = () => db.get( 'recipes' ).filter( { isfavorite: true, isTrash: false } ).sortBy( 'title' ).value();
+    getAllFavoriteRecipes = () => db.get( 'recipes' ).filter( { isfavorite: true, isTrash: false } ).sortBy( t => ( t.title.toLowerCase() ) ).value();
 
     getAllTags = () => db.get( 'recipes' ).filter( { isTrash: false } ).map( 'tags' ).value();
 
-    getRecipesContainsTag = tag => db.get( 'recipes' ).filter( ( t => t.tags.indexOf( tag ) > -1 && false === t.isTrash ) ).sortBy( 'title' ).value();
+    getRecipesContainsTag = tag => db.get( 'recipes' ).filter( ( t => t.tags.indexOf( tag ) > -1 && false === t.isTrash ) ).sortBy( t => ( t.title.toLowerCase() ) ).value();
 
     getAllCategories = () => db.get( 'recipes' ).filter( { isTrash: false } ).map( 'categories' ).value();
 
-    getRecipesContainsCategory = category => db.get( 'recipes' ).filter( ( t => t.categories.indexOf( category ) > -1 && false === t.isTrash ) ).sortBy( 'title' ).value();
+    getRecipesContainsCategory = category => db.get( 'recipes' ).filter( ( t => t.categories.indexOf( category ) > -1 && false === t.isTrash ) ).sortBy( t => ( t.title.toLowerCase() ) ).value();
 
-    queryRecipe = query => db.get( 'recipes' ).filter( ( t => ( t.title.toLowerCase().indexOf( query ) > -1 ) && false === t.isTrash ) ).value();
+    queryRecipe = query => db.get( 'recipes' ).filter( ( t => ( t.title.toLowerCase().indexOf( query ) > -1 ) && false === t.isTrash ) ).sortBy( t => ( t.title.toLowerCase() ) ).value();
 }
 
 export default Api;
