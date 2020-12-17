@@ -13,7 +13,7 @@ import Api from '../../core/api';
 import { ChoiceField, NumberField, TextareaField, TextField, TagsField, MarkdownField, UrlField } from '../form-elements';
 import {isTextValid} from '../../core/utils';
 import SvgIcon from '../svgicon';
-import { NotyHelpers, ReduxHelpers, TagHelpers, StorageHelpers } from '../../core/helpers';
+import { NotyWithCallbackHelpers, ReduxHelpers, TagHelpers, StorageHelpers } from '../../core/helpers';
 import '../i18n';
 
 import './style.scss';
@@ -138,13 +138,12 @@ class RecipeCrudModalNotExtended extends React.Component {
                 new Api().updateRecipeItem( dataToDb );
             }
 
-            NotyHelpers.open( feather.icons.save.toSvg() + t( 'Saved' ), 'success', 1500 );
+            NotyWithCallbackHelpers.open(
+				feather.icons.save.toSvg() + t('Saved'),
+				'success',
+				0
+            );
             this.onClose();
-
-			// BUG: Lag
-			setTimeout( function() {
-				window.location.reload();
-			}, 1500 );
 
         }
 

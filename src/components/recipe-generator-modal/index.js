@@ -72,8 +72,7 @@ class RecipeGeneratorModalNotExtended extends React.Component {
         const { onClose } = this.props;
         onClose && onClose();
 
-		// BUG: Lag
-        // window.location.reload();
+		this.forceUpdate();
     };
 
     _footer = () => {

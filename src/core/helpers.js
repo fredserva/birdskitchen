@@ -183,6 +183,28 @@ const NotyHelpers = {
     }
 };
 
+const NotyWithCallbackHelpers = {
+    open: ( text, type, timeout ) => {
+        new Noty({
+            text,
+            theme: 'sunset',
+            layout: 'bottomRight',
+            type,
+            progressBar: false,
+            timeout,
+            closeWith: ['click'],
+            callbacks: {
+                afterShow: function() {
+                    document.location.reload();
+                },
+            }
+        }).show();
+    },
+    closeAll: () => {
+        new Noty().close();
+    }
+};
+
 const StorageHelpers = {
     preference: storagePreferences,
 
@@ -301,4 +323,4 @@ const StorageHelpers = {
     }
 };
 
-export {RecipeHelpers, TagHelpers, CategoriesHelpers, ReduxHelpers, NotyHelpers, StorageHelpers};
+export {RecipeHelpers, TagHelpers, CategoriesHelpers, ReduxHelpers, NotyHelpers, NotyWithCallbackHelpers, StorageHelpers};
