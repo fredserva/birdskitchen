@@ -1,3 +1,14 @@
+## Version 0.7.3
+
+**Fixed bugs**
+&nbsp;
+&nbsp;
+- Fix Search Result string not translated
+- Sets case insensitive recipes sorting
+- Force top menu to update on launch to listen for updates and to switch for user defined language
+- Fix app reload lag
+- Fix Update available message not showing
+
 ## Version 0.7.2
 
 **Fixed bugs**
