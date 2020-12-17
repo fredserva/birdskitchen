@@ -62,6 +62,8 @@ class TopMenuNotExtended extends Component {
 		const message = document.querySelector('#message');
 		const restartButton = document.querySelector('#restart-button');
 
+		this.forceUpdate();
+
 		Mousetrap.bind(['ctrl+b', 'command+b'], () =>
 			this.handleSidebarClick()
 		);
