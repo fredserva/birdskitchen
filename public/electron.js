@@ -86,9 +86,7 @@ ipcMain.on('app_version', (e) => {
 });
 
 autoUpdater.on('update-available', () => {
-	mainWindow.webContents.on('did-finish-load', () => {
-		mainWindow.webContents.send('update_available');
-	});
+	mainWindow.webContents.send('update_available');
 });
 
 autoUpdater.on('update-downloaded', () => {

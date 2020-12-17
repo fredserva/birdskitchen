@@ -55,6 +55,10 @@
 					background-color: #fff;
 					color: #007a5a;
 				}
+
+				&.hidden {
+					display: none;
+				}
 			}
 		}
 	}
