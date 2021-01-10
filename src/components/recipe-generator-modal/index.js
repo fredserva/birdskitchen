@@ -17,8 +17,8 @@ class RecipeGeneratorModalNotExtended extends React.Component {
     mdParser = new MarkdownIt();
 
     state = {
-        initialCount: +this.props.item.servings,
-        count: +this.props.item.servings,
+        initialCount: this.props.item.servings,
+        count: this.props.item.servings,
         ingredients: this.props.item.ingredients
     };
 
@@ -26,8 +26,7 @@ class RecipeGeneratorModalNotExtended extends React.Component {
         const {show} = this.props;
         if ( show && prevProps.show !== show ) {
 			this.setState( {
-                initialCount: +this.props.item.servings,
-                count: +this.props.item.servings,
+                count: prevState.initialCount,
                 ingredients: this.props.item.ingredients
             } );
 		}
@@ -47,20 +46,22 @@ class RecipeGeneratorModalNotExtended extends React.Component {
     };
 
     plusQty = () => {
+        let count = this.state.count;
         this.setState( {
-            count: +this.props.item.servings++,
-            ingredients: this.props.item.ingredients.replace( /(\d+[\d./,]*|\d)/g, k => ( evaluate( k ) * +this.props.item.servings / this.state.initialCount ).toFixed( 2 ).replace( /\.0+$/, '' ) )
+            count: ++count,
+            ingredients: this.props.item.ingredients.replace( /(\d+[\d./,]*|\d)/g, k => ( evaluate( k ) * count / this.state.initialCount ).toFixed( 2 ).replace( /\.0+$/, '' ) )
         } );
     };
 
     minusQty = () => {
-        if ( +this.props.item.servings >  1 ) {
+        let count = this.state.count;
+        if ( count >  1 ) {
             this.setState( {
-                count: +this.props.item.servings--
+                count: --count
             } );
         }
         this.setState( {
-            ingredients: this.props.item.ingredients.replace( /(\d+[\d./,]*|\d)/g, k => ( evaluate( k ) * +this.props.item.servings / this.state.initialCount ).toFixed( 2 ).replace( /\.0+$/, '' ) )
+            ingredients: this.props.item.ingredients.replace( /(\d+[\d./,]*|\d)/g, k => ( evaluate( k ) * count / this.state.initialCount ).toFixed( 2 ).replace( /\.0+$/, '' ) )
         } );
     };
 
@@ -266,7 +267,7 @@ class RecipeGeneratorModalNotExtended extends React.Component {
                             </div>
                             <span><SvgIcon name='ingredients'/></span>
                             { t( 'Ingredients' ) }
-                            <span className='qty'><SvgIcon name='servings'/> <span id='qtynb'>{item.servings}</span></span>
+                            <span className='qty'><SvgIcon name='servings'/> <span id='qtynb'>{this.state.count}</span></span>
                         </label>
                         { Parser( this.nToBr( this.state.ingredients ) ) }
                     </div>
