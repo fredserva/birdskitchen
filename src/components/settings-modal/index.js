@@ -276,6 +276,9 @@ class SettingsModalNotExtended extends React.Component {
 								<li onClick={() => this.changeLanguage( 'fr' )} className={ 'fr' === appLang ? 'active' : ''}>
 									<div className='text-container'>Français</div>
 								</li>
+								<li onClick={() => this.changeLanguage( 'it' )} className={ 'it' === appLang ? 'active' : ''}>
+									<div className='text-container'>Italiano</div>
+								</li>
 							</ul>
 						</div>
 					</div>
@@ -324,6 +327,199 @@ class SettingsModalNotExtended extends React.Component {
 										</tr>
 									</tbody>
 								</table>
+							</div>
+							<div className='separator'></div>
+							<div className='sub-title'>
+								<span>
+									{ t( 'Recipe Import - Supported Websites' ) }
+								</span>
+							</div>
+							<div className='info'>
+								<div className='language'>
+								{ t( 'English Language' ) }
+								</div>
+								<div className='websites'>
+									<div className='website-url' onClick={() => shell.openExternal( 'https://www.101cookbooks.com' )}>
+										101 Cookbooks
+									</div>
+									<div className='website-url' onClick={() => shell.openExternal( 'https://www.allrecipes.com' )}>
+										Allrecipes
+									</div>
+									<div className='website-url' onClick={() => shell.openExternal( 'https://www.ambitiouskitchen.com' )}>
+										Ambitious Kitchen
+									</div>
+									<div className='website-url' onClick={() => shell.openExternal( 'https://www.bbcgoodfood.com' )}>
+										BBC Good Food
+									</div>
+									<div className='website-url' onClick={() => shell.openExternal( 'https://www.bonappetit.com' )}>
+										Bon Appétit
+									</div>
+									<div className='website-url' onClick={() => shell.openExternal( 'https://www.budgetbytes.com' )}>
+										Budget Bytes
+									</div>
+									<div className='website-url' onClick={() => shell.openExternal( 'https://www.closetcooking.com' )}>
+										Closet Cooking
+									</div>
+									<div className='website-url' onClick={() => shell.openExternal( 'https://cookieandkate.com' )}>
+										Cookie and Kate
+									</div>
+									<div className='website-url' onClick={() => shell.openExternal( 'https://damndelicious.net' )}>
+										Damn Delicious
+									</div>
+									<div className='website-url' onClick={() => shell.openExternal( 'http://www.eatingwell.com' )}>
+										EatingWell
+									</div>
+									<div className='website-url' onClick={() => shell.openExternal( 'https://www.epicurious.com' )}>
+										Epicurious
+									</div>
+									<div className='website-url' onClick={() => shell.openExternal( 'https://www.food.com' )}>
+										Food
+									</div>
+									<div className='website-url' onClick={() => shell.openExternal( 'https://www.foodandwine.com' )}>
+										Food & Wine
+									</div>
+									<div className='website-url' onClick={() => shell.openExternal( 'https://www.gimmesomeoven.com' )}>
+										Gimme Some Oven
+									</div>
+									<div className='website-url' onClick={() => shell.openExternal( 'https://www.kitchenstories.com/en' )}>
+										Kitchen Stories
+									</div>
+									<div className='website-url' onClick={() => shell.openExternal( 'https://minimalistbaker.com' )}>
+										Minimalist Baker
+									</div>
+									<div className='website-url' onClick={() => shell.openExternal( 'https://www.myrecipes.com/recipe' )}>
+										MyRecipes
+									</div>
+									<div className='website-url' onClick={() => shell.openExternal( 'https://nomnompaleo.com' )}>
+										Nom Nom Paleo
+									</div>
+									<div className='website-url' onClick={() => shell.openExternal( 'https://omnivorescookbook.com' )}>
+										Omnivore's Cookbook
+									</div>
+									<div className='website-url' onClick={() => shell.openExternal( 'https://pinchofyum.com' )}>
+										Pinch of Yum
+									</div>
+									<div className='website-url' onClick={() => shell.openExternal( 'https://www.recipetineats.com' )}>
+										RecipeTin Eats
+									</div>
+									<div className='website-url' onClick={() => shell.openExternal( 'https://www.seriouseats.com' )}>
+										Serious Eats
+									</div>
+									<div className='website-url' onClick={() => shell.openExternal( 'https://www.simplyrecipes.com/recipes' )}>
+										Simply Recipes
+									</div>
+									<div className='website-url' onClick={() => shell.openExternal( 'https://smittenkitchen.com' )}>
+										Smitten Kitchen
+									</div>
+									<div className='website-url' onClick={() => shell.openExternal( 'https://tastesbetterfromscratch.com' )}>
+										Tastes Better From Scratch
+									</div>
+									<div className='website-url' onClick={() => shell.openExternal( 'https://www.thepioneerwoman.com' )}>
+										The Pioneer Woman
+									</div>
+									<div className='website-url' onClick={() => shell.openExternal( 'https://therealfoodrds.com' )}>
+										The Real Food Dietitians
+									</div>
+									<div className='website-url' onClick={() => shell.openExternal( 'https://www.thespruceeats.com' )}>
+										The Spruce Eats
+									</div>
+									<div className='website-url' onClick={() => shell.openExternal( 'https://www.woolworths.com.au' )}>
+										Woolworths
+									</div>
+									<div className='website-url' onClick={() => shell.openExternal( 'https://www.yummly.com' )}>
+										Yummly
+									</div>
+								</div>
+								<div>&nbsp;</div>
+								<div className='language'>
+									{ t( 'French Language' ) }
+								</div>
+								<div className='websites'>
+									<div className='website-url' onClick={() => shell.openExternal( 'https://www.750g.com' )}>
+										750g
+									</div>
+									<div className='website-url' onClick={() => shell.openExternal( 'https://www.coupdepouce.com' )}>
+										Coup de pouce
+									</div>
+									<div className='website-url' onClick={() => shell.openExternal( 'https://www.cuisineactuelle.fr' )}>
+										Cuisine Actuelle
+									</div>
+									<div className='website-url' onClick={() => shell.openExternal( 'https://www.cuisineaz.com' )}>
+										CuisineAZ
+									</div>
+									<div className='website-url' onClick={() => shell.openExternal( 'http://cuisinemoiunmouton.com' )}>
+										Cuisine-moi un mouton
+									</div>
+									<div className='website-url' onClick={() => shell.openExternal( 'http://www.delice-celeste.com' )}>
+										Délice Céleste
+									</div>
+									<div className='website-url' onClick={() => shell.openExternal( 'https://www.hervecuisine.com' )}>
+										Hervé Cuisine
+									</div>
+									<div className='website-url' onClick={() => shell.openExternal( 'https://cuisine.journaldesfemmes.fr' )}>
+										Le Journal des Femmes - Cuisine
+									</div>
+									<div className='website-url' onClick={() => shell.openExternal( 'https://www.marmiton.org' )}>
+										Marmiton
+									</div>
+									<div className='website-url' onClick={() => shell.openExternal( 'https://madame.lefigaro.fr/cuisine' )}>
+										Madame Figaro - Cuisine
+									</div>
+									<div className='website-url' onClick={() => shell.openExternal( 'https://www.recettes.qc.ca' )}>
+										Recettes du Québec
+									</div>
+									<div className='website-url' onClick={() => shell.openExternal( 'https://www.ricardocuisine.com' )}>
+										Ricardo
+									</div>
+									<div className='website-url' onClick={() => shell.openExternal( 'https://turbigo-gourmandises.fr' )}>
+										Turbigo Gourmandises
+									</div>
+									<div className='website-url' onClick={() => shell.openExternal( 'https://zeste.ca' )}>
+										Zeste
+									</div>
+								</div>
+								<div>&nbsp;</div>
+								<div className='language'>
+									{ t( 'German Language' ) }
+								</div>
+								<div className='websites'>
+									<div className='website-url' onClick={() => shell.openExternal( 'https://www.chefkoch.de' )}>
+										Chefkoch
+									</div>
+									<div className='website-url' onClick={() => shell.openExternal( 'https://www.daskochrezept.de' )}>
+										Das Kochrezept
+									</div>
+									<div className='website-url' onClick={() => shell.openExternal( 'https://eatsmarter.de' )}>
+										Eat Smarter
+									</div>
+									<div className='website-url' onClick={() => shell.openExternal( 'https://www.essen-und-trinken.de' )}>
+										Essen und Trinken
+									</div>
+									<div className='website-url' onClick={() => shell.openExternal( 'https://www.kitchenstories.com/de' )}>
+										Kitchen Stories
+									</div>
+									<div className='website-url' onClick={() => shell.openExternal( 'https://www.kochbar.de' )}>
+										Kochbar
+									</div>
+									<div className='website-url' onClick={() => shell.openExternal( 'https://www.lecker.de' )}>
+										Lecker
+									</div>
+								</div>
+								<div>&nbsp;</div>
+								<div className='language'>
+									{ t( 'Italian Language' ) }
+								</div>
+								<div className='websites'>
+									<div className='website-url' onClick={() => shell.openExternal( 'https://www.lacucinaitaliana.it' )}>
+										La Cucina Italiana
+									</div>
+									<div className='website-url' onClick={() => shell.openExternal( 'https://gnambox.com' )}>
+										Gnam Box
+									</div>
+									<div className='website-url' onClick={() => shell.openExternal( 'https://www.giallozafferano.it' )}>
+										Giallo Zafferano
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>

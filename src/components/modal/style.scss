@@ -1,146 +1,180 @@
 .comp_settings-modal .comp_modal .modal-content {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
 }
 
 .comp_modal {
-    position: fixed;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    justify-content: flex-end;
-    align-items: center;
-    display: none;
-    overflow: auto;
+	position: fixed;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+	justify-content: flex-end;
+	align-items: center;
+	display: none;
+	overflow: auto;
 
-    &.visible {
-        display: flex;
-        z-index: 2;
+	&.visible {
+		display: flex;
+		z-index: 2;
 
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            width: 100%;
-            height: 100%;
-            cursor: pointer;
-            z-index: 2;
-        }
+		.modal-overlay {
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			width: 100%;
+			height: 100%;
+			cursor: pointer;
+			z-index: 2;
+		}
 
-        .modal-content {
-            z-index: 3;
-        }
-    }
+		.modal-content {
+			z-index: 3;
+		}
+	}
 
-    .modal-header {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        user-select: none;
-        padding: 20px 50px 50px 55px;
+	.modal-header {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		user-select: none;
+		padding: 20px 50px 50px 55px;
 
-        svg {
-            width: 24px;
+		svg {
+			width: 24px;
 
-            &:hover {
-                cursor: pointer;
-            }
-        }
+			&:hover {
+				cursor: pointer;
+			}
+		}
 
-        .title {
-            font-weight: bold;
-            font-size: 0.45rem;
-            padding-bottom: 5px;
-        }
+		.title {
+			font-weight: bold;
+			font-size: 0.45rem;
+			padding-bottom: 5px;
+		}
 
-        .header-icons {
-            .header-buttons {
-                display: flex;
-                align-items: center;
-                justify-content: flex-end;
-                padding: 0 0 0 50px;
+		.header-icons {
+			.header-buttons {
+				display: flex;
+				align-items: center;
+				justify-content: flex-end;
+				padding: 0 0 0 50px;
 
-                span {
-                    display: flex;
-                    align-items: center;
-                    padding: 10px 0;
+				span {
+					display: flex;
+					align-items: center;
+					padding: 10px 0;
 
-                    svg {
-                        width: 24px;
-                        height: 24px;
-                        margin: 0 5px;
+					&:last-of-type svg {
+						margin: 0 0 0 20px;
+					}
 
-                        &:hover {
-                            cursor: pointer;
-                        }
-                    }
+					svg {
+						width: 24px;
+						height: 24px;
+						margin: 0 5px;
 
-                    &.crud-calculator {
-                        svg {
-                            width: 21px;
-                            height: 21px;
-                        }
-                    }
-                }
-            }
-        }
-    }
+						&:hover {
+							cursor: pointer;
+						}
+					}
 
-    .modal-content {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+					&.crud-calculator {
+						svg {
+							width: 21px;
+							height: 21px;
+						}
+					}
 
-        .modal-body {
-            padding: 20px 50px 20px 55px;
-            overflow-y: auto;
-        }
+					&.webimport {
+						svg {
+							width: 22px;
+							height: 22px;
+							margin: 1px 5px 0;
+						}
 
-        .modal-footer {
-            width: 100%;
+						&.hidden {
+							display: none;
+						}
+					}
+				}
+			}
+		}
+	}
 
-            .footer-buttons {
-                display: flex;
-                align-items: center;
-                justify-content: flex-end;
-                padding: 0 50px 0 55px;
+	.modal-content {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
 
-                span {
-                    display: flex;
-                    align-items: center;
-                    padding: 10px 0;
+		.modal-body {
+			padding: 20px 50px 20px 55px;
+			overflow-y: auto;
+		}
 
-                    svg {
-                        width: 24px;
-                        height: 24px;
-                        margin: 0 5px;
+		.modal-footer {
+			width: 100%;
 
-                        &:hover {
-                            cursor: pointer;
-                        }
-                    }
-                }
+			.footer-buttons {
+				display: flex;
+				align-items: center;
+				justify-content: flex-end;
+				padding: 0 50px 0 55px;
 
-                .crud-calculator {
-                    svg {
-                        width: 21px;
-                        height: 21px;
-                    }
-                }
-            }
-        }
-    }
+				span {
+					display: flex;
+					align-items: center;
+					padding: 10px 0;
+
+					&:last-of-type svg {
+						margin: 0 0 0 20px;
+					}
+
+					svg {
+						width: 24px;
+						height: 24px;
+						margin: 0 5px;
+
+						&:hover {
+							cursor: pointer;
+						}
+
+					}
+
+					&.crud-calculator {
+						svg {
+							width: 21px;
+							height: 21px;
+						}
+					}
+
+					&.webimport {
+						svg {
+							width: 22px;
+							height: 22px;
+							margin: 1px 5px 0;
+						}
+
+						&.hidden {
+							display: none;
+						}
+					}
+				}
+
+			}
+		}
+	}
 }
