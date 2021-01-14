@@ -1,3 +1,11 @@
+## Version 0.8.1
+
+**Fixed bugs**
+&nbsp;
+&nbsp;
+- Fix error "Cannot assign to read only property 'exports' of object (mix require and export)"
+
+
 ## Version 0.8.0
 
 **New features**
