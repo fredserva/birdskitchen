@@ -9,7 +9,7 @@ import ImageUploader from 'react-images-upload';
 import fs from 'fs';
 import request from 'request';
 
-import { domains } from '../recipe-scraper/scrapers';
+import { Domains } from './scrapers';
 import { parseDomain, fromUrl } from 'parse-domain';
 
 import Modal from '../modal';
@@ -444,8 +444,8 @@ class RecipeCrudModalNotExtended extends React.Component {
 			console.log(domain);
 
 			if (domain) {
-				if (undefined !== domains[domain]) {
-					resolve(domains[domain](url));
+				if (undefined !== Domains[domain]) {
+					resolve(Domains[domain](url));
 				} else {
 					reject(new Error('Site not yet supported'));
 				}
@@ -481,7 +481,7 @@ class RecipeCrudModalNotExtended extends React.Component {
 			})
 			.catch((error) => {
 				if (domain) {
-					if (undefined === domains[domain]) {
+					if (undefined === Domains[domain]) {
 						failureMessage = t('Site not yet supported');
 					} else {
 						failureMessage = t(
