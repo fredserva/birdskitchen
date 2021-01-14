@@ -1,11 +1,21 @@
 # Birds Kitchen
 
+[![License: CC BY-NC-ND 4.0](https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/) [![Github All Releases](https://img.shields.io/github/downloads/fredserva/birdskitchen/total.svg)]()
+
+
+**Love Birds Kitchen? Give this repo a star :star:**
+
+&nbsp;
+
+---
+&nbsp;
 ## Website
 <a href="https://tenbirds.online/birdskitchen/">https://tenbirds.online/birdskitchen/</a>
 
 &nbsp;
 
 ---
+&nbsp;
 
 I wanted to learn something new...
 
@@ -13,7 +23,7 @@ So, I decided to take a crack at learning React and building an application that
 
 I you want to contribute, please send me a mail or a pidgeon :grin:
 
-<a href="mailto:contact@tenbirds.online">![Email](http://img.shields.io/static/v1?label=email&message=contact@tenbirds.online&color=e5311a&style=flat-square&link=mailto:contact@tenbirds.online&link=mailto:contact@tenbirds.online)</a>
+<a href="mailto:contact@tenbirds.online">![Email](https://img.shields.io/static/v1?label=email&message=contact@tenbirds.online&color=e5311a&style=for-the-badge&link=link=mailto:contact@tenbirds.online)</a>
 
 ## Screenshots
 
@@ -69,7 +79,7 @@ I you want to contribute, please send me a mail or a pidgeon :grin:
 ## Features
 
 - Cross platform
-- Localized (english, french and german)
+- Localized (english, french, german and italian)
 - Custom Themes (a light one and two dark ones for now)
 - Content search
 - Tags
@@ -83,6 +93,7 @@ I you want to contribute, please send me a mail or a pidgeon :grin:
 - Choose your storage directory (including Sync Services)
 - Backups and Restore backups
 - Unit Converter
+- Recipe Websites scraper (54 supported websites in 4 languages)
 - Auto updates
 
 ## Roadmap
@@ -111,14 +122,32 @@ yarn dev
 
 ## Contributing
 
-To add support for your favorite language, or submit new features, feel free to open an issue or to contact me directly.
+To add support for your favorite language, or submit new features, feel free to open an issue or contact me directly.
 **Contributions are very welcomed!**
 
 ## License
 
-GPL v3 license
+[![License: CC BY-NC-ND 4.0](https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
 
 ## Buy me a coffee! (or more likely a beer)
 
 [Yes, do that!](https://paypal.me/fredserva)
 
+
+---
+&nbsp;
+
+## Contributors
+
+Thanks goes to these people
+
+<table>
+  <tr>
+    <td>
+        <a href="https://github.com/YSchroe"><img src="https://avatars2.githubusercontent.com/u/5794325?s=460&v=4" width="70px;"/><br /><b>YSchroe</b></a><br />German translation
+    </td>
+    <td>
+        <a href="https://github.com/albanobattistella"><img src="https://avatars3.githubusercontent.com/u/34811668?s=460&v=4" width="70px;"/><br /><b>Albano Battistella</b></a><br />Italian translation
+    </td>
+  </tr>
+</table>

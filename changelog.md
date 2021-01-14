@@ -1,3 +1,17 @@
+## Version 0.8.0
+
+**New features**
+&nbsp;
+&nbsp;
+- Add italian translation
+- Add Recipe Websites scraper (54 supported websites in 4 languages)
+
+**Changes**
+&nbsp;
+&nbsp;
+- Improve calculations
+
+
 ## Version 0.7.3
 
 **Fixed bugs**
