@@ -57,12 +57,52 @@
 				margin: 5px 0;
 				width: 50%;
 
+				.accordion {
+					input[type='checkbox'] {
+						display: none;
+
+						&:checked + label:after {
+							content: '\25b2';
+						}
+
+						&:checked ~ .accordion-content {
+							max-height: 9999px;
+							padding: 10px 0 20px;
+							opacity: 1;
+							transition: max-height 2s
+								cubic-bezier(0.865, 0.14, 0.095, 0.87), opacity 0s, padding 0s ease 0s;
+						}
+					}
+
+					label {
+						position: relative;
+						display: inline-block;
+						cursor: pointer;
+
+						&:after {
+							content: '\25bc';
+							position: relative;
+							vertical-align: text-top;
+							margin-left: 1em;
+							opacity: 0.6;
+						}
+					}
+
+					.accordion-content {
+						max-height: 0;
+						padding: 0;
+						opacity: 0;
+						overflow: hidden;
+						box-sizing: border-box;
+						transition: max-height 0.3s
+							cubic-bezier(0.865, 0.14, 0.095, 0.87), opacity 0.1s, padding 1s ease 0s;
+					}
+				}
+
 				.language {
 					display: inline-block;
-					margin: 0 0 20px;
 					font-weight: 900;
-					padding-bottom: 5px;
-					border-bottom: 2px solid;
+					padding: 0;
 				}
 
 				.websites {
@@ -73,12 +113,12 @@
 						margin: 5px 0;
 
 						&:before {
-							content:"• ";
+							content: '• ';
 						}
 
 						&:hover {
-                            cursor: pointer;
-                            opacity: .8;
+							cursor: pointer;
+							opacity: 0.8;
 						}
 					}
 				}
@@ -325,6 +365,7 @@
 				font-size: 0.4rem;
 				padding: 0;
 				margin: 0;
+				box-sizing: border-box;
 
 				table {
 					width: 100%;
