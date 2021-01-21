@@ -167,5 +167,6 @@
 	"Depending on the recipe, certain fields may be left blank.": "Depending on the recipe, certain fields may be left blank.",
 	"Fetching a recipe can sometimes be long, so be patient!": "Fetching a recipe can sometimes be long, so be patient!",
 	"send": "send",
-	"Do you want to import this recipe?": "Do you want to import this recipe?"
+	"Do you want to import this recipe?": "Do you want to import this recipe?",
+	"Send me an email": "Send me an email"
 }

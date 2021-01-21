@@ -96,10 +96,11 @@
   "links": {
     "project-page": "https://github.com/fredserva/birdskitchen",
     "author-page": "https://github.com/fredserva",
-    "license": "https://github.com/fredserva/birdskitchen/blob/master/license.md",
+    "license": "https://github.com/fredserva/birdskitchen/blob/master/LICENSE",
     "changelog": "https://github.com/fredserva/birdskitchen/blob/master/changelog.md",
     "issues": "https://github.com/fredserva/birdskitchen/issues/new?assignees=&labels=&template=feature_request.md&title=",
-    "releases": "https://github.com/fredserva/birdskitchen/releases"
+    "releases": "https://github.com/fredserva/birdskitchen/releases",
+    "mailto": "mailto:contact@tenbirds.online"
   },
   "build": {
     "appId": "com.birdskitchen.app",

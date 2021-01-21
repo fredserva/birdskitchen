@@ -167,5 +167,6 @@
 	"Depending on the recipe, certain fields may be left blank.": "A seconda della ricetta, alcuni campi possono essere lasciati vuoti.",
 	"Fetching a recipe can sometimes be long, so be patient!": "La ricerca di una ricetta può essere a volte lunga, quindi abbiate pazienza!",
 	"send": "inviare",
-	"Do you want to import this recipe?": "Vuoi importare questa ricetta?"
+	"Do you want to import this recipe?": "Vuoi importare questa ricetta?",
+	"Send me an email": "Mandami un email"
 }

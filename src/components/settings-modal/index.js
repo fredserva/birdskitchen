@@ -1255,6 +1255,15 @@ class SettingsModalNotExtended extends React.Component {
 										>
 											{t('Report an issue')}
 										</div>
+										<div><br/></div>
+										<div
+											className="link"
+											onClick={() =>
+												this.openLinkInBrowser('mailto')
+											}
+										>
+											{t('Send me an email')}
+										</div>
 									</div>
 								</div>
 							</div>
