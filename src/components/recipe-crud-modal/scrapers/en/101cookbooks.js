@@ -14,11 +14,14 @@ const oneHundredAndOne = (url) => {
 					const $ = load(html);
 					const recipetitle = $('.recipetitle');
 
-					Recipe.name = recipetitle.children('.entry-title').text();
+					Recipe.name = recipetitle
+						.children('.entry-title')
+						.text()
+						.replace(' | 101 Cookbooks', '');
 
-					Recipe.name = $("meta[property='og:title']").attr(
-						'content'
-					);
+					Recipe.name = $("meta[property='og:title']")
+						.attr('content')
+						.replace(' | 101 Cookbooks', '');
 
 					Recipe.image = $("meta[property='og:image']")
 						.attr('content')
