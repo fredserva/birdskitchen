@@ -1,4 +1,4 @@
-import { launch } from 'puppeteer';
+const puppeteer = require('puppeteer');
 
 const blockedResourceTypes = [
 	'image',
@@ -36,14 +36,14 @@ const skippedResources = [
 ];
 
 const puppeteerFetch = async (url) => {
-	const browser = await launch({
+	const browser = await puppeteer.launch({
 		headless: true,
 	});
 
 	const page = await browser.newPage();
 	await page.setRequestInterception(true);
 
-	await page.on('request', (req) => {
+	page.on('request', (req) => {
 		const requestUrl = req._url.split('?')[0].split('#')[0];
 		if (
 			blockedResourceTypes.indexOf(req.resourceType()) !== -1 ||
