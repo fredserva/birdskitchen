@@ -77,6 +77,14 @@ const thePioneerWoman = (url) => {
 						.split('-')[0]
 						.trim();
 
+					$('.seo-tag-list').each((i, el) => {
+						$(el)
+							.find('li')
+							.each((i, elChild) => {
+								Recipe.tags.push($(elChild).text().trim());
+							});
+					});
+
 					if (
 						!Recipe.name ||
 						!Recipe.ingredients.length ||

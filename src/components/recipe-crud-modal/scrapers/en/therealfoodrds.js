@@ -37,7 +37,7 @@ const theRealFoodRds = (url) => {
 						);
 					});
 
-				Recipe.tags = $('.tasty-recipes-category')
+				Recipe.tags = $('.tasty-recipes-category, .tasty-recipes-cuisine')
 					.text()
 					.split('|')
 					.map((x) => x.trim());

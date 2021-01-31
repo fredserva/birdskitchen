@@ -1,7 +1,8 @@
 import { load } from 'cheerio';
-import { launch } from 'puppeteer';
 
 import RecipeSchema from '../../helpers/recipe-schema';
+
+const puppeteer = require('puppeteer');
 
 const blockedResourceTypes = [
 	'image',
@@ -39,7 +40,7 @@ const skippedResources = [
 ];
 
 const customPuppeteerFetch = async (url) => {
-	const browser = await launch();
+	const browser = await puppeteer.launch();
 	const page = await browser.newPage();
 	await page.setRequestInterception(true);
 
@@ -96,7 +97,9 @@ const yummly = (url) => {
 				const Recipe = new RecipeSchema();
 				const $ = load(html);
 
-				Recipe.image = $("meta[property='og:image']").attr('content');
+				let ogImage = $("meta[property='og:image']").attr('content') + '.jpg';
+				Recipe.image = ogImage.replace(/[.]jpg.*/, '.jpg');
+
 				Recipe.name = $('.recipe-title').text();
 
 				$('.recipe-tag').each((i, el) => {

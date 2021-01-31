@@ -2,7 +2,6 @@ import request from 'request';
 
 import RecipeSchema from '../../helpers/recipe-schema';
 
-const urlRe = /\/(\d\d\d\d)\//;
 const instructionsIndexRe = /(?:\d.)(.*)/;
 const instructionsTipRe = /(Tip:)(.*)/i;
 
@@ -15,11 +14,12 @@ const woolworths = (url) => {
 					"url provided must include 'woolworths.com.au/shop/recipedetail/'"
 				)
 			);
-		} else if (!urlRe.test(url)) {
-			reject(new Error('No recipe found on page'));
 		} else {
-			const recipeId = urlRe.exec(url)[1];
+			const urlWithoutProtocol = url.split('/').slice(2).join('/');
+			let grab = urlWithoutProtocol.replace('www.woolworths.com.au/shop/recipedetail/', '');
+			const recipeId = grab.split('/')[0];
 			let recipeJsonUrl = `https://www.woolworths.com.au/apis/ui/recipes/${recipeId}`;
+
 			request(
 				{
 					url: recipeJsonUrl,
@@ -32,8 +32,20 @@ const woolworths = (url) => {
 						Recipe.ingredients = html.Ingredients.map((i) =>
 							i.Description.trim()
 						);
-						Recipe.time.prep = html.PreparationDuration.toString();
-						Recipe.time.cook = html.CookingDuration.toString();
+						let prepDuration = '';
+						if ( null === html.PreparationDuration ) {
+							prepDuration = 0;
+						} else {
+							prepDuration = html.PreparationDuration;
+						}
+						Recipe.time.prep = prepDuration.toString();
+						let cookDuration = '';
+						if ( null === html.CookingDuration ) {
+							cookDuration = 0;
+						} else {
+							cookDuration = html.CookingDuration;
+						}
+						Recipe.time.cook = cookDuration.toString();
 						Recipe.servings = html.Servings.toString();
 						html.Instructions.split('\r\n').forEach((step) => {
 							let newIngredient = '';

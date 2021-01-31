@@ -37,7 +37,10 @@ const epicurious = (url) => {
 					Recipe.time.active = $('dd.active-time').text();
 					Recipe.time.total = $('dd.total-time').text();
 
-					Recipe.servings = $('dd.yield').text().split(' -')[0];
+					Recipe.servings = $('[itemprop="recipeYield"]')
+						.text()
+						.replace(/\D+/g, '')
+						.trim();
 
 					if (
 						!Recipe.name ||

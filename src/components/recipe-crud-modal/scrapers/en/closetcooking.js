@@ -1,67 +1,77 @@
+import request from 'request';
 import { load } from 'cheerio';
+
 import RecipeSchema from '../../helpers/recipe-schema';
-import puppeteerFetch from '../../helpers/puppeteerFetch';
 
 const closetCooking = (url) => {
-	return new Promise(async (resolve, reject) => {
+	const Recipe = new RecipeSchema();
+	return new Promise((resolve, reject) => {
 		if (!url.includes('closetcooking.com/')) {
 			reject(new Error("url provided must include 'closetcooking.com/'"));
 		} else {
-			try {
-				const html = await puppeteerFetch(url);
-				const Recipe = new RecipeSchema();
-				const $ = load(html);
+			request(url, (error, response, html) => {
+				if (!error && response.statusCode === 200) {
+					const $ = load(html);
 
-				Recipe.image = $("meta[property='og:image']").attr('content');
-				Recipe.name = $('.recipe_title').text();
+					Recipe.image = $("meta[property='og:image']").attr(
+						'content'
+					);
+					Recipe.name = $("meta[property='og:title']").attr(
+						'content'
+					);
 
-				$('.ingredients')
-					.children('h6, li')
-					.each((i, el) => {
-						Recipe.ingredients.push($(el).text());
+					$('.ingredients').each((i, el) => {
+						const item = $(el).text().replace(/\s\s+/g, ' ').trim();
+						Recipe.ingredients.push(item);
 					});
 
-				$('.instructions')
-					.children('h6, li')
-					.each((i, el) => {
-						Recipe.instructions.push($(el).text());
+					$('.instructions').each((i, el) => {
+						const step = $(el).text().replace(/\s\s+/g, '').trim();
+						Recipe.instructions.push(step);
 					});
 
-				$("a[rel='category tag']").each((i, el) => {
-					Recipe.tags.push($(el).text());
-				});
+					Recipe.servings = $('[itemprop="recipeYield"]')
+						.text()
+						.replace(/\D+/g, '')
+						.trim();
 
-				let metaData = $('.time');
-				let prepText = metaData.first().text();
-				Recipe.time.prep = prepText
-					.slice(prepText.indexOf(':') + 1)
-					.trim();
-				let cookText = $(metaData.get(1)).text();
-				Recipe.time.cook = cookText
-					.slice(cookText.indexOf(':') + 1)
-					.trim();
-				let totalText = $(metaData.get(2)).text();
-				Recipe.time.total = totalText
-					.slice(totalText.indexOf(':') + 1)
-					.trim();
+					$('[itemprop="prepTime"]').each((i, el) => {
+						Recipe.time.prep = $(el)
+							.parent()
+							.text()
+							.replace('Prep Time:', '')
+							.trim();
+					});
 
-				let servingsText = $('.yield').text();
-				Recipe.servings = servingsText
-					.slice(servingsText.indexOf(':') + 1)
-					.trim();
+					$('[itemprop="cookTime"]').each((i, el) => {
+						Recipe.time.cook = $(el)
+							.parent()
+							.text()
+							.replace('Cook Time:', '')
+							.trim();
+					});
 
-				if (
-					!Recipe.name ||
-					!Recipe.ingredients.length ||
-					!Recipe.instructions.length
-				) {
-					reject(new Error('No recipe found on page'));
+					$('.entry-categories').each((i, el) => {
+						$(el)
+							.find('a[rel*="category"]')
+							.each((i, elChild) => {
+								Recipe.tags.push($(elChild).text().trim());
+							});
+					});
+
+					if (
+						!Recipe.name ||
+						!Recipe.ingredients.length ||
+						!Recipe.instructions.length
+					) {
+						reject(new Error('No recipe found on page'));
+					} else {
+						resolve(Recipe);
+					}
 				} else {
-					resolve(Recipe);
+					reject(new Error('No recipe found on page'));
 				}
-			} catch (error) {
-				reject(new Error('No recipe found on page'));
-			}
+			});
 		}
 	});
 };

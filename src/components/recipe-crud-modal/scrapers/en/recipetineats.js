@@ -41,10 +41,21 @@ const recipeTinEats = (url) => {
 							});
 					});
 
-					Recipe.time.prep = $('.wprm-recipe-prep-time-container').find('.wprm-recipe-time').text().trim();
-					Recipe.time.cook = $('.wprm-recipe-cook-time-container').find('.wprm-recipe-time').text().trim();
+					Recipe.time.prep = $('.wprm-recipe-prep-time-container')
+						.find('.wprm-recipe-time')
+						.text()
+						.trim();
+					Recipe.time.cook = $('.wprm-recipe-cook-time-container')
+						.find('.wprm-recipe-time')
+						.text()
+						.trim();
 
 					Recipe.servings = $('.wprm-recipe-servings').text().trim();
+
+					Recipe.tags = $('.wprm-recipe-cuisine')
+						.text()
+						.split(',')
+						.map((x) => x.trim());
 
 					if (
 						!Recipe.name ||

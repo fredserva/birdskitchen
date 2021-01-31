@@ -24,11 +24,26 @@ const bbcGoodFood = (url) => {
 						.find('.list-item')
 						.each((i, el) => {
 							Recipe.ingredients.push(
-								$(el).text().replace(' ,', ',')
+								$(el).text().replace(' ,', ',').trim()
+							);
+						});
+
+					$('.recipe__ingredients')
+						.find('.list-item')
+						.each((i, el) => {
+							Recipe.ingredients.push(
+								$(el).text().replace(' ,', ',').trim()
 							);
 						});
 
 					$('.recipe-template__method-steps')
+						.find('.list-item')
+						.children('div')
+						.each((i, el) => {
+							Recipe.instructions.push($(el).text());
+						});
+
+					$('.recipe__method-steps')
 						.find('.list-item')
 						.children('div')
 						.each((i, el) => {
@@ -47,6 +62,14 @@ const bbcGoodFood = (url) => {
 						});
 
 					Recipe.servings = $('.masthead__servings')
+						.text()
+						.replace('Makes ', '')
+						.replace('Serves ', '')
+						.replace(' - ', '-')
+						.replace(/[-].*/, '');
+
+					$('.icon-stacks').remove();
+					Recipe.servings = $('.header__servings')
 						.text()
 						.replace('Makes ', '')
 						.replace('Serves ', '')

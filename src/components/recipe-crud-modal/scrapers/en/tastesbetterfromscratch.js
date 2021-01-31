@@ -61,6 +61,11 @@ const tastesBetterFromScratch = (url) => {
 
 				Recipe.servings = $('.wprm-recipe-servings').text() || '';
 
+				Recipe.tags = $('.wprm-recipe-cuisine')
+						.text()
+						.split(',')
+						.map((x) => x.trim());
+
 				if (
 					!Recipe.name ||
 					!Recipe.ingredients.length ||

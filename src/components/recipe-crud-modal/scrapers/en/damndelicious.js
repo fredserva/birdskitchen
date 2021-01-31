@@ -25,9 +25,6 @@ const damnDelicious = (url) => {
 						let data = $(el).children('span').text();
 
 						switch (title) {
-							case 'Yield:':
-								Recipe.servings = data.split('-')[0];
-								break;
 							case 'prep time:':
 								Recipe.time.prep = data;
 								break;
@@ -42,6 +39,11 @@ const damnDelicious = (url) => {
 						}
 					});
 
+				Recipe.servings = $('[itemprop="recipeYield"]')
+					.text()
+					.replace(/\D+/g, '')
+					.trim();
+
 				$('li[itemprop=ingredients]').each((i, el) => {
 					Recipe.ingredients.push($(el).text());
 				});
@@ -51,6 +53,14 @@ const damnDelicious = (url) => {
 					.each((i, el) => {
 						Recipe.instructions.push($(el).text());
 					});
+
+				$('.post-cats').each((i, el) => {
+					$(el)
+						.find('a[rel*="category"]')
+						.each((i, elChild) => {
+							Recipe.tags.push($(elChild).text().trim());
+						});
+				});
 
 				if (
 					!Recipe.name ||
