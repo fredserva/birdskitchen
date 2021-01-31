@@ -141,13 +141,7 @@ To add support for your favorite language, or submit new features, feel free to 
 
 Thanks goes to these people
 
-<table>
-  <tr>
-    <td>
-        <a href="https://github.com/YSchroe"><img src="https://avatars2.githubusercontent.com/u/5794325?s=460&v=4" width="70px;"/><br /><b>YSchroe</b></a><br />German translation
-    </td>
-    <td>
-        <a href="https://github.com/albanobattistella"><img src="https://avatars3.githubusercontent.com/u/34811668?s=460&v=4" width="70px;"/><br /><b>Albano Battistella</b></a><br />Italian translation
-    </td>
-  </tr>
-</table>
+<a href="https://github.com/YSchroe"><img src="https://avatars2.githubusercontent.com/u/5794325?s=460&v=4" width="50px;" /></a>&nbsp;&nbsp;&nbsp;<a href="https://github.com/albanobattistella"><img src="https://avatars3.githubusercontent.com/u/34811668?s=460&v=4" width="50px;" /></a>
+
+<small><b><a href="https://github.com/YSchroe">YSchroe</a></b>: German translation</small><br/>
+<small><b><a href="https://github.com/albanobattistella">Albano Battistella</a></b>: Italian translation</small>
