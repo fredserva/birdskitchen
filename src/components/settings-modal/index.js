@@ -815,6 +815,26 @@ class SettingsModalNotExtended extends React.Component {
 												className="website-url"
 												onClick={() =>
 													shell.openExternal(
+														'https://www.thepioneerwoman.com'
+													)
+												}
+											>
+												Pioneer Woman (The)
+											</div>
+											<div
+												className="website-url"
+												onClick={() =>
+													shell.openExternal(
+														'https://therealfoodrds.com'
+													)
+												}
+											>
+												Real Food Dietitians (The)
+											</div>
+											<div
+												className="website-url"
+												onClick={() =>
+													shell.openExternal(
 														'https://www.recipetineats.com'
 													)
 												}
@@ -855,41 +875,21 @@ class SettingsModalNotExtended extends React.Component {
 												className="website-url"
 												onClick={() =>
 													shell.openExternal(
+														'https://www.thespruceeats.com'
+													)
+												}
+											>
+												Spruce Eats (The)
+											</div>
+											<div
+												className="website-url"
+												onClick={() =>
+													shell.openExternal(
 														'https://tastesbetterfromscratch.com'
 													)
 												}
 											>
 												Tastes Better From Scratch
-											</div>
-											<div
-												className="website-url"
-												onClick={() =>
-													shell.openExternal(
-														'https://www.thepioneerwoman.com'
-													)
-												}
-											>
-												The Pioneer Woman
-											</div>
-											<div
-												className="website-url"
-												onClick={() =>
-													shell.openExternal(
-														'https://therealfoodrds.com'
-													)
-												}
-											>
-												The Real Food Dietitians
-											</div>
-											<div
-												className="website-url"
-												onClick={() =>
-													shell.openExternal(
-														'https://www.thespruceeats.com'
-													)
-												}
-											>
-												The Spruce Eats
 											</div>
 											<div
 												className="website-url"
@@ -998,7 +998,7 @@ class SettingsModalNotExtended extends React.Component {
 													)
 												}
 											>
-												Le Journal des Femmes - Cuisine
+												Journal des Femmes (Le)
 											</div>
 											<div
 												className="website-url"
@@ -1083,16 +1083,6 @@ class SettingsModalNotExtended extends React.Component {
 												className="website-url"
 												onClick={() =>
 													shell.openExternal(
-														'https://www.daskochrezept.de'
-													)
-												}
-											>
-												Das Kochrezept
-											</div>
-											<div
-												className="website-url"
-												onClick={() =>
-													shell.openExternal(
 														'https://eatsmarter.de'
 													)
 												}
@@ -1133,6 +1123,16 @@ class SettingsModalNotExtended extends React.Component {
 												className="website-url"
 												onClick={() =>
 													shell.openExternal(
+														'https://www.daskochrezept.de'
+													)
+												}
+											>
+												Kochrezept (Das)
+											</div>
+											<div
+												className="website-url"
+												onClick={() =>
+													shell.openExternal(
 														'https://www.lecker.de'
 													)
 												}
@@ -1152,11 +1152,51 @@ class SettingsModalNotExtended extends React.Component {
 												className="website-url"
 												onClick={() =>
 													shell.openExternal(
+														'https://www.cookaround.com'
+													)
+												}
+											>
+												Cook Around
+											</div>
+											<div
+												className="website-url"
+												onClick={() =>
+													shell.openExternal(
+														'https://www.cucchiaio.it'
+													)
+												}
+											>
+												Cucchiaio d'Argento (Il)
+											</div>
+											<div
+												className="website-url"
+												onClick={() =>
+													shell.openExternal(
 														'https://www.lacucinaitaliana.it'
 													)
 												}
 											>
-												La Cucina Italiana
+												Cucina Italiana (La)
+											</div>
+											<div
+												className="website-url"
+												onClick={() =>
+													shell.openExternal(
+														'https://www.lacucinaitaliana.it'
+													)
+												}
+											>
+												Cucina Italiana (La)
+											</div>
+											<div
+												className="website-url"
+												onClick={() =>
+													shell.openExternal(
+														'https://www.fattoincasadabenedetta.it'
+													)
+												}
+											>
+												Fatto in casa da Benedetta
 											</div>
 											<div
 												className="website-url"
@@ -1172,11 +1212,61 @@ class SettingsModalNotExtended extends React.Component {
 												className="website-url"
 												onClick={() =>
 													shell.openExternal(
-														'https://www.giallozafferano.it'
+														'https://www.gnamgnam.it'
 													)
 												}
 											>
-												Giallo Zafferano
+												GnamGnam
+											</div>
+											<div
+												className="website-url"
+												onClick={() =>
+													shell.openExternal(
+														'https://www.gustissimo.it'
+													)
+												}
+											>
+												Gustissimo
+											</div>
+											<div
+												className="website-url"
+												onClick={() =>
+													shell.openExternal(
+														'https://www.misya.info'
+													)
+												}
+											>
+												Misya
+											</div>
+											<div
+												className="website-url"
+												onClick={() =>
+													shell.openExternal(
+														'https://www.ricettedellanonna.net'
+													)
+												}
+											>
+												Ricette della nonna
+											</div>
+											<div
+												className="website-url"
+												onClick={() =>
+													shell.openExternal(
+														'https://www.lospicchiodaglio.it'
+													)
+												}
+											>
+												Spicchio d'aglio (Lo)
+											</div>
+											<div
+												className="website-url"
+												onClick={() =>
+													shell.openExternal(
+														'https://www.vegolosi.it'
+													)
+												}
+											>
+												Vegolosi
 											</div>
 										</div>
 									</div>

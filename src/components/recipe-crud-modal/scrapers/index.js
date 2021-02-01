@@ -51,9 +51,18 @@ import ricardoCuisine from './fr/ricardocuisine';
 import turbigoGourmandises from './fr/turbigogourmandises';
 import zeste from './fr/zeste';
 
+import cookAround from './it/cookaround';
+import cucchiaio from './it/cucchiaio';
+import fattoInCasaDaBenedetta from './it/fattoincasadabenedetta';
 import gialloZafferano from './it/giallozafferano';
 import gnambox from './it/gnambox';
+import gnamgnam from './it/gnamgnam';
+import gustissimo from './it/gustissimo';
 import laCucinaItaliana from './it/lacucinaitaliana';
+import misya from './it/misya';
+import ricetteDellaNonna from './it/ricettedellanonna';
+import loSpicchioDaglio from './it/lospicchiodaglio';
+import vegolosi from './it/vegolosi';
 
 const Domains = {
 	// en
@@ -110,9 +119,18 @@ const Domains = {
 	'turbigo-gourmandises': turbigoGourmandises,
 	zeste: zeste,
 	// it
-	gnambox: gnambox,
+	cookaround: cookAround,
+	cucchiaio: cucchiaio,
+	fattoincasadabenedetta: fattoInCasaDaBenedetta,
 	giallozafferano: gialloZafferano,
+	gnambox: gnambox,
+	gnamgnam: gnamgnam,
+	gustissimo: gustissimo,
 	lacucinaitaliana: laCucinaItaliana,
+	misya: misya,
+	ricettedellanonna: ricetteDellaNonna,
+	lospicchiodaglio: loSpicchioDaglio,
+	vegolosi: vegolosi
 };
 
 export { Domains };
