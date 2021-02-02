@@ -93,7 +93,7 @@ I you want to contribute, please send me a mail or a pidgeon :grin:
 - Choose your storage directory (including Sync Services)
 - Backups and Restore backups
 - Unit Converter
-- Recipe Websites scraper (54 supported websites in 4 languages)
+- Recipe Websites scraper (63 supported websites in 4 languages)
 - Auto updates
 
 ## Roadmap
