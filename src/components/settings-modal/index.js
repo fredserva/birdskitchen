@@ -12,7 +12,10 @@ import { NotyHelpers, ReduxHelpers, StorageHelpers } from '../../core/helpers';
 import { openConfirmDialog } from '../confirm-dialog';
 import SvgIcon from '../svgicon';
 import { MainMenus } from '../../core/constants';
-import { appname, version, author, links } from '../../../package.json';
+import { version, author, links } from '../../../package.json';
+
+import ReactMarkdown from 'react-markdown';
+import releaseNotesPath from './release-notes.md';
 
 import './style.scss';
 
@@ -23,6 +26,7 @@ class SettingsModalNotExtended extends React.Component {
 		backupFiles: [],
 		appTheme: 'athens',
 		appLang: 'en',
+		releaseNotes: null,
 	};
 
 	componentDidMount() {
@@ -33,6 +37,12 @@ class SettingsModalNotExtended extends React.Component {
 		i18n.changeLanguage(appLang);
 		this.setState({ dbDirectory, backupDirectory, appTheme, appLang });
 		this.listBackupFiles();
+
+		fetch(releaseNotesPath)
+			.then((response) => response.text())
+			.then((text) => {
+				this.setState({ releaseNotes: text });
+			});
 	}
 
 	onClickTabHeader = (selectedTab) => {
@@ -196,6 +206,14 @@ class SettingsModalNotExtended extends React.Component {
 						<ul>
 							<li
 								className={
+									'about' === selectedTab ? 'active' : ''
+								}
+								onClick={() => this.onClickTabHeader('about')}
+							>
+								<span>{t('About')}</span>
+							</li>
+							<li
+								className={
 									'storage' === selectedTab ? 'active' : ''
 								}
 								onClick={() => this.onClickTabHeader('storage')}
@@ -222,27 +240,11 @@ class SettingsModalNotExtended extends React.Component {
 							</li>
 							<li
 								className={
-									'update' === selectedTab ? 'active' : ''
-								}
-								onClick={() => this.onClickTabHeader('update')}
-							>
-								<span>{t('Update')}</span>
-							</li>
-							<li
-								className={
 									'help' === selectedTab ? 'active' : ''
 								}
 								onClick={() => this.onClickTabHeader('help')}
 							>
 								<span>{t('Help')}</span>
-							</li>
-							<li
-								className={
-									'about' === selectedTab ? 'active' : ''
-								}
-								onClick={() => this.onClickTabHeader('about')}
-							>
-								<span>{t('About')}</span>
 							</li>
 						</ul>
 					</div>
@@ -488,28 +490,6 @@ class SettingsModalNotExtended extends React.Component {
 						</div>
 						<div
 							className={`content${
-								'update' === selectedTab ? ' active' : ''
-							}`}
-						>
-							<div className="update-section">
-								<div className="info">
-									{t('You are using')}
-									<b> {appname} </b>
-									{t('version')}
-									<b> {version}</b>
-								</div>
-								<button
-									className="btn btn-default"
-									onClick={() =>
-										this.openLinkInBrowser('releases')
-									}
-								>
-									{t('Check for updates')}
-								</button>
-							</div>
-						</div>
-						<div
-							className={`content${
 								'help' === selectedTab ? ' active' : ''
 							}`}
 						>
@@ -606,8 +586,15 @@ class SettingsModalNotExtended extends React.Component {
 								</div>
 								<div className="info">
 									<div className="accordion">
-										<input type="checkbox" name="accordion-english" id="accordion-english"></input>
-										<label htmlFor="accordion-english" className="language">
+										<input
+											type="checkbox"
+											name="accordion-english"
+											id="accordion-english"
+										></input>
+										<label
+											htmlFor="accordion-english"
+											className="language"
+										>
 											{t('English Language')}
 										</label>
 										<div className="websites accordion-content">
@@ -915,8 +902,15 @@ class SettingsModalNotExtended extends React.Component {
 									</div>
 									<div>&nbsp;</div>
 									<div className="accordion">
-										<input type="checkbox" name="accordion-french" id="accordion-french"></input>
-										<label htmlFor="accordion-french" className="language">
+										<input
+											type="checkbox"
+											name="accordion-french"
+											id="accordion-french"
+										></input>
+										<label
+											htmlFor="accordion-french"
+											className="language"
+										>
 											{t('French Language')}
 										</label>
 										<div className="websites accordion-content">
@@ -1064,8 +1058,15 @@ class SettingsModalNotExtended extends React.Component {
 									</div>
 									<div>&nbsp;</div>
 									<div className="accordion">
-										<input type="checkbox" name="accordion-german" id="accordion-german"></input>
-										<label htmlFor="accordion-german" className="language">
+										<input
+											type="checkbox"
+											name="accordion-german"
+											id="accordion-german"
+										></input>
+										<label
+											htmlFor="accordion-german"
+											className="language"
+										>
 											{t('German Language')}
 										</label>
 										<div className="websites accordion-content">
@@ -1143,8 +1144,15 @@ class SettingsModalNotExtended extends React.Component {
 									</div>
 									<div>&nbsp;</div>
 									<div className="accordion">
-										<input type="checkbox" name="accordion-italian" id="accordion-italian"></input>
-										<label htmlFor="accordion-italian" className="language">
+										<input
+											type="checkbox"
+											name="accordion-italian"
+											id="accordion-italian"
+										></input>
+										<label
+											htmlFor="accordion-italian"
+											className="language"
+										>
 											{t('Italian Language')}
 										</label>
 										<div className="websites accordion-content">
@@ -1292,6 +1300,14 @@ class SettingsModalNotExtended extends React.Component {
 								<div className="description">
 									{t('A free and open source recipe manager')}
 								</div>
+								<div
+									className="sponsor"
+									onClick={() =>
+										this.openLinkInBrowser('sponsor')
+									}
+								>
+									{t('Sponsor this project')}
+								</div>
 								<div className="about-details">
 									<div className="text">
 										{t('Created by')}
@@ -1330,29 +1346,41 @@ class SettingsModalNotExtended extends React.Component {
 										<div
 											className="link"
 											onClick={() =>
-												this.openLinkInBrowser(
-													'changelog'
-												)
-											}
-										>
-											{t('Changelog')}
-										</div>
-										<div
-											className="link"
-											onClick={() =>
 												this.openLinkInBrowser('issues')
 											}
 										>
 											{t('Report an issue')}
 										</div>
-										<div><br/></div>
 										<div
 											className="link"
+											onClick={() =>
+												this.openLinkInBrowser(
+													'releases'
+												)
+											}
+										>
+											{t('Check for updates')}
+										</div>
+										<div>
+											<br />
+										</div>
+										<div
+											className="link email"
 											onClick={() =>
 												this.openLinkInBrowser('mailto')
 											}
 										>
 											{t('Send me an email')}
+										</div>
+									</div>
+									<div className="release-notes">
+										<div className="notes">
+											<div className="text">
+												{t('Changelog')}
+											</div>
+											<ReactMarkdown
+												source={this.state.releaseNotes}
+											/>
 										</div>
 									</div>
 								</div>

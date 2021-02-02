@@ -70,7 +70,8 @@
 							padding: 10px 0 20px;
 							opacity: 1;
 							transition: max-height 2s
-								cubic-bezier(0.865, 0.14, 0.095, 0.87), opacity 0s, padding 0s ease 0s;
+									cubic-bezier(0.865, 0.14, 0.095, 0.87),
+								opacity 0s, padding 0s ease 0s;
 						}
 					}
 
@@ -95,7 +96,8 @@
 						overflow: hidden;
 						box-sizing: border-box;
 						transition: max-height 0.3s
-							cubic-bezier(0.865, 0.14, 0.095, 0.87), opacity 0.1s, padding 1s ease 0s;
+								cubic-bezier(0.865, 0.14, 0.095, 0.87),
+							opacity 0.1s, padding 1s ease 0s;
 					}
 				}
 
@@ -300,6 +302,85 @@
 				}
 			}
 
+			.release-notes {
+				margin-top: 32px;
+
+				.notes {
+					margin: 16px 20% 20px;
+					padding: 20px;
+					text-align: justify;
+
+					.text {
+						font-size: 0.4rem;
+						margin: 0;
+						padding: 0 0 30px;
+						text-align: center;
+					}
+
+					h2 {
+						font-size: 0.35rem;
+						text-align: center;
+						margin: 0;
+						padding: 10px 0 0;
+
+						&:not(:first-of-type) {
+							&::before {
+								content: '\2605 \00A0 \2605 \00A0 \2605';
+								display: block;
+								margin: 0 25%;
+								padding: 0 0 20px;
+								font-size: 0.2rem;
+							}
+						}
+					}
+
+					p {
+						margin: 0;
+
+						strong {
+							font-size: 0.3rem;
+							font-weight: 600;
+						}
+					}
+
+					ul {
+						margin: 10px 0 20px;
+
+						li {
+							font-size: 0.35rem;
+
+							strong {
+								font-size: 0.35rem;
+								font-weight: 700;
+							}
+						}
+					}
+				}
+			}
+
+			.sponsor {
+				font-weight: 500;
+				font-size: 0.4rem;
+				cursor: pointer;
+				color: #ffa500 !important;
+
+				&:hover {
+					opacity: .8;
+				}
+
+				&:before {
+					content: '\21E2';
+					display: inline-block;
+					padding-right: 10px;
+				}
+
+				&:after {
+					content: '\21E0';
+					display: inline-block;
+					padding-left: 10px;
+				}
+			}
+
 			.description {
 				font-size: 0.4rem;
 				margin-top: 3px;
@@ -315,7 +396,6 @@
 				.link {
 					margin: 0;
 					font-size: 0.4rem;
-					font-weight: bold;
 					cursor: pointer;
 					display: inline-block;
 

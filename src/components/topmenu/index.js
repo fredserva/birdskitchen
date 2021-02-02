@@ -51,7 +51,7 @@ class TopMenuNotExtended extends Component {
 		maximize: false,
 		showUnitConverter: false,
 		showSettingsModal: false,
-		settingsSelectedTab: 'storage',
+		settingsSelectedTab: 'about',
 		isWindows: 'win32' === process.platform,
 	};
 
@@ -231,7 +231,7 @@ class TopMenuNotExtended extends Component {
 						onClick={() =>
 							this.setState({
 								showSettingsModal: true,
-								settingsSelectedTab: 'storage',
+								settingsSelectedTab: 'about',
 							})
 						}
 					>

@@ -463,8 +463,10 @@ body {
 
         .comp_settings-modal {
             .modal-content {
-                .modal-body {
-                    background-color: $base-color;
+                background-color: darken($base-color, 3%);
+
+                .modal-header, .modal-body {
+                    background-color: darken($base-color, 3%);
                 }
             }
 
@@ -581,6 +583,12 @@ body {
                     .link-list {
                         .link {
                             color: $accent-color;
+                        }
+                    }
+
+                    .release-notes {
+                        .notes {
+                            border: 1px solid darken($base-color, 20%)
                         }
                     }
                 }

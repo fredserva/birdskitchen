@@ -55,7 +55,7 @@ app.on('ready', async () => {
 		if (mainWindow === BrowserWindow.getFocusedWindow()) {
 			mainWindow.webContents.send('appMenu', {
 				type: 'preferences',
-				tab: 'storage',
+				tab: 'about',
 			});
 		}
 	});

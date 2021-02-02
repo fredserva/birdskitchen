@@ -82,7 +82,7 @@
 	"Restore": "Restore",
 	"Theme": "Theme",
 	"Language": "Language",
-	"Update": "Updater",
+	"Update": "Update",
 	"You are using": "You are using",
 	"version": "version",
 	"Check for updates": "Check for updates",
@@ -168,5 +168,6 @@
 	"Fetching a recipe can sometimes be long, so be patient!": "Fetching a recipe can sometimes be long, so be patient!",
 	"send": "send",
 	"Do you want to import this recipe?": "Do you want to import this recipe?",
-	"Send me an email": "Send me an email"
+	"Send me an email": "Send me an email",
+	"Sponsor this project": "Sponsor this project"
 }

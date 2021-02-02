@@ -584,6 +584,12 @@ body {
                             color: $accent-color;
                         }
                     }
+
+                    .release-notes {
+                        .notes {
+                            border: 1px solid lighten($base-color, 10%)
+                        }
+                    }
                 }
 
                 .update-section {

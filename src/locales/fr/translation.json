@@ -168,5 +168,6 @@
 	"Fetching a recipe can sometimes be long, so be patient!": "La récupération d'une recette prend parfois du temps... Merci de patienter !",
 	"send": "envoyer",
 	"Do you want to import this recipe?": "Voulez-vous importer cette recette ?",
-	"Send me an email": "Envoyez-moi un mail"
+	"Send me an email": "Envoyez-moi un mail",
+	"Sponsor this project": "Soutenez ce project"
 }
