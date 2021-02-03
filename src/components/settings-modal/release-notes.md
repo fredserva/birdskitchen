@@ -1,3 +1,10 @@
+## Version 0.8.3
+
+**Fixed bugs**
+&nbsp;
+&nbsp;
+- Fix Electron failing to launch Chromium (needed to execute puppeteer)
+
 ## Version 0.8.2
 
 **New features**

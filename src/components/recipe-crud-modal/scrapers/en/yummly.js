@@ -40,7 +40,20 @@ const skippedResources = [
 ];
 
 const customPuppeteerFetch = async (url) => {
-	const browser = await puppeteer.launch();
+	const browserFetcher = puppeteer.createBrowserFetcher();
+	const localChromiums = await browserFetcher.localRevisions();
+
+	if (!localChromiums.length) {
+		return console.error("Can't find installed Chromium");
+	}
+
+	const { executablePath } = browserFetcher.revisionInfo(localChromiums[0]);
+
+	const browser = await puppeteer.launch({
+		executablePath: executablePath,
+		headless: true,
+	});
+
 	const page = await browser.newPage();
 	await page.setRequestInterception(true);
 
@@ -97,7 +110,8 @@ const yummly = (url) => {
 				const Recipe = new RecipeSchema();
 				const $ = load(html);
 
-				let ogImage = $("meta[property='og:image']").attr('content') + '.jpg';
+				let ogImage =
+					$("meta[property='og:image']").attr('content') + '.jpg';
 				Recipe.image = ogImage.replace(/[.]jpg.*/, '.jpg');
 
 				Recipe.name = $('.recipe-title').text();

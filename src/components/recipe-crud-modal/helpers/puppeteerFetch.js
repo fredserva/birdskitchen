@@ -36,7 +36,17 @@ const skippedResources = [
 ];
 
 const puppeteerFetch = async (url) => {
+	const browserFetcher = puppeteer.createBrowserFetcher();
+	const localChromiums = await browserFetcher.localRevisions();
+
+	if (!localChromiums.length) {
+		return console.error("Can't find installed Chromium");
+	}
+
+	const { executablePath } = browserFetcher.revisionInfo(localChromiums[0]);
+
 	const browser = await puppeteer.launch({
+		executablePath: executablePath,
 		headless: true,
 	});
 
