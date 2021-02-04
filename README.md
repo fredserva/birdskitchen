@@ -29,7 +29,7 @@ I you want to contribute, please send me a mail or a pidgeon :grin:
 
 &nbsp;
 
-**Dark and light theme - Grid view**
+**Dark and light themes - Grid view**
 <p align="center">
     <img src="screenshots/01.png" alt="Birds Kitchen" title="Birds Kitchen" />
 </p>
