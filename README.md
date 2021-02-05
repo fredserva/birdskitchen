@@ -6,10 +6,10 @@
 **Love Birds Kitchen? Give this repo a star :star:**
 ## Website
 <a href="https://tenbirds.online/birdskitchen/">https://tenbirds.online/birdskitchen/</a>
-## &nbsp;
+##
 I wanted to learn something new...
 
-So, I decided to take a crack at learning React and building an application that I found deeply missing in Linux: a Desktop Recipe Manager (I know there is some, but they don't match my needs...)
+So, I decided to take a crack at learning React and building an application that I found deeply missing in Linux: a Desktop Recipe Manager (I know there are some, but they don't match my needs...)
 
 I you want to contribute, please send me a mail or a pidgeon :grin:
 
@@ -86,6 +86,10 @@ I you want to contribute, please send me a mail or a pidgeon :grin:
 - Recipe Websites scraper (63 supported websites in 4 languages)
 - Auto updates
 
+## Documentation
+
+**Visit the [Wiki Page](https://github.com/fredserva/birdskitchen/wiki)**
+
 ## Roadmap
 
 **Visit the [Roadmap Page](https://github.com/fredserva/birdskitchen/projects/2?fullscreen=true) for details...**
@@ -129,7 +133,7 @@ To add support for your favorite language, or submit new features, feel free to 
 
 ## Contributors
 
-Thanks goes to these people
+Thanks go to these people
 
 <a href="https://github.com/YSchroe"><img src="https://avatars2.githubusercontent.com/u/5794325?s=460&v=4" width="50px;" /></a>&nbsp;&nbsp;&nbsp;<a href="https://github.com/albanobattistella"><img src="https://avatars3.githubusercontent.com/u/34811668?s=460&v=4" width="50px;" /></a>
 
