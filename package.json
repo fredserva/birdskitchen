@@ -21,7 +21,7 @@
     "i18next": "^19.8.3",
     "lodash": "^4.17.20",
     "lowdb": "^1.0.0",
-    "markdown-it": "^12.0.2",
+    "markdown-it": "^12.3.2",
     "mathjs": "^8.0.1",
     "moment": "^2.29.1",
     "node-sass": "^4.14.1",
