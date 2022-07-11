@@ -68,6 +68,18 @@
                     text-overflow: ellipsis;
                     white-space: nowrap;
                 }
+
+                .category-Count {
+                  font-size: 12.7px !important;
+                  width: 100%;
+                  overflow: hidden;
+                  display: inline-block;
+                  text-overflow: ellipsis;
+                  white-space: nowrap;
+                  color: rgba(16, 22, 26, 0.3);
+                  text-align: right;
+                  margin: auto;
+                }
             }
         }
     }
