@@ -4,13 +4,17 @@
     flex-direction: row;
     align-items: flex-start;
     justify-content: space-between;
-    padding: 20px 15px 0;
+    padding: 0 15px 0;
+
+
 
     * {
         user-select: none;
     }
 
     .left-side {
+        margin: auto 0;
+
         .title-header {
             display: flex;
             flex-direction: row;
@@ -23,13 +27,13 @@
 
             .title {
                 font-weight: bold;
-                font-size: 0.275rem;
+                font-size: 11px !important;
                 margin-left: 5px;
             }
         }
 
         .sub-text {
-            font-size: 0.275rem;
+            font-size: 11px !important;
             margin-top: -5px;
             padding-left: 40px;
         }
@@ -38,6 +42,7 @@
     .right-side {
         display: flex;
         align-items: flex-start;
+        margin: auto 0;
 
         .icons-header {
             display: flex;
@@ -51,7 +56,7 @@
                 border-radius: 5px;
 
                 svg {
-                    height: 0.35rem;
+                    height: 14px;
                 }
             }
         }

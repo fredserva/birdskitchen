@@ -8,13 +8,14 @@
 }
 
 .simplelist-display .comp_recipe-table {
+
     table {
         width: 100%;
         table-layout: fixed;
         border-collapse: collapse;
         border-spacing: 0;
         border: none;
-        font-size: 0.3rem;
+        font-size: 12px;
         text-align: left;
 
         & * {
@@ -27,6 +28,11 @@
             width: 100%;
         }
 
+        thead {
+            position: sticky;
+            top: 0
+        }
+
         tr {
             display: flex;
             align-items: flex-start;
@@ -34,6 +40,9 @@
 
             &.comp_recipe-table-row:hover {
                 cursor: pointer;
+            }
+            &:hover ul.recipe-list-menu {
+                opacity: 1;
             }
         }
 
@@ -48,8 +57,8 @@
             }
 
             svg {
-                width: 18px;
-                height: 18px;
+                width: 12px;
+                height: 12px;
             }
         }
 
@@ -59,10 +68,8 @@
 
         tbody {
             display: block;
-            margin-top: 20px;
             overflow: auto;
             table-layout: fixed;
-            max-height: 70vh;
         }
 
         ul {
@@ -88,7 +95,7 @@
 
         .td-title,
         .th-title {
-            width: 20%;
+            width: 40%;
         }
 
         .th-title {
@@ -111,12 +118,12 @@
 
         .td-prep,
         .th-prep {
-            width: 20%;
+            width: 10%;
         }
 
         .td-cook,
         .th-cook {
-            width: 20%;
+            width: 10%;
         }
 
         .td-rating,
@@ -186,9 +193,9 @@
                 }
             }
 
-            &:hover ul.recipe-list-menu {
-                opacity: 1;
-            }
+            // &:hover ul.recipe-list-menu {
+            //     opacity: 1;
+            // }
         }
     }
 }
