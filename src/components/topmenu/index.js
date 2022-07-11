@@ -193,6 +193,7 @@ class TopMenuNotExtended extends Component {
 						<button
 							ref={(ref) => (this.refMenu = ref)}
 							className="btn-menubar menu"
+							title={t("Menu")}
 							type="button"
 						>
 							<span />
@@ -200,11 +201,15 @@ class TopMenuNotExtended extends Component {
 							<span />
 						</button>
 					) : null}
-					<span className="sidebar" onClick={this.handleSidebarClick}>
+					<span
+						className="sidebar"
+						title={t("Hide / Show Sidebar")}
+						onClick={this.handleSidebarClick}>
 						<SvgIcon name="sidebar" />
 					</span>
 					<span
 						className="calculator"
+						title={t("Hide / Show Unit Converter")}
 						onClick={this.handleUnitConverterClick}
 					>
 						<SvgIcon name="calculator" />
