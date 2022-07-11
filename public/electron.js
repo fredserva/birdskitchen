@@ -5,6 +5,8 @@ const { menu } = require('./menu');
 const Store = require('./store.js');
 const { autoUpdater } = require('electron-updater');
 
+const contextMenu = require('electron-context-menu');
+
 let mainWindow;
 const isWindows = 'win32' === process.platform;
 
@@ -17,6 +19,12 @@ const store = new Store({
 		},
 	},
 });
+
+
+contextMenu({
+	showSaveImageAs: true
+});
+
 
 app.on('ready', async () => {
 	let { width, height } = store.get('windowBounds');
@@ -35,6 +43,8 @@ app.on('ready', async () => {
 			nodeIntegration: true,
 			enableRemoteModule: true,
 			worldSafeExecuteJavaScript: true,
+			spellcheck: true,
+
 		},
 	});
 

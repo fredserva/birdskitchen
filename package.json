@@ -12,6 +12,7 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "cheerio": "^1.0.0-rc.5",
+    "electron-context-menu": "^3.3.0",
     "electron-is-dev": "^1.2.0",
     "electron-store": "^6.0.1",
     "electron-updater": "^4.3.5",
@@ -24,7 +25,6 @@
     "markdown-it": "^12.0.2",
     "mathjs": "^8.0.1",
     "moment": "^2.29.1",
-    "node-sass": "^4.14.1",
     "noty": "^3.2.0-beta",
     "parse-domain": "^3.0.3",
     "prop-types": "^15.7.2",
@@ -74,6 +74,7 @@
     "cross-env": "^7.0.2",
     "electron": "^10.1.5",
     "electron-builder": "^22.9.1",
+    "sass": "^1.53.0",
     "typescript": "^4.0.5",
     "wait-on": "^5.2.0"
   },
