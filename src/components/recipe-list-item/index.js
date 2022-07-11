@@ -33,7 +33,7 @@ class RecipeListItemNotExtended extends Component {
   };
 
   onClickMoveOnTrash = item => {
-    const { t, selectedMenu, setRecipeList, setTags } = this.props;
+    const { t, selectedMenu, setRecipeList, setTags, setCategories } = this.props;
     const feather = require('feather-icons');
 
     openConfirmDialog({
@@ -47,6 +47,7 @@ class RecipeListItemNotExtended extends Component {
             new Api().updateRecipeItem(item);
             setRecipeList(selectedMenu);
             setTags();
+            setCategories();
             NotyHelpers.open(feather.icons.trash.toSvg() + t('This recipe has been trashed!'), 'error', 2000);
           },
           className: 'btn btn-danger'
@@ -61,7 +62,7 @@ class RecipeListItemNotExtended extends Component {
   };
 
   onClickRemovePermanently = id => {
-    const { t, selectedMenu, setRecipeList, setTags } = this.props;
+    const { t, selectedMenu, setRecipeList, setTags, setCategories } = this.props;
     const feather = require('feather-icons');
 
     openConfirmDialog({
@@ -74,6 +75,7 @@ class RecipeListItemNotExtended extends Component {
             new Api().deleteRecipeById(id);
             setRecipeList(selectedMenu);
             setTags();
+            setCategories();
             NotyHelpers.open(feather.icons.zap.toSvg() + t('This recipe has been deleted permanently!'), 'info', 1500);
           },
           className: 'btn btn-danger'
@@ -88,13 +90,14 @@ class RecipeListItemNotExtended extends Component {
   };
 
   restoreFromTrash = item => {
-    const { t, selectedMenu, setRecipeList, setTags } = this.props;
+    const { t, selectedMenu, setRecipeList, setTags, setCategories } = this.props;
     const feather = require('feather-icons');
 
     item.isTrash = false;
     new Api().updateRecipeItem(item);
     setRecipeList(selectedMenu);
     setTags();
+    setCategories();
     NotyHelpers.open(feather.icons.award.toSvg() + t('The recipe has been restored from trash!'), 'success', 2000);
   };
 
@@ -248,6 +251,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = (dispatch) => {
   return {
     setTags: () => ReduxHelpers.fillTags(dispatch),
+    setCategories: () => ReduxHelpers.fillCategories(dispatch),
     setRecipeList: selectedMenu => ReduxHelpers.fillRecipes(dispatch, selectedMenu)
   };
 };
