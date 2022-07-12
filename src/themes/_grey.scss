@@ -1,0 +1,1119 @@
+//Top Menu
+$linear-gradient-start: #1C1C1C;
+$linear-gradient-end: #1C1C1C;
+//Main
+$base-color: #2B2B2B;
+$side-color: #242424;
+$text-color: #CCCCCC;
+$accent-color: #464B80;
+//Sidebar
+$category-count: lighten($side-color, 20);
+//Tags
+$tags-bg: #2E304D;
+$tags-color: #ADADAD;
+//Content Header
+$icon-hover-color: #464B80;
+//New Recipe Forms
+$form-background: #404040;
+//Recipe Grid/thumb-list view
+$recipe-info-category-color: darken($text-color, 40);
+
+
+:root {
+    background-color: $base-color;
+}
+
+body {
+    &.grey-theme {
+        * {
+            &::-webkit-scrollbar {
+                width: 5px;
+            }
+
+            &::-webkit-scrollbar-track {
+                background: $side-color;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background: rgba(255, 255, 255, 0.25);
+                border-radius: 20px;
+            }
+
+            &::-webkit-scrollbar-thumb:hover {
+                background: rgba(255, 255, 255, 0.4);
+            }
+        }
+
+        .comp_topmenu {
+            // background:$base-color;
+            border-bottom: 1px solid $side-color;
+            background: linear-gradient(180deg,$linear-gradient-start 0,$linear-gradient-end);
+            box-shadow: 0 1px 0 rgba(0,0,0,.2), inset 0 -1px 0 #182026;
+
+            .btn-menubar {
+                &.menu {
+                    span {
+                        background: $text-color;
+                    }
+
+                    &:hover {
+                        background: rgba(255, 255, 255, 0.1);
+                    }
+                }
+            }
+
+            .content-header-divider {
+                border-left: 1px solid rgba(16,22,26,.15);
+                border-left-color: hsla(0,0%,100%,.15);
+            }
+
+            .left-side {
+                color: $text-color;
+
+                .sidebar {
+                    &:hover {
+                        background: rgba(255, 255, 255, 0.1);
+                    }
+
+                    svg {
+                        stroke: #bbb;
+                        width: 18px;
+                        height: 18px;
+                    }
+                }
+
+                .calculator {
+                    &:hover {
+                        background: rgba(255, 255, 255, 0.1);
+                    }
+
+                    svg {
+                        fill: #bbb;
+                        width: 16px;
+                        height: 16px;
+                    }
+                }
+
+                .applogo {
+                    color: #bbb;
+                    fill: #bbb;
+
+                    &:hover {
+                        cursor: default;
+                    }
+                }
+
+                .appname {
+                    color: #bbb;
+
+                    &:hover {
+                        cursor: default;
+                    }
+                }
+            }
+
+            .right-side {
+                button {
+                    color: rgba(255, 255, 255, 0.75);
+
+                    svg {
+                        fill: #bbb;
+                    }
+
+                    &:hover {
+                        background: rgba(255, 255, 255, 0.1);
+                    }
+                }
+
+                .recipe-buttons {
+                    .btn-menubar {
+                        &.maximize,
+                        &.minimize {
+                            svg {
+                                stroke: $text-color;
+                                fill: $text-color;
+                            }
+
+                            &:hover {
+                                background: rgba(255, 255, 255, 0.1);
+                            }
+                        }
+
+                        &.close {
+                            svg {
+                                stroke: $text-color;
+                            }
+
+                            &:hover {
+                                background: #e4142c !important;
+
+                                svg {
+                                    stroke: #ffffff;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .content-main-container {
+            .content-container {
+                background: $base-color;
+            }
+        }
+
+        .comp_fe_search-field {
+            .search-container {
+                .search-icon-container {
+                    svg {
+                        fill: rgba(255, 255, 255, 0.42);
+                    }
+                }
+
+                .clear-icon-container {
+                    svg {
+                        fill: rgba(255, 255, 255, 0.42);
+                    }
+                }
+
+                .form-control {
+                    border: none;
+                    color: $text-color;
+                    background: $base-color;
+                    box-shadow: 0 0 0 0 rgba(19,124,189,0), 0 0 0 0 rgba(19,124,189,0), 0 0 0 0 rgba(19,124,189,0), inset 0 0 0 1px rgba(16,22,26,.3), inset 0 1px 1px rgba(16,22,26,.4);
+
+                    &::placeholder {
+                        font-size: 0.275rem;
+                        position: relative;
+                        top: -.05rem;
+                        color: #aaa;
+                    }
+                }
+            }
+        }
+
+        .comp_sidebar {
+            background: $side-color;
+            border-right: 1px solid $side-color;
+
+            .no-item-text {
+                color: #eeeeee;
+            }
+
+            .header {
+                .new-recipe-container {
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
+                    &:hover {
+                        background: rgba(0, 0, 0, 0.1);
+                    }
+
+                    .text {
+                        color: $text-color;
+                    }
+
+                    .plus {
+                        background: lighten($side-color, 7);
+                        color: #888888;
+                    }
+                }
+
+                .main-menu-container {
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
+                    .sidebar-title {
+                        color: $text-color;
+                    }
+                }
+
+                .search-result-container {
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+                }
+            }
+
+            .accordion__heading {
+                color: $text-color;
+            }
+
+            .menu-list {
+                .menu-list-item {
+                    .text-container {
+                        color: $text-color;
+                    }
+
+                    &.active {
+                        background: $accent-color;
+
+                        .text-container {
+                            color: #ffffff;
+                        }
+                    }
+
+                    &:not(.active) {
+                        &:hover {
+                            background: rgba(0, 0, 0, 0.1);
+                        }
+                    }
+
+                    .icon-container {
+                        svg {
+                            fill: $text-color;
+                            color: $text-color;
+                        }
+                    }
+
+                    .category-Count {
+                        color: $category-count;
+                    }
+                }
+            }
+
+            .main-menu-container .menu-list-item:last-of-type {
+                .icon-container {
+                    svg {
+                        fill: none;
+                        color: $text-color;
+                    }
+                }
+            }
+        }
+
+        .comp_recipe-area {
+            .comp_content-header {
+                border-bottom: 1px solid rgba(255, 255, 255, 0.20);
+                background: $base-color;
+
+                .left-side {
+                    .title-header {
+                        svg {
+                            fill: $text-color;
+                            color: $text-color;
+                            padding-right: 10px;
+                        }
+
+                        svg.trash {
+                            fill: none;
+                        }
+
+                        .title {
+                            color: $text-color;
+                        }
+                    }
+
+                    .sub-text {
+                        color: #bbbabb;
+                    }
+                }
+
+                .right-side {
+                    .icons-header {
+                        .icon-wrapper {
+                            background: rgba(255, 255, 255, 0.2);
+
+                            &:hover {
+                                cursor: pointer;
+                                background: $icon-hover-color;
+
+                                svg {
+                                    color: $text-color;
+                                }
+                            }
+
+                            svg {
+                                color: #bbbbbb;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .comp_recipe-list-item {
+            .sub-container {
+                border-bottom: 1px solid rgba(255, 255, 255, 0.20);
+                background: $base-color;
+
+                &:hover {
+                    background: lighten($side-color, 9);
+                }
+
+                .left-side {
+                    .category {
+                      color: $recipe-info-category-color;
+                    }
+                }
+
+                .right-side {
+                    svg {
+                        fill: #ff3d00;
+                        color: #ff3d00;
+                    }
+                }
+
+                .code {
+                    color: #dddddd;
+
+                    span {
+                        color: #da4453;
+                    }
+                }
+
+                .title {
+                    color: $text-color;
+                }
+
+                .directions {
+                    color: $text-color;
+                }
+
+                .tags-list {
+                    li {
+                        background: $tags-bg;
+                        color: $tags-color;
+                    }
+
+                    li:before {
+                        border-color: transparent $tags-bg transparent transparent;
+                    }
+
+                    li:after {
+                        background: $base-color;
+                        -moz-box-shadow: -1px -1px 2px $tags-bg;
+                        -webkit-box-shadow: -1px -1px 2px $tags-bg;
+                        box-shadow: -1px -1px 2px $tags-bg;
+                    }
+                }
+            }
+
+            .recipe-list-menu {
+                li {
+                    &.restore {
+                        svg {
+                            fill: $text-color;
+                        }
+                    }
+
+                    svg {
+                        // fill: $text-color;
+                        color: $text-color;
+                    }
+
+                    &.favorite-true {
+                        svg {
+                            path {
+                                fill: #ff3d00;
+                            }
+                        }
+                    }
+
+                    &.favorite-false {
+                        svg {
+                            stroke: #a0a0a0;
+                        }
+                    }
+                }
+            }
+        }
+
+        .comp_confirm-dialog {
+            background: rgba(0, 0, 0, 0.5);
+
+            .confirm-dialog-content {
+                background: $base-color;
+
+                .confirm-dialog-header {
+                    .title {
+                        color: $text-color;
+                    }
+                }
+
+                .confirm-dialog-body {
+                    .text {
+                        color: $text-color;
+                    }
+                }
+
+                .confirm-dialog-footer {
+                }
+            }
+        }
+
+        .comp_modal {
+            &.visible {
+                background: $base-color;
+
+                .modal-overlay {
+                    background: rgba(0, 0, 0, 0.5);
+                }
+            }
+
+            .modal-header {
+                background: $base-color;
+
+                svg {
+                    fill: lighten($base-color, 50%);
+
+                    &:hover {
+                        fill: $text-color;
+                    }
+                }
+
+                .title {
+                    color: $text-color;
+                    border-bottom: 1px dashed $text-color;
+                }
+            }
+
+            .modal-content {
+                background: $base-color;
+
+                .modal-footer {
+                    border-top: 1px solid rgba(255, 255, 255, 0.15);
+                    background: darken($base-color, 7%);
+
+                    svg {
+                        fill: lighten($base-color, 50%);
+
+                        &:hover {
+                            fill: $text-color;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+        }
+
+        .comp_settings-modal {
+            .modal-content {
+                .modal-body {
+                    background-color: $base-color;
+                }
+            }
+
+            .tabs-header-container {
+                border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+
+                ul {
+                    li {
+                        color: #ffffff;
+
+                        &.active {
+                            background: $accent-color;
+                            color: #ffffff;
+                        }
+                    }
+                }
+            }
+
+            .tabs-content-container {
+                .content {
+                    .sub-title {
+                        color: #dddddd;
+                    }
+
+                    .form-control {
+                        &:read-only {
+                            background: darken($base-color, 5%);
+                        }
+                    }
+
+                    .info {
+                        color: #999;
+                    }
+
+                    .storage-restore-container {
+                        ul {
+                            border: none;
+                            color: $text-color;
+                            background: rgba(16,22,26,.3);
+                            box-shadow: 0 0 0 0 rgba(19,124,189,0), 0 0 0 0 rgba(19,124,189,0), 0 0 0 0 rgba(19,124,189,0), inset 0 0 0 1px rgba(16,22,26,.3), inset 0 1px 1px rgba(16,22,26,.4);
+                            padding: 10px 0;
+
+                            li {
+                                .name,
+                                span {
+                                    color: $text-color;
+
+                                    &:hover {
+                                        color: lighten($text-color, 100%);
+                                    }
+                                }
+
+                                &:hover {
+                                    background: $accent-color;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .theme-section {
+                    ul {
+                        li {
+                            &.active {
+                                .image-container {
+                                    border: 3px solid $accent-color;
+                                }
+                            }
+
+                            .text-container {
+                                color: #dddddd;
+                            }
+                        }
+                    }
+                }
+
+                .language-section {
+                    ul {
+                        li {
+                            &.active {
+                                .text-container {
+                                    color: rgba(221, 221, 221, 1);
+                                }
+                            }
+
+                            .text-container {
+                                color: rgba(221, 221, 221, 0.5);
+                            }
+                        }
+                    }
+                }
+
+                .about-section {
+                    * {
+                        color: #dddddd;
+                    }
+
+                    .product-name {
+                        small {
+                            color: #999999;
+                        }
+                    }
+
+                    .about-details {
+                        .author {
+                            color: $accent-color;
+                        }
+                    }
+
+                    .description {
+                        color: #999999;
+                    }
+
+                    .link-list {
+                        .link {
+                            color: $accent-color;
+                        }
+                    }
+
+                    .release-notes {
+                        .notes {
+                            border: 1px solid lighten($base-color, 10%)
+                        }
+                    }
+                }
+
+                .update-section {
+                    .info {
+                        color: #ddd !important;
+                    }
+                }
+            }
+        }
+
+        .form-group {
+            &.has-error {
+                .form-label {
+                    color: #F44336;
+                }
+
+                .form-control,
+                .recipe-container {
+                    border-color: #F44336 !important;
+
+                    .header {
+                        border-bottom-color: #F44336 !important;
+                        background: #F44336;
+
+                        i {
+                            color: #ffffff !important;
+                        }
+                    }
+                }
+            }
+        }
+
+        .comp_fe_text-field {
+            .form-group {
+                label {
+                    &.error-label {
+                        color: #F44336;
+                    }
+                }
+
+                .form-control {
+                    border: none;
+                    color: $text-color;
+                    background: $form-background;
+                    box-shadow: 0 0 0 0 rgba(19,124,189,0), 0 0 0 0 rgba(19,124,189,0), 0 0 0 0 rgba(19,124,189,0), inset 0 0 0 1px rgba(16,22,26,.3), inset 0 1px 1px rgba(16,22,26,.4);
+                }
+            }
+        }
+
+        .comp_fe_url-field {
+            .form-group {
+                label {
+                    &.error-label {
+                        color: #F44336;
+                    }
+                }
+
+                .form-control {
+                    border: none;
+                    color: $text-color;
+                    background: $form-background;
+                    box-shadow: 0 0 0 0 rgba(19,124,189,0), 0 0 0 0 rgba(19,124,189,0), 0 0 0 0 rgba(19,124,189,0), inset 0 0 0 1px rgba(16,22,26,.3), inset 0 1px 1px rgba(16,22,26,.4);
+                }
+            }
+        }
+
+        .comp_fe_textarea-field {
+            .form-group {
+                label {
+                    &.error-label {
+                        color: #F44336;
+                    }
+                }
+
+                .form-control {
+                    border: none;
+                    color: $text-color;
+                    background: $form-background;
+                }
+            }
+        }
+
+        .comp_fe_image-field {
+            .image-preview {
+                background-color: $base-color;
+            }
+        }
+
+        .comp_fe_number-field {
+            .form-group {
+                label {
+                    &.error-label {
+                        color: #F44336;
+                    }
+                }
+
+                .form-control {
+                    border: none;
+                    color: $text-color;
+                    background: $form-background;
+                    box-shadow: 0 0 0 0 rgba(19,124,189,0), 0 0 0 0 rgba(19,124,189,0), 0 0 0 0 rgba(19,124,189,0), inset 0 0 0 1px rgba(16,22,26,.3), inset 0 1px 1px rgba(16,22,26,.4);
+                }
+            }
+        }
+
+        .comp_fe_choice-field {
+            .form-group {
+                label {
+                    &.error-label {
+                        color: #F44336;
+                    }
+                }
+
+                .form-control {
+                    border: none;
+                    color: $text-color;
+                    background: $form-background;
+                    box-shadow: 0 0 0 0 rgba(19,124,189,0), 0 0 0 0 rgba(19,124,189,0), 0 0 0 0 rgba(19,124,189,0), inset 0 0 0 1px rgba(16,22,26,.3), inset 0 1px 1px rgba(16,22,26,.4);
+
+                    option {
+                        background: $base-color;
+                        color: #eeeeee;
+                    }
+                }
+            }
+        }
+
+        .comp_fe_markdown-field {
+            .rc-md-editor {
+                border: 1px solid rgba(255, 255, 255, 0.35);
+                background-color: $base-color;
+
+                .rmel-iconfont {
+                    font-size: 0.55rem;
+                    color: $text-color;
+
+                    &:hover {
+                        color: lighten($accent-color, 60%);
+                    }
+                }
+
+                textarea {
+                    background-color: $form-background !important;
+                    color: #eeeeee !important;
+                }
+
+                .html-wrap {
+                  background-color: $form-background;
+                }
+
+                .custom-html-style {
+                    color: #dddddd;
+                }
+
+                .rc-md-navigation {
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+                    background-color: $base-color;
+                }
+            }
+
+            .form-group {
+                .title-area {
+                    .md-link-text {
+                        color: lighten($accent-color, 60%);
+                        padding-bottom: 2px;
+                        border-bottom: 1px dotted lighten($accent-color, 60%);
+                    }
+                }
+
+                label {
+                    &.error-label {
+                        color: #F44336;
+                    }
+                }
+
+                .form-control {
+                    border: none;
+                    color: $text-color;
+                    background: $form-background;
+                    box-shadow: 0 0 0 0 rgba(19,124,189,0), 0 0 0 0 rgba(19,124,189,0), 0 0 0 0 rgba(19,124,189,0), inset 0 0 0 1px rgba(16,22,26,.3), inset 0 1px 1px rgba(16,22,26,.4);
+                }
+            }
+        }
+
+        .comp_fe_tags-field {
+            .form-group {
+                label {
+                    &.info-text {
+                        color: #777777;
+                    }
+
+                    &.error-label {
+                        color: #F44336;
+                    }
+                }
+
+                .form-control {
+                    border: none;
+                    color: $text-color;
+                    background: $form-background;
+                    box-shadow: 0 0 0 0 rgba(19,124,189,0), 0 0 0 0 rgba(19,124,189,0), 0 0 0 0 rgba(19,124,189,0), inset 0 0 0 1px rgba(16,22,26,.3), inset 0 1px 1px rgba(16,22,26,.4);
+                }
+            }
+
+            .tags-input-main-container {
+                color: #495057;
+                background-color: $form-background;
+                border: 1px solid rgba(255, 255, 255, 0.35);
+
+                .tag-wrapper {
+                    border: 1px solid rgba(255, 255, 255, 0.32);
+                    background: lighten($base-color, 10%);
+                    color: $text-color;
+
+                    .close-link {
+                        background: lighten($base-color, 10%);
+
+                        span {
+                            color: $text-color;
+
+                            &:hover {
+                                color: lighten($base-color, 60%);
+                            }
+                        }
+                    }
+                }
+
+                .input-container {
+                    .form-element {
+                        background: transparent;
+                        color: #ddd;
+
+                        &::placeholder {
+                            color: #bbbbbb;
+                        }
+                    }
+
+                    .auto-suggestion-container {
+                        border: 1px solid rgba(255, 255, 255, 0.35);
+                        box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+
+                        ul {
+                            background: $base-color;
+
+                            li {
+                                border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+                                color: #aaaaaa;
+
+                                &:last-child {
+                                    border: none;
+                                }
+
+                                b {
+                                    color: #eeeeee;
+                                }
+
+                                &:hover {
+                                    background: lighten(#21252B, 7);
+                                }
+
+                                &.active {
+                                    background: $accent-color;
+                                    color: #ffffff;
+
+                                    b {
+                                        color: #ffffff;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .comp_fe_recipe-field {
+            .form-group {
+                label {
+                    &.error-label {
+                        color: #F44336;
+                    }
+                }
+
+                .form-control {
+                    border: none;
+                    color: $text-color;
+                    background: $form-background;
+                    box-shadow: 0 0 0 0 rgba(19,124,189,0), 0 0 0 0 rgba(19,124,189,0), 0 0 0 0 rgba(19,124,189,0), inset 0 0 0 1px rgba(16,22,26,.3), inset 0 1px 1px rgba(16,22,26,.4);
+                }
+            }
+
+            .recipe-container {
+                border: 1px solid rgba(255, 255, 255, 0.35);
+
+                .header {
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+                    background-color: $base-color;
+
+                    .button {
+                        &:hover {
+                            svg {
+                                fill: lighten($accent-color, 60%);
+                            }
+                        }
+
+                        svg {
+                            fill: $text-color;
+                        }
+
+                        &:hover {
+                            i {
+                                color: lighten($accent-color, 60%);
+                            }
+                        }
+
+                        i {
+                            color: $text-color;
+                        }
+                    }
+                }
+
+                .body {
+                    textarea {
+                        background: $base-color;
+                        color: #eeeeee;
+                    }
+                }
+            }
+        }
+
+        .btn {
+            &.btn-success {
+                border: 1px solid $accent-color;
+                background: $accent-color;
+                color: #ffffff;
+
+                &:hover {
+                    background: darken($accent-color, 4);
+                }
+            }
+
+            &.btn-default {
+                border: 1px solid rgba(255, 255, 255, 0.3);
+                background: $base-color;
+                color: #dddddd;
+                border-radius: 10px;
+
+                &:hover {
+                    background: darken($base-color, 3);
+                }
+            }
+
+            &.btn-danger {
+                border: 1px solid #da4453;
+                background: #da4453;
+                color: #ffffff;
+
+                &:hover {
+                    background: darken(#da4453, 8);
+                }
+            }
+        }
+
+        .comp_recipe-generator-modal {
+            .modal-body {
+                background-color: $base-color;
+
+                .image-tech-wrapper {
+                    .tech {
+                        color: $text-color;
+
+                        .cook,
+                        .difficulty,
+                        .prep,
+                        .rating,
+                        .servings {
+                            label {
+                                font-weight: 700;
+                            }
+                        }
+                    }
+                }
+
+                .ingredients-wrapper {
+                    color: $text-color;
+
+                    label {
+                        font-weight: 700;
+                        border-bottom: 1px solid lighten($text-color, 30%);
+                    }
+                }
+
+                .directions-wrapper {
+                    color: $text-color;
+
+                    label {
+                        font-weight: 700;
+                        border-bottom: 1px solid lighten($text-color, 30%);
+                    }
+                }
+            }
+        }
+
+        .comp_recipe-crud-modal {
+            .modal-body {
+                background-color: $base-color;
+
+                .form-label {
+                    color: #dddddd;
+                }
+
+                .info-text {
+                    color: lighten($accent-color, 60%) !important;
+                }
+            }
+        }
+
+        .comp_confirm-dialog {
+            .confirm-dialog-content {
+                .confirm-dialog-header {
+                    .title {
+                        color: $text-color;
+                    }
+                }
+
+                .confirm-dialog-body {
+                    background: $base-color;
+
+                    .text {
+                        color: $text-color;
+                    }
+                }
+
+                .confirm-dialog-footer {
+                }
+            }
+        }
+
+        .noty_theme__sunset {
+            &.noty_type__success {
+                background-color: #007A5A;
+                color: #fff;
+            }
+
+            &.noty_type__info {
+                background-color: $accent-color;
+                color: #ffffff;
+            }
+
+            &.noty_type__error {
+                background-color: #da4453;
+                color: #ffffff;
+            }
+        }
+    }
+
+    &.grey-theme.grid-display {
+        .comp_recipe-list {
+            .comp_recipe-list-item {
+                .sub-container {
+                    border: none;
+                    background-color: lighten($base-color, 10%);
+                    .category {
+                      color: $recipe-info-category-color;
+                    }
+                }
+            }
+        }
+    }
+
+    &.grey-theme.simplelist-display {
+        color: $text-color;
+
+        .comp_recipe-table-row:hover {
+            background-color: darken($base-color, 10%);
+        }
+
+        thead {
+            background-color: lighten($base-color, 10%);
+
+            th {
+                svg {
+                    fill: $text-color;
+                }
+            }
+        }
+
+        tr:nth-child(even) {
+            background: lighten($side-color, 10%);
+        }
+
+        .td-rating {
+            svg {
+                color: #ffb400;
+                fill: #ffb400;
+            }
+        }
+
+        .favorite-true {
+            svg {
+                color: #ff3d00;
+            }
+        }
+    }
+}
