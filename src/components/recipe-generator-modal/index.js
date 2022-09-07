@@ -14,80 +14,80 @@ import { StorageHelpers } from '../../core/helpers';
 import './style.scss';
 
 class RecipeGeneratorModalNotExtended extends React.Component {
-    mdParser = new MarkdownIt();
+  mdParser = new MarkdownIt();
 
-    state = {
-        initialCount: this.props.item.servings,
-        count: this.props.item.servings,
+  state = {
+    initialCount: this.props.item.servings,
+    count: this.props.item.servings,
+    ingredients: this.props.item.ingredients
+  };
+
+  componentDidUpdate(prevProps, prevState) {
+    const { show } = this.props;
+    if (show && prevProps.show !== show) {
+      this.setState({
+        count: prevState.initialCount,
         ingredients: this.props.item.ingredients
-    };
-
-    componentDidUpdate(prevProps, prevState) {
-        const {show} = this.props;
-        if ( show && prevProps.show !== show ) {
-			this.setState( {
-                count: prevState.initialCount,
-                ingredients: this.props.item.ingredients
-            } );
-		}
+      });
     }
+  }
 
-    nToBr = ( data ) => {
-        if ( undefined === data || '' === data ) {
-            return ' ';
-        } else {
-            let formatted = data.replace( /(?:\r\n|\r|\n)/g, '<br/>' );
-            return formatted;
-        }
-    };
+  nToBr = (data) => {
+    if (undefined === data || '' === data) {
+      return ' ';
+    } else {
+      let formatted = data.replace(/(?:\r\n|\r|\n)/g, '<br/>');
+      return formatted;
+    }
+  };
 
-    printThis = () => {
-        window.print();
-    };
+  printThis = () => {
+    window.print();
+  };
 
-    plusQty = () => {
-        let count = this.state.count;
-        this.setState( {
-            count: ++count,
-            ingredients: this.props.item.ingredients.replace( /(\d+[\d./,]*|\d)/g, k => ( evaluate( k ) * count / this.state.initialCount ).toFixed( 2 ).replace( /\.0+$/, '' ) )
-        } );
-    };
+  plusQty = () => {
+    let count = this.state.count;
+    this.setState({
+      count: ++count,
+      ingredients: this.props.item.ingredients.replace(/(\d+[\d./,]*|\d)/g, k => (evaluate(k) * count / this.state.initialCount).toFixed(2).replace(/\.0+$/, ''))
+    });
+  };
 
-    minusQty = () => {
-        let count = this.state.count;
-        if ( count >  1 ) {
-            this.setState( {
-                count: --count
-            } );
-        }
-        this.setState( {
-            ingredients: this.props.item.ingredients.replace( /(\d+[\d./,]*|\d)/g, k => ( evaluate( k ) * count / this.state.initialCount ).toFixed( 2 ).replace( /\.0+$/, '' ) )
-        } );
-    };
+  minusQty = () => {
+    let count = this.state.count;
+    if (count > 1) {
+      this.setState({
+        count: --count
+      });
+    }
+    this.setState({
+      ingredients: this.props.item.ingredients.replace(/(\d+[\d./,]*|\d)/g, k => (evaluate(k) * count / this.state.initialCount).toFixed(2).replace(/\.0+$/, ''))
+    });
+  };
 
-    openLinkInBrowser = async url => {
-		await shell.openExternal( url );
-	};
+  openLinkInBrowser = async url => {
+    await shell.openExternal(url);
+  };
 
-    onClose = () => {
-        const { onClose } = this.props;
-        onClose && onClose();
+  onClose = () => {
+    const { onClose } = this.props;
+    onClose && onClose();
 
-		this.forceUpdate();
-    };
+    this.forceUpdate();
+  };
 
-    _footer = () => {
-        return (
-            <div className='footer-buttons'>
-                <span onClick={this.printThis}>
-                    <SvgIcon name='print'/>
-                </span>
-                <span onClick={this.onClose}>
-                    <SvgIcon name='cancel'/>
-                </span>
-                <style>
-                    {/* F... inline style */}
-                    {`
+  _footer = () => {
+    return (
+      <div className='footer-buttons'>
+        <span onClick={this.printThis}>
+          <SvgIcon name='print' />
+        </span>
+        <span onClick={this.onClose}>
+          <SvgIcon name='cancel' />
+        </span>
+        <style>
+          {/* F... inline style */}
+          {`
                         @media print {
                             body {
                                 padding: 0;
@@ -140,23 +140,23 @@ class RecipeGeneratorModalNotExtended extends React.Component {
 							}
                         }
                     `}
-                </style>
-            </div>
-        );
-    };
+        </style>
+      </div>
+    );
+  };
 
-    _headerIcons = () => {
-        return (
-            <div className='header-buttons'>
-                <span onClick={this.printThis}>
-                    <SvgIcon name='print'/>
-                </span>
-                <span onClick={this.onClose}>
-                    <SvgIcon name='cancel'/>
-                </span>
-                <style>
-                    {/* F... inline style */}
-                    {`
+  _headerIcons = () => {
+    return (
+      <div className='header-buttons'>
+        <span onClick={this.printThis}>
+          <SvgIcon name='print' />
+        </span>
+        <span onClick={this.onClose}>
+          <SvgIcon name='cancel' />
+        </span>
+        <style>
+          {/* F... inline style */}
+          {`
                         @media print {
                             body {
                                 padding: 0;
@@ -209,85 +209,85 @@ class RecipeGeneratorModalNotExtended extends React.Component {
 							}
                         }
                     `}
-                </style>
-            </div>
-        );
-    };
+        </style>
+      </div>
+    );
+  };
 
-    render() {
-        const { t, show, item } = this.props;
+  render() {
+    const { t, show, item } = this.props;
 
-        return (
-            <div className='comp_recipe-generator-modal'>
-                <Modal
-                    show={show}
-                    onClose={this.onClose}
-                    title={item.title}
-                    footerTemplate={this._footer}
-                    headerIconsTemplate={this._headerIcons}
-                >
-                    <div className='image-tech-wrapper'>
-                        <div className='image'>
-                            <img src={ StorageHelpers.readImg( item.picName ) } alt=''/>
-                        </div>
-                        <div className='tech'>
-                            <div className='difficulty'>
-                                <label>
-                                    <span><SvgIcon name='difficulty'/></span>{ t( 'Difficulty' ) }
-                                </label>
-                                {item.difficultylevel}
-                            </div>
-                            <div className='prep'>
-                                <label>
-                                    <span><SvgIcon name='clock'/></span>{ t( 'Prep time' ) }
-                                </label>
-                                {item.prep}
-                                </div>
-                            <div className='cook'>
-                                <label>
-                                    <span><SvgIcon name='clock'/></span>{ t( 'Cook time' ) }
-                                </label>
-                                {item.cook}
-                            </div>
-                        </div>
-                        <div className='tech'>
-                            <div className='source-url'>
-                                <label>
-                                    <span><SvgIcon name='global'/></span>{ t( 'Source url' ) }
-                                </label>
-                                <div className='ext-link' onClick={() => this.openLinkInBrowser( item.sourceurl )}>{item.sourceurl}</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className='ingredients-wrapper'>
-                        <label>
-                            <div className='plus-minus'>
-                                <div className='plus' onClick={this.plusQty}><SvgIcon name='plus'/></div>
-                                <div className='minus' onClick={this.minusQty}><SvgIcon name='minus'/></div>
-                            </div>
-                            <span><SvgIcon name='ingredients'/></span>
-                            { t( 'Ingredients' ) }
-                            <span className='qty'><SvgIcon name='servings'/> <span id='qtynb'>{this.state.count}</span></span>
-                        </label>
-                        { Parser( this.nToBr( this.state.ingredients ) ) }
-                    </div>
-                    <div className='directions-wrapper'>
-                        <label>
-                            <span><SvgIcon name='concierge'/></span>{ t( 'Directions' ) }
-                        </label>
-                        { Parser( this.mdParser.render( item.directions ) ) }
-                    </div>
-                </Modal>
+    return (
+      <div className='comp_recipe-generator-modal'>
+        <Modal
+          show={show}
+          onClose={this.onClose}
+          title={item.title}
+          footerTemplate={this._footer}
+          headerIconsTemplate={this._headerIcons}
+        >
+          <div className='image-tech-wrapper'>
+            <div className='image'>
+              <img src={StorageHelpers.readImg(item.picName)} alt='' />
             </div>
-        );
-    }
+            <div className='tech'>
+              <div className='difficulty'>
+                <label>
+                  <span><SvgIcon name='difficulty' /></span>{t('Difficulty')}
+                </label>
+                {t(item.difficultylevel)}
+              </div>
+              <div className='prep'>
+                <label>
+                  <span><SvgIcon name='clock' /></span>{t('Prep time')}
+                </label>
+                {item.prep}
+              </div>
+              <div className='cook'>
+                <label>
+                  <span><SvgIcon name='clock' /></span>{t('Cook time')}
+                </label>
+                {item.cook}
+              </div>
+            </div>
+            <div className='tech'>
+              <div className='source-url'>
+                <label>
+                  <span><SvgIcon name='global' /></span>{t('Source url')}
+                </label>
+                <div className='ext-link' onClick={() => this.openLinkInBrowser(item.sourceurl)}>{item.sourceurl}</div>
+              </div>
+            </div>
+          </div>
+          <div className='ingredients-wrapper'>
+            <label>
+              <div className='plus-minus'>
+                <div className='plus' onClick={this.plusQty}><SvgIcon name='plus' /></div>
+                <div className='minus' onClick={this.minusQty}><SvgIcon name='minus' /></div>
+              </div>
+              <span><SvgIcon name='ingredients' /></span>
+              {t('Ingredients')}
+              <span className='qty'><SvgIcon name='servings' /> <span id='qtynb'>{this.state.count}</span></span>
+            </label>
+            {Parser(this.nToBr(this.state.ingredients))}
+          </div>
+          <div className='directions-wrapper'>
+            <label>
+              <span><SvgIcon name='concierge' /></span>{t('Directions')}
+            </label>
+            {Parser(this.mdParser.render(item.directions))}
+          </div>
+        </Modal>
+      </div>
+    );
+  }
 }
 
 RecipeGeneratorModalNotExtended.propTypes = {
-    show: PropTypes.bool,
-    item: PropTypes.object
+  show: PropTypes.bool,
+  item: PropTypes.object
 };
 
-const RecipeGeneratorModal = hoistStatics( withTranslation()( RecipeGeneratorModalNotExtended ), RecipeGeneratorModalNotExtended );
+const RecipeGeneratorModal = hoistStatics(withTranslation()(RecipeGeneratorModalNotExtended), RecipeGeneratorModalNotExtended);
 
 export default RecipeGeneratorModal;

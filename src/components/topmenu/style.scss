@@ -1,9 +1,13 @@
+$app_name_size: 15.7px;
 .comp_topmenu {
-	height: 80px;
+	height: 41px;
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
+	-webkit-user-select: none;
+	-webkit-app-region: drag;
+	box-shadow: none !important;
 
 	#notification {
 		position: fixed;
@@ -88,24 +92,21 @@
 		}
 
 		.applogo {
-			border: none;
 			background: transparent;
-			font-size: 15px;
-			padding: 0;
-			width: 28px;
-			height: 28px;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			border-radius: 3px;
-			cursor: pointer;
-			-webkit-app-region: none;
-			margin-right: 10px;
+    	font-size: 15px;
+    	width: 28px;
+    	height: 28px;
+    	display: flex;
+	    justify-content: center;
+	    align-items: center;
+	    margin-right: 10px;
+	    -webkit-app-region: drag !important;
 		}
 
 		.appname {
-			font-size: 0.4rem;
+			font-size: $app_name_size !important;
 			font-weight: 500;
+			-webkit-app-region: drag;
 		}
 
 		.btn-menubar {

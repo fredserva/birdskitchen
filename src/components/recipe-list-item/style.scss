@@ -13,12 +13,12 @@
     }
 
     .sub-container {
-        height: 200px;
-        padding: 12px 15px;
+        height: 240px;
         overflow: hidden;
         display: flex;
         flex-direction: row;
         cursor: pointer;
+        border-radius: 5px;
 
         .left-side {
             margin-right: auto;
@@ -34,23 +34,32 @@
 
             .image-preview {
                 width: 100%;
-                height: 100px;
-                margin: 10px 0;
+                height: 125px;
 
                 img {
                     width: 100%;
                     height: 100%;
                     object-fit: cover;
-                    border-radius: 5px;
                 }
             }
 
-            .title {
-                font-size: 0.35rem;
-                line-height: 1;
-                font-weight: 700;
-                max-width: 100%;
-                text-overflow: ellipsis;
+            .info-container {
+                padding: 15px 10px;
+
+                .title {
+                    font-size: 24px !important;
+                    font-weight: 100;
+                    max-width: 100%;
+                    text-overflow: ellipsis;
+                    letter-spacing: -1px;
+                    line-height: 110%;
+                }
+
+                .category {
+                  font-size: 15px;
+                  display: block;
+                  text-transform: capitalize;
+                }
             }
         }
 
@@ -68,10 +77,6 @@
             user-select: none;
         }
 
-        .title {
-            font-size: 0.275rem;
-            margin-bottom: 5px;
-        }
 
         .code {
             font-weight: bold;
@@ -137,8 +142,8 @@
         list-style: none;
         flex-direction: row-reverse;
         position: absolute;
-        top: 9px;
-        right: 12px;
+        top: 207px;
+        right: 5px;
         display: none;
 
         li {
@@ -228,21 +233,36 @@
             .image-preview {
                 width: 100px;
                 height: 70px;
-                overflow: hidden;
-                padding-right: 30px;
                 border-radius: 5px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                overflow: hidden;
+                margin-right: 35px;
 
                 img {
-                    width: 100%;
-                    height: auto;
+                  flex-shrink: 0;
+                  min-height: 100%;
+                  width: 100%;
+                  height: auto;
+                  object-fit: cover;
                 }
             }
 
             .title {
-                font-size: 0.4rem;
-                font-weight: 700;
-                width: calc(100% - 140px);
-                text-overflow: ellipsis;
+              width: 100%;
+              font-size: 24px !important;
+              font-weight: 100;
+              max-width: 100%;
+              text-overflow: ellipsis;
+              letter-spacing: -1px;
+              line-height: 110%;
+            }
+
+            .category {
+              font-size: 15px;
+              display: block;
+              text-transform: capitalize;
             }
 
             .tags-list {

@@ -63,14 +63,14 @@ class SettingsModalNotExtended extends React.Component {
 				StorageHelpers.moveDb(dir[0]);
 				NotyHelpers.open(
 					feather.icons.folder.toSvg() +
-						t('Storage directory succesfully moved!'),
+					t('Storage directory succesfully moved!'),
 					'success',
 					1500
 				);
 			} else {
 				NotyHelpers.open(
 					feather.icons.folder.toSvg() +
-						t('New Storage directory succesfully set!'),
+					t('New Storage directory succesfully set!'),
 					'success',
 					1500
 				);
@@ -94,7 +94,7 @@ class SettingsModalNotExtended extends React.Component {
 				StorageHelpers.preference.set('backupPath', dir[0]);
 				NotyHelpers.open(
 					feather.icons.folder.toSvg() +
-						t('Backups directory succesfully changed!'),
+					t('Backups directory succesfully changed!'),
 					'success',
 					1500
 				);
@@ -118,7 +118,7 @@ class SettingsModalNotExtended extends React.Component {
 		openConfirmDialog({
 			title: t('Confirmation'),
 			text: t(
-				'Are you sure want to restore a backup? The current datas will be overwritten!'
+				'Are you sure you want to restore a backup? Your current data will be overwritten!'
 			),
 			buttons: [
 				{
@@ -127,7 +127,7 @@ class SettingsModalNotExtended extends React.Component {
 						StorageHelpers.restoreDb(file.filePath);
 						NotyHelpers.open(
 							feather.icons.database.toSvg() +
-								t('Backup restored successfully!'),
+							t('Backup restored successfully!'),
 							'success',
 							1500
 						);
@@ -157,6 +157,7 @@ class SettingsModalNotExtended extends React.Component {
 		document.body.classList.remove('athens-theme');
 		document.body.classList.remove('teal-theme');
 		document.body.classList.remove('woodsmoke-theme');
+		document.body.classList.remove('grey-theme');
 		document.body.classList.add(`${appTheme}-theme`);
 		StorageHelpers.preference.set('appTheme', appTheme);
 
@@ -252,7 +253,7 @@ class SettingsModalNotExtended extends React.Component {
 						<div
 							className={`content${
 								'storage' === selectedTab ? ' active' : ''
-							}`}
+								}`}
 						>
 							<div className="storage-directory-container">
 								<div className="sub-title">
@@ -369,7 +370,7 @@ class SettingsModalNotExtended extends React.Component {
 						<div
 							className={`content${
 								'themes' === selectedTab ? ' active' : ''
-							}`}
+								}`}
 						>
 							<div className="theme-section">
 								<ul>
@@ -389,6 +390,26 @@ class SettingsModalNotExtended extends React.Component {
 													'./images/themes/athens.png'
 												}
 												alt="Athens"
+												width={240}
+											/>
+										</div>
+									</li>
+									<li
+										onClick={() =>
+											this.changeTheme('grey')
+										}
+										className={
+											'grey' === appTheme
+												? 'active'
+												: ''
+										}
+									>
+										<div className="image-container">
+											<img
+												src={
+													'./images/themes/grey.png'
+												}
+												alt="Grey"
 												width={240}
 											/>
 										</div>
@@ -433,7 +454,7 @@ class SettingsModalNotExtended extends React.Component {
 						<div
 							className={`content${
 								'language' === selectedTab ? ' active' : ''
-							}`}
+								}`}
 						>
 							<div className="language-section">
 								<ul>
@@ -459,6 +480,18 @@ class SettingsModalNotExtended extends React.Component {
 									>
 										<div className="text-container">
 											English
+										</div>
+									</li>
+									<li
+										onClick={() =>
+											this.changeLanguage('es')
+										}
+										className={
+											'es' === appLang ? 'active' : ''
+										}
+									>
+										<div className="text-container">
+											Español
 										</div>
 									</li>
 									<li
@@ -503,7 +536,7 @@ class SettingsModalNotExtended extends React.Component {
 						<div
 							className={`content${
 								'help' === selectedTab ? ' active' : ''
-							}`}
+								}`}
 						>
 							<div className="help-section">
 								<div className="sub-title">
@@ -1296,7 +1329,7 @@ class SettingsModalNotExtended extends React.Component {
 						<div
 							className={`content${
 								'about' === selectedTab ? ' active' : ''
-							}`}
+								}`}
 						>
 							<div className="about-section">
 								<img

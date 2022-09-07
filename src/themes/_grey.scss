@@ -1,17 +1,30 @@
-$base-color: #30404d;
-$side-color: #293742;
-$text-color: #fffafa;
-$accent-color: #008080;
-$tags-bg: #91c499;
-$linear-gradient-start: #394b59;
-$linear-gradient-end: #30404d;
+//Top Menu
+$linear-gradient-start: #1C1C1C;
+$linear-gradient-end: #1C1C1C;
+//Main
+$base-color: #2B2B2B;
+$side-color: #242424;
+$text-color: #CCCCCC;
+$accent-color: #464B80;
+//Sidebar
+$category-count: lighten($side-color, 20);
+//Tags
+$tags-bg: #2E304D;
+$tags-color: #ADADAD;
+//Content Header
+$icon-hover-color: #464B80;
+//New Recipe Forms
+$form-background: #404040;
+//Recipe Grid/thumb-list view
+$recipe-info-category-color: darken($text-color, 40);
+
 
 :root {
     background-color: $base-color;
 }
 
 body {
-    &.teal-theme {
+    &.grey-theme {
         * {
             &::-webkit-scrollbar {
                 width: 5px;
@@ -23,7 +36,7 @@ body {
 
             &::-webkit-scrollbar-thumb {
                 background: rgba(255, 255, 255, 0.25);
-                border-radius: 20px;                
+                border-radius: 20px;
             }
 
             &::-webkit-scrollbar-thumb:hover {
@@ -249,6 +262,10 @@ body {
                             color: $text-color;
                         }
                     }
+
+                    .category-Count {
+                        color: $category-count;
+                    }
                 }
             }
 
@@ -296,7 +313,7 @@ body {
 
                             &:hover {
                                 cursor: pointer;
-                                background: rgba(255, 255, 255, 0.5);
+                                background: $icon-hover-color;
 
                                 svg {
                                     color: $text-color;
@@ -319,6 +336,12 @@ body {
 
                 &:hover {
                     background: lighten($side-color, 9);
+                }
+
+                .left-side {
+                    .category {
+                      color: $recipe-info-category-color;
+                    }
                 }
 
                 .right-side {
@@ -347,7 +370,7 @@ body {
                 .tags-list {
                     li {
                         background: $tags-bg;
-                        color: $base-color;
+                        color: $tags-color;
                     }
 
                     li:before {
@@ -632,7 +655,7 @@ body {
                 .form-control {
                     border: none;
                     color: $text-color;
-                    background: $base-color;
+                    background: $form-background;
                     box-shadow: 0 0 0 0 rgba(19,124,189,0), 0 0 0 0 rgba(19,124,189,0), 0 0 0 0 rgba(19,124,189,0), inset 0 0 0 1px rgba(16,22,26,.3), inset 0 1px 1px rgba(16,22,26,.4);
                 }
             }
@@ -649,7 +672,7 @@ body {
                 .form-control {
                     border: none;
                     color: $text-color;
-                    background: $base-color;
+                    background: $form-background;
                     box-shadow: 0 0 0 0 rgba(19,124,189,0), 0 0 0 0 rgba(19,124,189,0), 0 0 0 0 rgba(19,124,189,0), inset 0 0 0 1px rgba(16,22,26,.3), inset 0 1px 1px rgba(16,22,26,.4);
                 }
             }
@@ -666,7 +689,7 @@ body {
                 .form-control {
                     border: none;
                     color: $text-color;
-                    background: lighten($base-color, 5%);
+                    background: $form-background;
                 }
             }
         }
@@ -688,7 +711,7 @@ body {
                 .form-control {
                     border: none;
                     color: $text-color;
-                    background: $base-color;
+                    background: $form-background;
                     box-shadow: 0 0 0 0 rgba(19,124,189,0), 0 0 0 0 rgba(19,124,189,0), 0 0 0 0 rgba(19,124,189,0), inset 0 0 0 1px rgba(16,22,26,.3), inset 0 1px 1px rgba(16,22,26,.4);
                 }
             }
@@ -705,7 +728,7 @@ body {
                 .form-control {
                     border: none;
                     color: $text-color;
-                    background: $base-color;
+                    background: $form-background;
                     box-shadow: 0 0 0 0 rgba(19,124,189,0), 0 0 0 0 rgba(19,124,189,0), 0 0 0 0 rgba(19,124,189,0), inset 0 0 0 1px rgba(16,22,26,.3), inset 0 1px 1px rgba(16,22,26,.4);
 
                     option {
@@ -731,8 +754,12 @@ body {
                 }
 
                 textarea {
-                    background-color: $base-color !important;
+                    background-color: $form-background !important;
                     color: #eeeeee !important;
+                }
+
+                .html-wrap {
+                  background-color: $form-background;
                 }
 
                 .custom-html-style {
@@ -763,7 +790,7 @@ body {
                 .form-control {
                     border: none;
                     color: $text-color;
-                    background: $base-color;
+                    background: $form-background;
                     box-shadow: 0 0 0 0 rgba(19,124,189,0), 0 0 0 0 rgba(19,124,189,0), 0 0 0 0 rgba(19,124,189,0), inset 0 0 0 1px rgba(16,22,26,.3), inset 0 1px 1px rgba(16,22,26,.4);
                 }
             }
@@ -784,14 +811,14 @@ body {
                 .form-control {
                     border: none;
                     color: $text-color;
-                    background: $base-color;
+                    background: $form-background;
                     box-shadow: 0 0 0 0 rgba(19,124,189,0), 0 0 0 0 rgba(19,124,189,0), 0 0 0 0 rgba(19,124,189,0), inset 0 0 0 1px rgba(16,22,26,.3), inset 0 1px 1px rgba(16,22,26,.4);
                 }
             }
 
             .tags-input-main-container {
                 color: #495057;
-                background-color: transparent;
+                background-color: $form-background;
                 border: 1px solid rgba(255, 255, 255, 0.35);
 
                 .tag-wrapper {
@@ -871,7 +898,7 @@ body {
                 .form-control {
                     border: none;
                     color: $text-color;
-                    background: $base-color;
+                    background: $form-background;
                     box-shadow: 0 0 0 0 rgba(19,124,189,0), 0 0 0 0 rgba(19,124,189,0), 0 0 0 0 rgba(19,124,189,0), inset 0 0 0 1px rgba(16,22,26,.3), inset 0 1px 1px rgba(16,22,26,.4);
                 }
             }
@@ -1041,18 +1068,21 @@ body {
         }
     }
 
-    &.teal-theme.grid-display {
+    &.grey-theme.grid-display {
         .comp_recipe-list {
             .comp_recipe-list-item {
                 .sub-container {
                     border: none;
                     background-color: lighten($base-color, 10%);
+                    .category {
+                      color: $recipe-info-category-color;
+                    }
                 }
             }
         }
     }
 
-    &.teal-theme.simplelist-display {
+    &.grey-theme.simplelist-display {
         color: $text-color;
 
         .comp_recipe-table-row:hover {

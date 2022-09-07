@@ -1,3 +1,6 @@
+$sidebar_titles_size: 15.7px;
+$sidebar_menu_item_size: 15.7px;
+
 .form-group.rating {
     display: flex;
     flex-direction: column;
@@ -15,7 +18,7 @@
 .comp_sidebar {
     display: flex;
     flex-direction: column;
-    width: 6rem;
+    width: 250px;
     height: 100%;
 
     * {
@@ -45,13 +48,13 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                width: 0.75rem;
+                width: 28px;
                 text-align: center;
                 margin-right: 3px;
 
                 svg {
-                    height: 0.35rem;
-                    width: 0.35rem;
+                    height: 13px;
+                    width: 13px;
                 }
             }
 
@@ -61,12 +64,24 @@
                 width: calc(100% - 50px);
 
                 .text-container {
-                    font-size: 0.4rem;
+                    font-size: $sidebar_menu_item_size !important;
                     width: 100%;
                     overflow: hidden;
                     display: inline-block;
                     text-overflow: ellipsis;
                     white-space: nowrap;
+                }
+
+                .category-Count {
+                  font-size: 12.7px !important;
+                  width: 100%;
+                  overflow: hidden;
+                  display: inline-block;
+                  text-overflow: ellipsis;
+                  white-space: nowrap;
+                  color: rgba(16, 22, 26, 0.3);
+                  text-align: right;
+                  margin: auto;
                 }
             }
         }
@@ -76,14 +91,13 @@
         .new-recipe-container {
             cursor: pointer;
             display: flex;
-            padding: 20px 15px 0;
+            padding: 0px 15px 0;
             height: 52px;
             align-items: flex-start;
             justify-content: space-between;
 
             .plus {
                 border-radius: 50%;
-                margin-top: -5px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -91,12 +105,14 @@
                 padding: 0;
                 width: 28px;
                 height: 28px;
+                margin: auto 0;
                 cursor: pointer;
             }
 
             .text {
-                font-size: 0.4rem;
+                font-size: 15px !important;
                 font-weight: 400;
+                margin: auto 0;
 
                 i {
                     font-size: 24px;
@@ -110,7 +126,7 @@
             .sidebar-title {
                 text-transform: uppercase;
                 font-weight: bold;
-                font-size: 0.4rem;
+                font-size: $sidebar_titles_size !important;
                 padding: 10px 15px;
             }
         }
@@ -123,7 +139,7 @@
     .accordion__heading {
         text-transform: uppercase;
         font-weight: bold;
-        font-size: 0.4rem;
+        font-size: $sidebar_titles_size !important;
         padding: 10px 15px;
         transition: all 0.4s;
         position: relative;
@@ -134,12 +150,11 @@
         &:before {
             position: absolute;
             content: '\2304';
-            font-size: 0.6rem;
-            width: 0.4rem;
-            height: 0.4rem;
-            top: 0.1rem;
+            font-size: 22.5px;
+            width: 15px;
+            height: 15px;
+            top: 3.7px;
             right: 5px;
-            transition: all 0.4s;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -149,12 +164,11 @@
         &:after {
             position: absolute;
             content: '\2303';
-            font-size: 0.6rem;
-            width: 0.4rem;
-            height: 0.4rem;
-            top: 0.4rem;
+            font-size: 22.5px;
+            width: 15px;
+            height: 15px;
+            top: 18px;
             right: 5px;
-            transition: all 0.4s;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -167,18 +181,18 @@
         position: absolute;
         left: -9999em;
 
-        &:checked ~ label:before {
+        &:checked + label:before {
             opacity: 0;
         }
 
-        &:checked ~ label:after {
+        &:checked + label:after {
             opacity: 1;
         }
 
         &:checked + label + .accordion .accordion__content {
             opacity: 1;
             max-height: 1000vh;
-            transition: all 0.4s;
+            //transition: all 0.4s;
         }
     }
 
@@ -193,7 +207,7 @@
                 max-height: 0;
                 margin: 0 0 20px;
                 overflow: hidden;
-                transition: all 0.4s;
+                transition: all 0.1s;
             }
         }
     }

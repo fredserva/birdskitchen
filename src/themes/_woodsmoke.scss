@@ -14,7 +14,7 @@ body {
     &.woodsmoke-theme {
         * {
             &::-webkit-scrollbar {
-                width: 10px;
+                width: 5px;
             }
 
             &::-webkit-scrollbar-track {
@@ -24,7 +24,6 @@ body {
             &::-webkit-scrollbar-thumb {
                 background: rgba(255, 255, 255, 0.25);
                 border-radius: 20px;
-                border: 3px solid $side-color;
             }
 
             &::-webkit-scrollbar-thumb:hover {
@@ -1068,6 +1067,10 @@ body {
                     fill: $text-color;
                 }
             }
+        }
+
+        tr:nth-child(even) {
+            background: lighten($side-color, 10%);
         }
 
         .td-rating {

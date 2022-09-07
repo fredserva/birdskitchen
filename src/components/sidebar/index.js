@@ -6,6 +6,7 @@ import hoistStatics from 'hoist-non-react-statics';
 
 import { MainMenus, SearchResult } from '../../core/constants';
 import { ReduxHelpers } from '../../core/helpers';
+import Api from '../../core/api';
 import RecipeCrudModal from '../recipe-crud-modal';
 import SvgIcon from '../svgicon';
 import { SET_SEARCH_QUERY } from '../../redux/actions/searchActions';
@@ -15,18 +16,23 @@ import './style.scss';
 const Mousetrap = require('mousetrap');
 
 class SidebarNotExtended extends React.Component {
+
 	state = {
 		recipeModalVisible: false,
 	};
-
 	componentDidMount() {
 		this.props.setTags();
 		this.props.setCategories();
 		this.setSelectedMenu(MainMenus[0], 'menu');
+		this.openCategories();
 		Mousetrap.bind(['ctrl+n', 'command+n'], () =>
 			this.setState({ recipeModalVisible: true })
 		);
 	}
+
+	openCategories = () => {
+		document.getElementById("accordion-categories").checked = true;
+	};
 
 	componentWillUnmount() {
 		Mousetrap.unbind(['ctrl+n', 'command+n']);
@@ -34,7 +40,6 @@ class SidebarNotExtended extends React.Component {
 
 	setSelectedMenu = (item, type) => {
 		const { setSelectedMenu, setRecipeList, setQuery } = this.props;
-
 		let letSelectedMenu = {};
 		if ('tag' === type) {
 			letSelectedMenu = {
@@ -93,7 +98,7 @@ class SidebarNotExtended extends React.Component {
 										selectedMenu.slug === SearchResult.slug
 											? 'active'
 											: ''
-									}`}
+										}`}
 								>
 									<div className="icon-container">
 										<SvgIcon name={SearchResult.icon} />
@@ -142,57 +147,6 @@ class SidebarNotExtended extends React.Component {
 				<input
 					type="checkbox"
 					className="accordion__checkbox"
-					id="accordion-tags"
-				/>
-				<label
-					className="sidebar-title accordion__heading"
-					htmlFor="accordion-tags"
-				>
-					{t('Tags')}
-				</label>
-				<div className="tags-wrapper accordion">
-					<div className="tags-container accordion__content">
-						{0 === tags.length ? (
-							<div className="no-item-text">
-								{t("There isn't any tag yet")}
-							</div>
-						) : (
-							<ul className="menu-list">
-								{tags.map((value, index) => {
-									let containerClassName = 'menu-list-item';
-									if (value === selectedMenu.slug) {
-										containerClassName += ' active';
-									}
-
-									return (
-										<li
-											key={index}
-											onClick={() =>
-												this.setSelectedMenu(
-													value,
-													'tag'
-												)
-											}
-											className={containerClassName}
-										>
-											<div className="icon-container">
-												<SvgIcon name={'tag'} />
-											</div>
-											<div className="others-container">
-												<div className="text-container">
-													{value}
-												</div>
-											</div>
-										</li>
-									);
-								})}
-							</ul>
-						)}
-					</div>
-				</div>
-				<input
-					type="checkbox"
-					className="accordion__checkbox"
 					id="accordion-categories"
 				/>
 				<label
@@ -208,40 +162,94 @@ class SidebarNotExtended extends React.Component {
 								{t("There isn't any category yet")}
 							</div>
 						) : (
-							<ul className="menu-list">
-								{categories.map((value, index) => {
-									let containerClassName = 'menu-list-item';
-									if (value === selectedMenu.slug) {
-										containerClassName += ' active';
-									}
+								<ul className="menu-list">
+									{categories.map((value, index) => {
+										let containerClassName = 'menu-list-item';
+										let countCatagories = new Api().getCategoriesCount()[value];
 
-									return (
-										<li
-											key={index}
-											onClick={() =>
-												this.setSelectedMenu(
-													value,
-													'category'
-												)
-											}
-											className={containerClassName}
-										>
-											<div className="icon-container">
-												<SvgIcon name={'meal'} />
-											</div>
-											<div className="others-container">
-												<div className="text-container">
-													{value
-														.charAt(0)
-														.toUpperCase() +
-														value.slice(1)}
+
+										if (value === selectedMenu.slug) {
+											containerClassName += ' active';
+										}
+
+										return (
+											<li
+												key={index}
+												onClick={() =>
+													this.setSelectedMenu(
+														value,
+														'category'
+													)
+												}
+												className={containerClassName}
+											>
+												<div className="icon-container">
+													<SvgIcon name={'meal'} />
 												</div>
-											</div>
-										</li>
-									);
-								})}
-							</ul>
-						)}
+												<div className="others-container">
+													<div className="text-container" title={t(value).charAt(0).toUpperCase() + t(value).slice(1)}>
+														{t(value).charAt(0).toUpperCase() + t(value).slice(1)}
+													</div>
+													<div className="category-Count">
+														{"(" + countCatagories + ")"}
+													</div>
+												</div>
+											</li>
+										);
+									})}
+								</ul>
+							)}
+					</div>
+				</div>
+				<input
+					type="checkbox"
+					className="accordion__checkbox"
+					id="accordion-tags"
+				/>
+				<label
+					className="sidebar-title accordion__heading"
+					htmlFor="accordion-tags"
+				>
+					{t('Tags')}
+				</label>
+				<div className="tags-wrapper accordion">
+					<div className="tags-container accordion__content">
+						{0 === tags.length ? (
+							<div className="no-item-text">
+								{t("There isn't any tag yet")}
+							</div>
+						) : (
+								<ul className="menu-list">
+									{tags.map((value, index) => {
+										let containerClassName = 'menu-list-item';
+										if (value === selectedMenu.slug) {
+											containerClassName += ' active';
+										}
+
+										return (
+											<li
+												key={index}
+												onClick={() =>
+													this.setSelectedMenu(
+														value,
+														'tag'
+													)
+												}
+												className={containerClassName}
+											>
+												<div className="icon-container">
+													<SvgIcon name={'tag'} />
+												</div>
+												<div className="others-container">
+													<div className="text-container">
+														{value}
+													</div>
+												</div>
+											</li>
+										);
+									})}
+								</ul>
+							)}
 					</div>
 				</div>
 			</div>
@@ -272,5 +280,6 @@ const Sidebar = hoistStatics(
 	withTranslation()(SidebarNotExtended),
 	SidebarNotExtended
 );
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);

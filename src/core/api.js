@@ -47,6 +47,12 @@ class Api {
 
     getRecipesContainsCategory = category => db.get( 'recipes' ).filter( ( t => t.categories.indexOf( category ) > -1 && false === t.isTrash ) ).sortBy( t => ( t.title.toLowerCase() ) ).value();
 
+    getCategoriesCount = () => {
+        const counts = {};
+         db.get( 'recipes' ).filter( { isTrash: false } ).map(x=>x.categories).forEach(x => counts[x] = (counts[x] || 0) + 1).value();
+        return counts
+    };
+
     queryRecipe = query => db.get( 'recipes' ).filter( ( t => ( t.title.toLowerCase().indexOf( query ) > -1 ) && false === t.isTrash ) ).sortBy( t => ( t.title.toLowerCase() ) ).value();
 }
 

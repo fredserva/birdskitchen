@@ -46,7 +46,7 @@ class UnitConverterNotExtended extends React.Component {
 		if (
 			prevState.temperatureValue !== this.state.temperatureValue ||
 			prevState.fromTemperatureMeasure !==
-				this.state.fromTemperatureMeasure ||
+			this.state.fromTemperatureMeasure ||
 			prevState.toTemperatureMeasure !== this.state.toTemperatureMeasure
 		) {
 			this.temperatureHandleOutput();
@@ -248,9 +248,9 @@ class UnitConverterNotExtended extends React.Component {
 
 		switch (conversion) {
 			case '2':
-			case '2celcius':
-			case 'celcius2celcius':
-			case 'celcius2':
+			case '2celsius':
+			case 'celsius2celsius':
+			case 'celsius2':
 			case 'fahrenheit2fahrenheit':
 				temperatureOutput = (temperature * 1)
 					.toFixed(3)
@@ -260,7 +260,7 @@ class UnitConverterNotExtended extends React.Component {
 					);
 				break;
 			case '2fahrenheit':
-			case 'celcius2fahrenheit':
+			case 'celsius2fahrenheit':
 				temperatureOutput = (temperature * (9 / 5) + 32)
 					.toFixed(3)
 					.replace(
@@ -268,7 +268,7 @@ class UnitConverterNotExtended extends React.Component {
 						'$1$2$3'
 					);
 				break;
-			case 'fahrenheit2celcius':
+			case 'fahrenheit2celsius':
 			case 'fahrenheit2':
 				temperatureOutput = (((temperature - 32) * 5) / 9)
 					.toFixed(3)
@@ -4907,8 +4907,8 @@ class UnitConverterNotExtended extends React.Component {
 			{
 				index: '01',
 				unit: '°C',
-				name: 'celcius',
-				label: 'celcius',
+				name: 'celsius',
+				label: 'celsius',
 			},
 			{
 				index: '02',
@@ -5121,7 +5121,7 @@ class UnitConverterNotExtended extends React.Component {
 										onInput={
 											(this.value =
 												!!this.value &&
-												Math.abs(this.value) >= 0
+													Math.abs(this.value) >= 0
 													? Math.abs(this.value)
 													: null)
 										}
