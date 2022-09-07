@@ -518,6 +518,18 @@ class SettingsModalNotExtended extends React.Component {
 											Italiano
 										</div>
 									</li>
+									<li
+										onClick={() =>
+											this.changeLanguage('pt')
+										}
+										className={
+											'pt' === appLang ? 'active' : ''
+										}
+									>
+										<div className="text-container">
+											Português
+										</div>
+									</li>
 								</ul>
 							</div>
 						</div>
